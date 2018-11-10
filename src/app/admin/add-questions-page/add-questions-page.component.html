@@ -1,0 +1,44 @@
+
+<button type="button" class="btn btn-danger" (click)="check()" >TEST</button>
+
+<form>
+  <div class="title-question-part" [hidden]="titlePart">
+    <div class="form-group">
+      <label for="titleOfTheTest">Test Title</label>
+      <input type="text`" #title class="form-control" id="titleOfTheTest" placeholder="Title">
+    </div>
+    <div class="form-group" >
+      <label for="noOfQuestionOfTheTest">Test Title</label>
+      <input type="number" step="3" #queNum class="form-control" id="noOfQuestionOfTheTest" placeholder="No Of Questions">
+    </div>
+    <button type="button" class="btn btn-default" (click)="addTitle(title.value,queNum.value)" >Enter Question</button>
+  </div>
+
+  <div class="add-question-part" [hidden]="questionAddingPart">
+    <!-- <div class="form-group">
+      <select class="custom-select" (change)="$event.target.value">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div> -->
+    <div class="form-group" *ngFor="let question of array; let i =index" >
+      <label for="phyfile">{{i+1}}) PHY Question</label>
+      <input type="file" (change)="uploadFile($event,i+1,'phy')" class="form-control-file" id="phyfile">
+      <!-- <div>{{ phyUploadPercent[i+1] | async }}</div> -->
+    </div>
+    <div class="form-group" *ngFor="let question of array; let i =index" >
+      <label for="chemfile">{{i+1}}) CHEM Question</label>
+      <input type="file" (change)="uploadFile($event,i+1,'chem')" class="form-control-file" id="chemfile">
+      <!-- <div>{{ chemUploadPercent[i+1] | async }}</div> -->
+    </div>
+    <div class="form-group" *ngFor="let question of array; let i =index" >
+      <label for="mathfile">{{i+1}}) MATH Question</label>
+      <input type="file" (change)="uploadFile($event,i+1,'math')" class="form-control-file" id="mathfile">
+      <!-- <div>{{ mathUploadPercent[i+1] | async }}</div> -->
+    </div>
+    <button type="button" class="btn btn-default" (click)="addAnswers()" >Enter Answers</button>
+
+  </div>
+</form>

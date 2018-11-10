@@ -1,0 +1,102 @@
+<!-- <h1 class="title-h1">Online Test </h1> -->
+
+<div class="container ml-1 mr-1" >
+
+  <div class="row  border border-dark"  [hidden]="questionImgLoad" >
+    <div class="col-10">
+      <div class="row title-section subject-section border-bottom border-dark">
+        <div class="col">
+          <h6 class="mb-0">Section</h6>
+          <button class="btn btn-default" (click)="jumpToQuestion(phyQuestionsStartingNumber)">PHY</button>
+          <button class="btn btn-default" (click)="jumpToQuestion(chemQuestionsStartingNumber)">CHEM</button>
+          <button class="btn btn-default" (click)="jumpToQuestion(mathQuestionsStartingNumber)">Math</button>
+
+        </div>
+      </div>
+      <div class="row pt-2 title-section question-number border-top border-bottom border-dark">
+        <div class="col">
+          <!-- <h6>MCQS</h6> -->
+          <h5>Question : {{questionNumber}}</h5>
+        </div>
+      </div>
+      <div class="question-view">
+        <div class="row">
+          <div class="col">
+            <img src="{{question}}" (load)="imgCheck()" class="img-fluid" alt="Responsive image">
+          </div>
+
+        </div>
+        <div class="question-options ml-2">
+          <div class="row">
+            <div class="col-6">
+              <input class="form-check-input" (change)="optionSelected('a')" [(checked)]="checkedAnswer.a" type="radio" name="gridRadios" id="gridRadios1" value="a">
+              <label class="form-check-label" for="gridRadios1">
+                a)
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <input class="form-check-input" (change)="optionSelected('b')"  [(checked)]="checkedAnswer.b" type="radio" name="gridRadios" id="gridRadios2" value="b">
+              <label class="form-check-label" for="gridRadios2">
+                b)
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <input class="form-check-input"  (change)="optionSelected('c')" [(checked)]="checkedAnswer.c" type="radio" name="gridRadios" id="gridRadios3" value="c">
+              <label class="form-check-label" for="gridRadios3">
+                c)
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <input class="form-check-input" (change)="optionSelected('d')"  [(checked)]="checkedAnswer.d" type="radio" name="gridRadios" id="gridRadios4" value="d">
+              <label class="form-check-label" for="gridRadios4">
+                d)
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+      <div class="row border border-dark">
+        <div class="col-3  pl-0 pr-0">
+          <button class="btn btn-default btn-clearOption" (click)="clearAlloption(1)">Clear options</button>
+        </div>
+
+
+
+
+
+        <div class="col-4 offset-2">
+          <button class="btn btn-default btn-save" [hidden]="saveBtn" (click)="nextQuestion(1,questionNumber+1)">Save & next</button>
+          <button class="btn btn-default btn-save" [hidden]="!saveBtn" (click)="nextQuestion('save',questionNumber+1)">Save</button>
+          
+          <button class="btn btn-default btn-save" [hidden]="!saveBtn" (click)="addUsers()">Submit</button>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-2 border border-dark all-question">
+
+      <div class="row btn-question">
+        <div class="col-1 col-queBtn" *ngFor="let question of totalQuestions ; let i =index">
+          <button class="btn btn-default btn-jump pl-1 pr-1" (click)="jumpToQuestion(i)" [ngStyle]="{'background-color': markAsReview[i]}" >{{i+1}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

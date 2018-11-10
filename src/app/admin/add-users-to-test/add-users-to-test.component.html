@@ -1,0 +1,15 @@
+<div class="users" [hidden]="addingUsersPart">
+  <label for="">AT command</label>
+    <ng-multiselect-dropdown
+    [placeholder]="'custom placeholder'"
+    [data]="dropdownUsersList"
+    [(ngModel)]="selectedUsers"
+    [settings]="dropdownSettings"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    (onDeSelect)="onDeItemSelect($event)"
+  >
+  </ng-multiselect-dropdown>
+  <button type="button" class="btn btn-default" (click)="addUserForCommand()" >Enter Answers</button>
+
+</div>
