@@ -1160,7 +1160,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student{\n  background-color: #fff;\n  line-height: 15vh;\n}\n.question-options{\n  -webkit-transform: scale(20);\n          transform: scale(20);\n}\n"
+module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student{\n  background-color: #fff;\n  line-height: 15vh;\n}\n/*.question-options{\n  transform: scale(20);\n}*/\n"
 
 /***/ }),
 
@@ -1171,7 +1171,7 @@ module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"title-h1\">Online Test </h1>\n\n<div class=\"container ml-1 mr-1\">\n\n  <div class=\"row  border border-dark\"  [hidden]=\"questionImgLoad\" >\n    <div class=\"col-10\">\n      <div class=\"row title-section subject-section border-bottom border-dark\">\n        <div class=\"col\">\n          <h6 class=\"mb-0\">Section</h6>\n          <button class=\"btn btn-default\" *ngIf=\"phyQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(phyQuestionsStartingNumber)\">PHY</button>\n          <button class=\"btn btn-default\" *ngIf=\"chemQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(chemQuestionsStartingNumber)\">CHEM</button>\n          <button class=\"btn btn-default\"  *ngIf=\"mathQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(mathQuestionsStartingNumber)\">Math</button>\n\n        </div>\n      </div>\n      <div class=\"row pt-2 title-section question-number border-top border-bottom border-dark\">\n        <div class=\"col\">\n          <!-- <h6>MCQS</h6> -->\n          <h5>Question : {{questionNumber}}</h5>\n        </div>\n      </div>\n      <div class=\"question-view\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <img src=\"{{question}}\" (load)=\"imgCheck()\" class=\"img-fluid\" alt=\"Responsive image\">\n          </div>\n\n        </div>\n        <div class=\"question-options ml-2\">\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('a')\" [(checked)]=\"checkedAnswer.a\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios1\" value=\"a\">\n              <label class=\"form-check-label\" for=\"gridRadios1\">\n                a)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('b')\"  [(checked)]=\"checkedAnswer.b\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios2\" value=\"b\">\n              <label class=\"form-check-label\" for=\"gridRadios2\">\n                b)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\"  (change)=\"optionSelected('c')\" [(checked)]=\"checkedAnswer.c\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios3\" value=\"c\">\n              <label class=\"form-check-label\" for=\"gridRadios3\">\n                c)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('d')\"  [(checked)]=\"checkedAnswer.d\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios4\" value=\"d\">\n              <label class=\"form-check-label\" for=\"gridRadios4\">\n                d)\n              </label>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n\n\n\n\n\n\n\n\n      <div class=\"row border border-dark\">\n        <div class=\"col-3 pl-0 pr-0\">\n          <div class=\"rewNextbtn\" [hidden]=\"saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 1)\">Review & next</button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 1)\">UnReview & next</button>\n          </div>\n          <div class=\"rewNextbtn\" [hidden]=\"!saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 2)\">Review </button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 2)\">UnReview</button>\n          </div>\n        </div>\n        <div class=\"col-3  pl-0 pr-0\">\n          <button class=\"btn btn-default btn-clearOption border border-dark\" (click)=\"clearAlloption(1)\">Clear options</button>\n        </div>\n\n\n\n\n\n        <div class=\"col-5 offset-1\">\n          <button class=\"btn btn-default btn-save border border-dark\" [hidden]=\"saveBtn\" (click)=\"nextQuestion(1,questionNumber+1)\">Save & next</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"nextQuestion('save',questionNumber+1)\">Save</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"submit()\">Submit</button>\n\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-2 border border-dark all-question\">\n      <div class=\"row border-bottom border-dark user-student\">\n        <countdown [config]=\"{leftTime: examTimer , demand: true}\" #cd1 (finished)=\"submit()\"> $!m!:$!s!</countdown>\n        <!-- <button (click)=\"submit()\" class=\"btn btn-default\">pause</button> -->\n\n        <!-- <p>Name: {{userName}}</p> -->\n      </div>\n      <div class=\"row btn-question\">\n        <div class=\"col-1 col-queBtn\" *ngFor=\"let question of totalQuestions ; let i =index\">\n          <button class=\"btn btn-default btn-jump pl-1 pr-1\" (click)=\"jumpToQuestion(i)\" [ngStyle]=\"{'background-color': markAsReview[i]}\" >{{i+1}}</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h1 class=\"title-h1\">Online Test </h1>\n\n<div class=\"container ml-1 mr-1\">\n\n  <div class=\"row  border border-dark\"  [hidden]=\"questionImgLoad\" >\n    <div class=\"col-10\">\n      <div class=\"row title-section subject-section border-bottom border-dark\">\n        <div class=\"col\">\n          <h6 class=\"mb-0\">Section</h6>\n          <button class=\"btn btn-default\" *ngIf=\"phyQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(phyQuestionsStartingNumber)\">PHY</button>\n          <button class=\"btn btn-default\" *ngIf=\"chemQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(chemQuestionsStartingNumber)\">CHEM</button>\n          <button class=\"btn btn-default\"  *ngIf=\"mathQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(mathQuestionsStartingNumber)\">Math</button>\n\n        </div>\n      </div>\n      <div class=\"row pt-2 title-section question-number border-top border-bottom border-dark\">\n        <div class=\"col\">\n          <!-- <h6>MCQS</h6> -->\n          <h5>Question : {{questionNumber}}</h5>\n        </div>\n      </div>\n      <div class=\"question-view\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <img src=\"{{question}}\" (load)=\"imgCheck()\" class=\"img-fluid\" alt=\"Responsive image\">\n          </div>\n\n        </div>\n        <div class=\"question-options ml-2\">\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('a')\" [(checked)]=\"checkedAnswer.a\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios1\" value=\"a\">\n              <label class=\"form-check-label\" for=\"gridRadios1\">\n                a)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('b')\"  [(checked)]=\"checkedAnswer.b\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios2\" value=\"b\">\n              <label class=\"form-check-label\" for=\"gridRadios2\">\n                b)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\"  (change)=\"optionSelected('c')\" [(checked)]=\"checkedAnswer.c\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios3\" value=\"c\">\n              <label class=\"form-check-label\" for=\"gridRadios3\">\n                c)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('d')\"  [(checked)]=\"checkedAnswer.d\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios4\" value=\"d\">\n              <label class=\"form-check-label\" for=\"gridRadios4\">\n                d)\n              </label>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n\n\n\n\n\n\n\n\n      <div class=\"row border border-dark\">\n        <div class=\"col-3 pl-0 pr-0\">\n          <div class=\"rewNextbtn\" [hidden]=\"saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 1)\">Review & next</button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 1)\">UnReview & next</button>\n          </div>\n          <div class=\"rewNextbtn\" [hidden]=\"!saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 2)\">Review </button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 2)\">UnReview</button>\n          </div>\n        </div>\n        <div class=\"col-3  pl-0 pr-0\">\n          <button class=\"btn btn-default btn-clearOption border border-dark\" (click)=\"clearAlloption('clear')\">Clear options</button>\n        </div>\n\n\n\n\n\n        <div class=\"col-5 offset-1\">\n          <button class=\"btn btn-default btn-save border border-dark\" [hidden]=\"saveBtn\" (click)=\"nextQuestion(1,questionNumber+1)\">Save & next</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"nextQuestion('save',questionNumber+1)\">Save</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"submit()\">Submit</button>\n\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-2 border border-dark all-question\">\n      <div class=\"row border-bottom border-dark user-student\">\n        <countdown [config]=\"{leftTime: examTimer , demand: true}\" #cd1 (finished)=\"submit()\"> $!m!:$!s!</countdown>\n        <!-- <button (click)=\"submit()\" class=\"btn btn-default\">pause</button> -->\n\n        <!-- <p>Name: {{userName}}</p> -->\n      </div>\n      <div class=\"row btn-question\">\n        <div class=\"col-1 col-queBtn\" *ngFor=\"let question of totalQuestions ; let i =index\">\n          <button class=\"btn btn-default btn-jump pl-1 pr-1\" (click)=\"jumpToQuestion(i)\" [ngStyle]=\"{'background-color': markAsReview[i]}\" >{{i+1}}</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1256,14 +1256,16 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.timerInt = false;
         this.usersDetails = [];
         this.titleOfTest = "";
-        this.markAsReview.length = this.totalQuestionsNumber;
     }
     ;
     QuestionViewingPageComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.runTest(this.questionStuDB.testType);
+        this.totalStudentOptions = JSON.parse(localStorage.getItem("studentOptions"));
+        this.markAsReview = JSON.parse(localStorage.getItem("studentOptionsReview"));
+        this.markAsReview.length = 15;
         this.titleOfTest = this.questionStuDB.titleOfTest;
-        console.log("total que " + this.totalQuestionsNumber);
+        // console.log("total que "+this.totalQuestionsNumber)
         this.userName = localStorage.getItem("email");
         if (this.questionStuDB.testType == "run") {
             var _loop_1 = function (i) {
@@ -1338,7 +1340,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
                 _loop_2(i);
             }
         }
-        console.log("math=  " + this.mathQuestions);
+        // console.log("math=  "+this.mathQuestions)
         this.questionNumber = 1;
     };
     QuestionViewingPageComponent.prototype.btn = function () {
@@ -1378,32 +1380,53 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         // console.log(this.checkedAnswer)
     };
     QuestionViewingPageComponent.prototype.clearAlloption = function (x) {
-        if (x == 1) {
+        if (x == "clear") {
+            this.checkedAnswer.d = false;
+            this.checkedAnswer.a = false;
+            this.checkedAnswer.c = false;
+            this.checkedAnswer.b = false;
+            this.questionOption = "";
+            console.log("clear");
+        }
+        if (x == "next") {
             this.checkedAnswer.d = false;
             this.checkedAnswer.a = false;
             this.checkedAnswer.c = false;
             this.checkedAnswer.b = false;
         }
     };
+    QuestionViewingPageComponent.prototype.storeLocal = function () {
+        localStorage.setItem('studentOptions', JSON.stringify(this.totalStudentOptions));
+        localStorage.setItem('studentOptionsReview', JSON.stringify(this.markAsReview));
+    };
     QuestionViewingPageComponent.prototype.nextQuestion = function (nextQ, nextQuestionNumber) {
         this.totalStudentOptions[this.questionNumber - 1] = "";
         if (this.questionOption != null) {
             this.totalStudentOptions[this.questionNumber - 1] = this.questionOption;
         }
-        this.question = this.totalQuestions[this.questionNumber + 1 - 1];
         if (nextQ == 1) {
             this.markAsReview[this.questionNumber - 1] = "red";
         }
         if (nextQ == 1 && this.questionOption != null) {
-            this.markAsReview[this.questionNumber - 1] = "green";
+            if (this.questionOption != "") {
+                console.log(this.markAsReview);
+                this.markAsReview[this.questionNumber - 1] = "green";
+            }
         }
         if (nextQ != "save") {
+            this.question = this.totalQuestions[this.questionNumber + 1 - 1];
             this.questionNumber = nextQuestionNumber;
         }
-        console.log(this.totalStudentOptions);
         this.questionOption = null;
         this.commonFunction();
-        // console.log("color"+this.markAsReview[this.questionNumber-1])
+        if (nextQ == 'save') {
+            this.imgCheck();
+            this.markAsReview[this.questionNumber - 1] = "green";
+        }
+        console.log(this.markAsReview);
+        console.log(this.totalStudentOptions);
+        console.log(this.questionOption);
+        this.storeLocal();
     };
     QuestionViewingPageComponent.prototype.checkQuestionNumber = function () {
         if (this.totalQuestionsNumber == this.questionNumber) {
@@ -1440,7 +1463,13 @@ var QuestionViewingPageComponent = /** @class */ (function () {
     };
     QuestionViewingPageComponent.prototype.checkReviewBtn = function () {
         if (this.markAsReview[this.questionNumber - 1] != "") {
-            this.reviewBtnText = true;
+            console.log(this.markAsReview[this.questionNumber - 1]);
+            if (this.markAsReview[this.questionNumber - 1] != "red") {
+                if (this.markAsReview[this.questionNumber - 1] != "green") {
+                    this.reviewBtnText = true;
+                    console.log("here");
+                }
+            }
         }
         if (this.markAsReview[this.questionNumber - 1] == "" || this.markAsReview[this.questionNumber - 1] == undefined) {
             this.reviewBtnText = false;
@@ -1487,7 +1516,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
     QuestionViewingPageComponent.prototype.commonFunction = function () {
         this.questionImgLoad = true;
         this.pauseTimer();
-        this.clearAlloption(1);
+        this.clearAlloption("next");
         this.checkQuestionNumber();
         this.checkReviewBtn();
         this.studentOptionRestore();
@@ -1498,7 +1527,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
             this.totalStudentOptions[this.questionNumber - 1] = this.questionOption;
         }
         this.question = this.totalQuestions[this.questionNumber + 1 - 1];
-        console.log(this.totalStudentOptions);
+        // console.log(this.totalStudentOptions)
         this.logout();
         this.questionStuDB.studentOptions = this.totalStudentOptions;
         this.questionStuDB.questionCorrectOptions = this.questionCorrectAnswere;
@@ -1506,6 +1535,8 @@ var QuestionViewingPageComponent = /** @class */ (function () {
     };
     QuestionViewingPageComponent.prototype.logout = function () {
         this.afAuth.auth.signOut();
+        localStorage.removeItem('studentOptions');
+        localStorage.removeItem('studentOptionsReview');
         localStorage.setItem('isLoggedIn', 'false');
         localStorage.removeItem('email');
     };
@@ -1602,6 +1633,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../question-viewing-page/question-viewing-page.component */ "./src/app/pages/question-viewing-page/question-viewing-page.component.ts");
 /* harmony import */ var _question_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../question-data.service */ "./src/app/question-data.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1614,8 +1646,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ScoreReviewingPageComponent = /** @class */ (function () {
-    function ScoreReviewingPageComponent(queDB, question) {
+    function ScoreReviewingPageComponent(router, queDB, question) {
+        this.router = router;
         this.queDB = queDB;
         this.question = question;
         this.correctOptions = ["a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c"];
@@ -1679,6 +1713,7 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
     };
     ScoreReviewingPageComponent.prototype.logout = function () {
         this.question.logout();
+        this.router.navigate(['login']);
     };
     ScoreReviewingPageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1686,7 +1721,7 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./score-reviewing-page.component.html */ "./src/app/pages/score-reviewing-page/score-reviewing-page.component.html"),
             styles: [__webpack_require__(/*! ./score-reviewing-page.component.css */ "./src/app/pages/score-reviewing-page/score-reviewing-page.component.css")]
         }),
-        __metadata("design:paramtypes", [_question_data_service__WEBPACK_IMPORTED_MODULE_2__["QuestionDataService"], _question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_1__["QuestionViewingPageComponent"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _question_data_service__WEBPACK_IMPORTED_MODULE_2__["QuestionDataService"], _question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_1__["QuestionViewingPageComponent"]])
     ], ScoreReviewingPageComponent);
     return ScoreReviewingPageComponent;
 }());
@@ -1762,7 +1797,11 @@ var WaitingPageComponent = /** @class */ (function () {
                 _this.StatusText = status.status;
                 if (status.status == "start") {
                     localStorage.setItem('presentTestTitle', _this.queDb.titleOfTest);
-                    localStorage.setItem('std', JSON.stringify([]));
+                    if (JSON.parse(localStorage.getItem("studentOptions")) == undefined) {
+                        localStorage.setItem('studentOptions', JSON.stringify([]));
+                        localStorage.setItem('studentOptionsReview', JSON.stringify([]));
+                    }
+                    console.log(JSON.parse(localStorage.getItem("studentOptions")));
                     _this.router.navigate(['view']);
                 }
             }
