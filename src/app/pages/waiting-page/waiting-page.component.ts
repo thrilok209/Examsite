@@ -18,6 +18,7 @@ export class WaitingPageComponent implements OnInit {
   itemRef: AngularFireObject<any>;
   item: Observable<any>;
   StatusText=""
+  today: number = Date.now();
   constructor(db: AngularFireDatabase ,  private router:Router , private queDb:QuestionDataService) {
     this.itemRef = db.object('statusTest');
     this.queDb.getTest("single")

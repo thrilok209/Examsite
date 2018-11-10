@@ -18,6 +18,8 @@ import {QuestionDataService} from '../../question-data.service';
 })
 export class QuestionViewingPageComponent implements OnInit {
   examTimer=40*60;
+  
+  today: number = Date.now();
   @ViewChild(CountdownComponent) counter: CountdownComponent;
   items: Observable<any[]>;
   users: AngularFireList<any>;
@@ -71,7 +73,9 @@ titleOfTest=""
   }
 
   ngOnInit() {
-
+    if(this.questionStuDB.dbStatus==false){
+      this.router.navigate(['wait'])
+    }
     this.runTest(this.questionStuDB.testType);
     this.totalStudentOptions=JSON.parse(localStorage.getItem("studentOptions"));
     this.markAsReview=JSON.parse(localStorage.getItem("studentOptionsReview"));
