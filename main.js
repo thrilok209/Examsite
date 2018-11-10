@@ -1217,7 +1217,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.storage = storage;
         this.san = san;
         this.router = router;
-        this.examTimer = 60 * 60;
+        this.examTimer = 40 * 60;
         this.questionOption = null;
         this.questionNumber = 0;
         this.checkedAnswer = {
@@ -1342,6 +1342,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         }
         // console.log("math=  "+this.mathQuestions)
         this.questionNumber = 1;
+        this.studentOptionRestore();
     };
     QuestionViewingPageComponent.prototype.btn = function () {
         // console.log(this.checkedAnswer.value)
