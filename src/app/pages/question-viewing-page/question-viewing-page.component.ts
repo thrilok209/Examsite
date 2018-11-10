@@ -17,7 +17,7 @@ import {QuestionDataService} from '../../question-data.service';
   styleUrls: ['./question-viewing-page.component.css']
 })
 export class QuestionViewingPageComponent implements OnInit {
-  examTimer=60*60;
+  examTimer=40*60;
   @ViewChild(CountdownComponent) counter: CountdownComponent;
   items: Observable<any[]>;
   users: AngularFireList<any>;
@@ -149,7 +149,7 @@ titleOfTest=""
     }
     // console.log("math=  "+this.mathQuestions)
     this.questionNumber=1;
-
+    this.studentOptionRestore()
 
   }
   btn(){
