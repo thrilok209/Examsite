@@ -738,7 +738,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\">Start</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" >Wait</button>\n"
+module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\">Start</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" >Wait</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(3)\" >END</button>\n"
 
 /***/ }),
 
@@ -776,6 +776,9 @@ var TestRemotePageComponent = /** @class */ (function () {
         }
         if (x == 2) {
             this.itemRef.set({ status: "wait" });
+        }
+        if (x == 3) {
+            this.itemRef.set({ status: "end" });
         }
     };
     TestRemotePageComponent.prototype.ngOnInit = function () {
@@ -1212,6 +1215,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var QuestionViewingPageComponent = /** @class */ (function () {
     function QuestionViewingPageComponent(questionStuDB, afAuth, storage, san, db, router) {
+        var _this = this;
         this.questionStuDB = questionStuDB;
         this.afAuth = afAuth;
         this.storage = storage;
@@ -1257,6 +1261,13 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.timerInt = false;
         this.usersDetails = [];
         this.titleOfTest = "";
+        this.itemRef = db.object('statusTest');
+        this.itemRef.snapshotChanges().subscribe(function (action) {
+            var status = action.payload.val();
+            if (status.status == "end") {
+                _this.submit();
+            }
+        });
     }
     ;
     QuestionViewingPageComponent.prototype.ngOnInit = function () {
