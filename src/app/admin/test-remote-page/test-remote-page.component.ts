@@ -20,6 +20,7 @@ export class TestRemotePageComponent implements OnInit {
 testStatus(x){
     if(x==1){  this.itemRef.set({ status: "start" });}
     if(x==2){  this.itemRef.set({ status: "wait" });}
+    if(x==3){  this.itemRef.set({ status: "end" });}
   }
   ngOnInit() {
   }

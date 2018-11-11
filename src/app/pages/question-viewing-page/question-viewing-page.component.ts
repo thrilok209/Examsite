@@ -18,7 +18,7 @@ import {QuestionDataService} from '../../question-data.service';
 })
 export class QuestionViewingPageComponent implements OnInit {
   examTimer=40*60;
-  
+
   today: number = Date.now();
   @ViewChild(CountdownComponent) counter: CountdownComponent;
   items: Observable<any[]>;
@@ -70,6 +70,17 @@ export class QuestionViewingPageComponent implements OnInit {
 item: Observable<any>;
 titleOfTest=""
   constructor(public questionStuDB:QuestionDataService ,public afAuth: AngularFireAuth , private storage: AngularFireStorage , private san: DomSanitizer, db: AngularFireDatabase , private router: Router) {
+    this.itemRef = db.object('statusTest');
+    this.itemRef.snapshotChanges().subscribe(action => {
+      let status =action.payload.val()
+
+
+        if(status.status=="end" ){
+
+          this.submit()
+        }
+
+});
   }
 
   ngOnInit() {
