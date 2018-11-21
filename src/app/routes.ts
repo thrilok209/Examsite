@@ -7,6 +7,7 @@ import { WaitingPageComponent } from './pages/waiting-page/waiting-page.componen
 import { TestRemotePageComponent } from './admin/test-remote-page/test-remote-page.component';
 import { AddAnstoquePageComponent } from './admin/add-anstoque-page/add-anstoque-page.component';
 import { AddUsersToTestComponent } from './admin/add-users-to-test/add-users-to-test.component'
+import { QueOptionsPageComponent } from './admin/que-options-page/que-options-page.component'
 
 
 
@@ -49,5 +50,10 @@ export const routes: Routes = [
     component: AddUsersToTestComponent,
     //  canActivate: [AuthCheckGuard],
   },
+  { path: 'checkAdminOptions',
+    component: QueOptionsPageComponent,
+    //  canActivate: [AuthCheckGuard],
+  },
+
 
 ];

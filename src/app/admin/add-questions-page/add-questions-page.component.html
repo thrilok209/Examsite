@@ -8,10 +8,18 @@
       <input type="text`" #title class="form-control" id="titleOfTheTest" placeholder="Title">
     </div>
     <div class="form-group" >
-      <label for="noOfQuestionOfTheTest">Test Title</label>
-      <input type="number" step="3" #queNum class="form-control" id="noOfQuestionOfTheTest" placeholder="No Of Questions">
+      <label for="noOfPhyQuestionOfTheTest">PHY Questions</label>
+      <input type="number" step="3" #quePhyNum class="form-control" id="noOfPhyQuestionOfTheTest" placeholder="No Of Questions">
     </div>
-    <button type="button" class="btn btn-default" (click)="addTitle(title.value,queNum.value)" >Enter Question</button>
+    <div class="form-group" >
+      <label for="noOfChemQuestionOfTheTest">Chem Questions</label>
+      <input type="number" step="3" #queChemNum class="form-control" id="noOfChemQuestionOfTheTest" placeholder="No Of Questions">
+    </div>
+    <div class="form-group" >
+      <label for="noOfMathQuestionOfTheTest">MATH Questions</label>
+      <input type="number" step="3" #queMathNum class="form-control" id="noOfMathQuestionOfTheTest" placeholder="No Of Questions">
+    </div>
+    <button type="button" class="btn btn-default" (click)="addTitle(title.value,quePhyNum.value,queChemNum.value,queMathNum.value)" >Enter Question</button>
   </div>
 
   <div class="add-question-part" [hidden]="questionAddingPart">
@@ -23,17 +31,17 @@
         <option value="3">Three</option>
       </select>
     </div> -->
-    <div class="form-group" *ngFor="let question of array; let i =index" >
+    <div class="form-group" *ngFor="let question of phyArray; let i =index" >
       <label for="phyfile">{{i+1}}) PHY Question</label>
       <input type="file" (change)="uploadFile($event,i+1,'phy')" class="form-control-file" id="phyfile">
       <!-- <div>{{ phyUploadPercent[i+1] | async }}</div> -->
     </div>
-    <div class="form-group" *ngFor="let question of array; let i =index" >
+    <div class="form-group" *ngFor="let question of ChemArray; let i =index" >
       <label for="chemfile">{{i+1}}) CHEM Question</label>
       <input type="file" (change)="uploadFile($event,i+1,'chem')" class="form-control-file" id="chemfile">
       <!-- <div>{{ chemUploadPercent[i+1] | async }}</div> -->
     </div>
-    <div class="form-group" *ngFor="let question of array; let i =index" >
+    <div class="form-group" *ngFor="let question of MathArray; let i =index" >
       <label for="mathfile">{{i+1}}) MATH Question</label>
       <input type="file" (change)="uploadFile($event,i+1,'math')" class="form-control-file" id="mathfile">
       <!-- <div>{{ mathUploadPercent[i+1] | async }}</div> -->

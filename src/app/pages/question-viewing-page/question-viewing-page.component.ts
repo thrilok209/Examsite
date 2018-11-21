@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 import {Router} from '@angular/router';
 import { CountdownComponent } from 'ngx-countdown';
 import {QuestionDataService} from '../../question-data.service';
-
+import {SimpleTimer} from 'ng2-simple-timer';
 
 @Component({
   selector: 'app-question-viewing-page',
@@ -17,7 +17,8 @@ import {QuestionDataService} from '../../question-data.service';
   styleUrls: ['./question-viewing-page.component.css']
 })
 export class QuestionViewingPageComponent implements OnInit {
-  examTimer=40*60;
+  examTimer=60*60;
+  examLeftTimer=0;
 
   today: number = Date.now();
   @ViewChild(CountdownComponent) counter: CountdownComponent;
@@ -67,10 +68,12 @@ export class QuestionViewingPageComponent implements OnInit {
   timerInt=false;
   usersDetails = []
   itemRef: AngularFireObject<any>;
-item: Observable<any>;
-titleOfTest=""
-  constructor(public questionStuDB:QuestionDataService ,public afAuth: AngularFireAuth , private storage: AngularFireStorage , private san: DomSanitizer, db: AngularFireDatabase , private router: Router) {
+  item: Observable<any>;
+  titleOfTest=""
+  variable=''
+  constructor(private st: SimpleTimer , public questionStuDB:QuestionDataService ,public afAuth: AngularFireAuth , private storage: AngularFireStorage , private san: DomSanitizer, db: AngularFireDatabase , private router: Router) {
     this.itemRef = db.object('statusTest');
+    // this.st.newTimer('?usageTimer', 10, true);
     this.itemRef.snapshotChanges().subscribe(action => {
       let status =action.payload.val()
 
@@ -83,17 +86,29 @@ titleOfTest=""
 });
   }
 
+  timerEvent(x){
+    console.log(x)
+    this.examLeftTimer=x.left
+    localStorage.setItem('studentUsedTime',JSON.stringify(this.examLeftTimer/1000))
+  }
+  timerStorage(){
+    this.pauseTimer()
+    this.resumeTimer()
+  }
+
   ngOnInit() {
+    setInterval(() => { this.timerStorage() }, 5000);
     if(this.questionStuDB.dbStatus==false){
       this.router.navigate(['wait'])
     }
     this.runTest(this.questionStuDB.testType);
     this.totalStudentOptions=JSON.parse(localStorage.getItem("studentOptions"));
+    this.examTimer=JSON.parse(localStorage.getItem("studentUsedTime"));
     this.markAsReview=JSON.parse(localStorage.getItem("studentOptionsReview"));
-    this.markAsReview.length=15;
+    this.markAsReview.length=30;
     this.titleOfTest=this.questionStuDB.titleOfTest
     // console.log("total que "+this.totalQuestionsNumber)
-    this.userName=localStorage.getItem("email")
+    this.userName=localStorage.getItem("user")
 
     if(this.questionStuDB.testType=="run"){
       for(let i =0; i<(this.totalQuestionsNumber) ; i++){
@@ -382,7 +397,10 @@ titleOfTest=""
     this.afAuth.auth.signOut();
     localStorage.removeItem('studentOptions')
     localStorage.removeItem('studentOptionsReview')
+    localStorage.removeItem('studentUsedTime')
     localStorage.setItem('isLoggedIn','false')
+    localStorage.setItem('storeOpt',"storeTrue")
+
     localStorage.removeItem('email')
   }
   check(){
@@ -418,9 +436,15 @@ titleOfTest=""
 
     }
     if(type=="single"){
-      this.totalQuestionsNumber=15;
-      this.questionCorrectAnswere=["a","c","a","b","a","b","a","a","c","b","d","d","c","c","a"]
-      this.chemQuestionsNumber=15
+      this.totalQuestionsNumber=30;
+      this.questionCorrectAnswere=["d","a","b","a","b",
+                                   "b","d","b","b","c",
+                                   "d","c","c","a","c",
+                                   "a","b","a","d","d",
+                                   "b","b","a","b","a",
+                                   "b","a","d","d","d"]
+
+      this.chemQuestionsNumber=30
       this.mathQuestionsNumber=0;
       this.phyQuestionsNumber=0;
       this.chemQuestionsStartingNumber=1;

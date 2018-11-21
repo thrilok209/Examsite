@@ -12,7 +12,15 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
-  <a class="btn btn-primary" (click)="loginWithEmail(email.value , password.value)">Login</a>
+  <div class="name">
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">@</span>
+    </div>
+    <input type="text" #name class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  </div>
+  <a class="btn btn-primary" (click)="loginWithEmail(email.value , password.value , name.value)">Login</a>
   <!-- <a class="btn btn-primary" (click)="signWithEmail()">Sign In</a> -->
 
   <p>{{errorMsg}}</p>

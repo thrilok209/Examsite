@@ -1,0 +1,11 @@
+<button class="btn btn-default" [routerLink]="['/addAns']">Change</button>
+<button class="btn btn-default" (click)="submitAdminTest()">Submit</button>
+
+<div class="card" style="width:100%;" *ngFor="let que of totalQuestionsUrl; let i =index">
+  <img class="card-img-top" src="{{que}}" alt="Card image cap">
+  <div class="card-body">
+    <!-- <h5 class="card-title">Card title</h5> -->
+    <p class="card-text">Option: {{totalAdminOptions[i]}}</p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>

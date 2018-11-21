@@ -1,3 +1,26 @@
 <button type="button" class="btn btn-success" (click)="testStatus(1)">Start</button>
 <button type="button" class="btn btn-danger" (click)="testStatus(2)" >Wait</button>
 <button type="button" class="btn btn-danger" (click)="testStatus(3)" >END</button>
+
+<div class="studentScore pt-5">
+  <h3>Student Score</h3>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Total Score</th>
+      <th scope="col">Negative Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let score of studentScore; let i =index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{score.name}}</td>
+      <td>{{score.totalScore}}</td>
+      <td>{{score.neg}}</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>

@@ -7,9 +7,9 @@
       <div class="row title-section subject-section border-bottom border-dark">
         <div class="col">
           <h6 class="mb-0">Section</h6>
-          <button class="btn btn-default" (click)="jumpToQuestion(phyQuestionsStartingNumber)">PHY</button>
-          <button class="btn btn-default" (click)="jumpToQuestion(chemQuestionsStartingNumber)">CHEM</button>
-          <button class="btn btn-default" (click)="jumpToQuestion(mathQuestionsStartingNumber)">Math</button>
+          <button class="btn btn-default" (click)="jumpToQuestion(phyQuestionsStartingNumber-1)">PHY</button>
+          <button class="btn btn-default" (click)="jumpToQuestion(chemQuestionsStartingNumber-1)">CHEM</button>
+          <button class="btn btn-default" (click)="jumpToQuestion(mathQuestionsStartingNumber-1)">Math</button>
 
         </div>
       </div>
@@ -73,18 +73,17 @@
 
       <div class="row border border-dark">
         <div class="col-3  pl-0 pr-0">
-          <button class="btn btn-default btn-clearOption" (click)="clearAlloption(1)">Clear options</button>
+          <button class="btn btn-default btn-clearOption" (click)="clearAlloption('clear')">Clear options</button>
         </div>
 
 
 
 
 
-        <div class="col-4 offset-2">
-          <button class="btn btn-default btn-save" [hidden]="saveBtn" (click)="nextQuestion(1,questionNumber+1)">Save & next</button>
-          <button class="btn btn-default btn-save" [hidden]="!saveBtn" (click)="nextQuestion('save',questionNumber+1)">Save</button>
-          
-          <button class="btn btn-default btn-save" [hidden]="!saveBtn" (click)="addUsers()">Submit</button>
+        <div class="col-5 offset-1">
+          <button class="btn btn-default btn-save border border-dark" [hidden]="saveBtn" (click)="nextQuestion(1,questionNumber+1)">Save & next</button>
+          <button class="btn btn-default btn-save-final border border-dark" [hidden]="saveBtn" (click)="nextQuestion('save',questionNumber+1)">Save</button>
+          <button class="btn btn-default btn-save-final border border-dark" [hidden]="saveBtn" (click)="addUsers()">Submit</button>
 
 
         </div>

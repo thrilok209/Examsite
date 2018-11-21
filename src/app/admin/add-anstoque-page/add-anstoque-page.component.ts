@@ -41,7 +41,7 @@ addingUsersPart=true
   mathAdminOptions=[]
   mathQuestions=[];
   totalQuestions=[];
-  totalStudentOptions=[];
+  totalAdminOptions=[];
 
   totalQuestionsNumber=this.questionDB.totalNumberOfQuestion;
   chemQuestionsNumber=this.totalQuestionsNumber/3;
@@ -69,32 +69,29 @@ item: Observable<any>;
   constructor(public afAuth: AngularFireAuth , private storage: AngularFireStorage , private san: DomSanitizer, db: AngularFireDatabase , private router: Router , private questionDB:AddingQuestionService) {
 
   }
-  onItemSelect(item: any) {
-    console.log(item);
-  }
-  onSelectAll(items: any) {
-    console.log(items);
-  }
+
   ngOnInit() {
-    this.dropdownList = [
-      { item_id: 1, item_text: 'Mumbai' },
-      { item_id: 2, item_text: 'Bangaluru' },
-      { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' },
-      { item_id: 5, item_text: 'New Delhi' }
-    ];
-    // this.selectedItems = [    ];
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: true
-    };
+
 
       this.totalQuestions=this.questionDB.totolQuestionUrls;
+      this.totalAdminOptions=this.questionDB.questionCorrectOptions;
+      this.totalQuestionsNumber=this.questionDB.totalNumberOfQuestion
+      // this.totalQuestions=
+      // ["https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fphy(1)?alt=media&token=27f39ef6-b58e-4037-bdf5-b5edb8743e03",
+      // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fphy(2)?alt=media&token=a271b3ae-d436-4107-9524-dbcecd32b83b",
+      // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fmath(1)?alt=media&token=8d7da82b-0026-4be4-b126-55d261b11071"]
+      this.chemQuestions=this.questionDB.chemQuestionUrls
+      this.phyQuestions=this.questionDB.phyQuestionUrls
+      this.mathQuestions=this.questionDB.mathQuestionUrls
+      this.chemQuestionsStartingNumber=this.questionDB.numberOfphyQuestion+1;
+      this.mathQuestionsStartingNumber=this.questionDB.numberOfphyQuestion+this.questionDB.numberOfChemQuestion+1;
+      this.phyQuestionsStartingNumber=1;
+      // this.chemQuestions=this.questionDB.chemQuestionUrls
+      // this.phyQuestions=this.questionDB.phyQuestionUrls
+      // this.mathQuestions=this.questionDB.mathQuestionUrls
+      // this.chemQuestionsStartingNumber=0+1;
+      // this.mathQuestionsStartingNumber=0+2+1;
+      // this.phyQuestionsStartingNumber=1+0;
     console.log("total que "+this.totalQuestionsNumber)
     // for(let i =0; i<(this.totalQuestionsNumber) ; i++){
     //   if(i>=(this.phyQuestionsStartingNumber-1) && i<(this.chemQuestionsStartingNumber-1)){
@@ -148,6 +145,7 @@ item: Observable<any>;
     console.log("totalQuestions=  "+this.totalQuestions)
     this.question=this.totalQuestions[0]
     this.questionNumber=1;
+    this.adminOptionRestore()
 
 
   }
@@ -191,35 +189,54 @@ item: Observable<any>;
     // console.log(this.checkedAnswer)
   }
   clearAlloption(x){
-    if(x==1){
+    if(x=="clear"){
+      this.checkedAnswer.d=false;
+      this.checkedAnswer.a =false;
+      this.checkedAnswer.c =false;
+      this.checkedAnswer.b =false;
+      this.questionOption=""
+      console.log("clear")
+    }
+    if(x=="next"){
       this.checkedAnswer.d=false;
       this.checkedAnswer.a =false;
       this.checkedAnswer.c =false;
       this.checkedAnswer.b =false;
     }
+
   }
   nextQuestion(nextQ , nextQuestionNumber){
-    this.totalStudentOptions[this.questionNumber-1]=""
+    this.totalAdminOptions[this.questionNumber-1]=""
     if(this.questionOption!=null){
-      this.totalStudentOptions[this.questionNumber-1]=this.questionOption
+      this.totalAdminOptions[this.questionNumber-1]=this.questionOption
+
     }
-    this.question=this.totalQuestions[this.questionNumber+1-1]
     if(nextQ==1){
       this.markAsReview[this.questionNumber-1]="red"
     }
     if(nextQ==1 && this.questionOption!=null){
-      this.markAsReview[this.questionNumber-1]="green"
+      if(this.questionOption!=""){
+        console.log(  this.markAsReview)
+        this.markAsReview[this.questionNumber-1]="green"
+      }
     }
 
     if(nextQ!="save"){
+      this.question=this.totalQuestions[this.questionNumber+1-1]
       this.questionNumber=nextQuestionNumber;
-      console.log(this.totalStudentOptions)
-      this.questionOption=null
-      this.commonFunction();
+
     }
 
+    this.questionOption=null
+    this.commonFunction();
+    if(nextQ=='save'){
+      this.imgCheck()
+      this.markAsReview[this.questionNumber-1]="green"
 
-    // console.log("color"+this.markAsReview[this.questionNumber-1])
+    }
+    console.log( this.markAsReview)
+    console.log( this.totalAdminOptions)
+    console.log(this.questionOption)
   }
   checkQuestionNumber(){
     if(this.totalQuestionsNumber==this.questionNumber){
@@ -231,8 +248,11 @@ item: Observable<any>;
   }
   jumpToQuestion(questionNumberPar){
     let prevQuestionNumber=  this.questionNumber
-    this.question=this.totalQuestions[questionNumberPar]
+    this.question=this.totalQuestions[questionNumberPar-1]
     this.questionNumber=questionNumberPar+1;
+    console.log(questionNumberPar)
+    console.log(this.question)
+
     this.commonFunction();
     if(this.markAsReview[prevQuestionNumber-1]!="green"){
       this.markAsReview[prevQuestionNumber-1]="red"
@@ -267,8 +287,8 @@ item: Observable<any>;
   //   }
   // }
   adminOptionRestore(){
-    if(this.totalStudentOptions[this.questionNumber -1]!=""){
-      this.questionOption=this.totalStudentOptions[this.questionNumber -1]
+    if(this.totalAdminOptions[this.questionNumber -1]!=""){
+      this.questionOption=this.totalAdminOptions[this.questionNumber -1]
       if(this.questionOption=='a') {
         this.checkedAnswer.a=true;
         this.checkedAnswer.b =false;
@@ -307,15 +327,35 @@ item: Observable<any>;
 
   commonFunction(){
     this.questionImgLoad=true
-    this.clearAlloption(1)
+    this.clearAlloption('next')
     this.checkQuestionNumber();
     this.adminOptionRestore();
+
   }
   addUsers(){
-    this.questionDB.questionCorrectOptions=this.totalStudentOptions
+    // this.totalAdminOptions=["a","b","c"]
+    this.questionDB.questionCorrectOptions=this.totalAdminOptions
+    this.cutOptions()
+    this.questionDB.phyCorrectOptions=this.phyAdminOptions
+    this.questionDB.ChemCorrectOptions=this.chemAdminOptions
+    this.questionDB.MathCorrectOptions=this.mathAdminOptions
+
+
+
+
     this.addingAnsPart=true;
     this.addingUsersPart=false;
-    this.router.navigate(['addUser'])
+    this.router.navigate(['checkAdminOptions'])
+  }
+  cutOptions(){
+    console.log(this.chemQuestionsStartingNumber)
+    this.phyAdminOptions=this.totalAdminOptions.slice(0,this.chemQuestionsStartingNumber-1)
+    this.chemAdminOptions=this.totalAdminOptions.slice(this.chemQuestionsStartingNumber-1,this.mathQuestionsStartingNumber-1)
+    this.mathAdminOptions=this.totalAdminOptions.slice(this.mathQuestionsStartingNumber-1)
+    console.log(this.phyAdminOptions)
+    console.log(this.chemAdminOptions)
+    console.log(this.mathAdminOptions)
+
   }
 
 }

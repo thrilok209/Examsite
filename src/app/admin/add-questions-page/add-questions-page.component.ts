@@ -27,7 +27,10 @@ export class AddQuestionsPageComponent implements OnInit {
   numberOfChemQuestion=0
   numberOfphyQuestion=0
   numberOfmathQuestion=0
-  array=[]
+  phyArray=[]
+  ChemArray=[]
+  MathArray=[]
+
   chemQuestionUrls=[]
   phyQuestionUrls=[]
   mathQuestionUrls=[]
@@ -80,15 +83,18 @@ export class AddQuestionsPageComponent implements OnInit {
   this.testsRef.push({'title':"thrilok" , 'numberOfQuestion': {'totalQuestion':12,'chem':4 , 'phy':4 , 'math':4} , 'correctOptions': ["a","b","c","a","b","c","a","b","c","a","b","c"] , 'atCommand': ['1'] , 'status':'pending' , 'studentOptions':[]});
   }
 
-  addTitle(title,queNum){
+  addTitle(title,quePhyNum,queChemNum,queMathNum){
     this.titleOfTest=title;
-    this.totalNumberOfQuestionToAdd=queNum;
-    this.numberOfphyQuestion=queNum/3
-    this.numberOfChemQuestion=queNum/3
-    this.numberOfmathQuestion=queNum/3
-    this.array=Array(queNum/3)
+    this.totalNumberOfQuestionToAdd=parseInt(quePhyNum)+parseInt(queChemNum)+parseInt(queMathNum);
+    this.numberOfphyQuestion=parseInt(quePhyNum)
+    this.numberOfChemQuestion=parseInt(queChemNum)
+    this.numberOfmathQuestion=parseInt(queMathNum)
+    this.phyArray.length=quePhyNum
+    this.ChemArray.length=queChemNum
+    this.MathArray.length=queMathNum
     this.questionAddingPart=false;
     this.titlePart=true;
+    console.log(this.phyArray)
 
   }
   uploadFile(event  , questionNum, subject) {
@@ -132,6 +138,11 @@ export class AddQuestionsPageComponent implements OnInit {
       this.questionDB.phyQuestionUrls=this.phyQuestionUrls
       this.questionDB.mathQuestionUrls=this.mathQuestionUrls
       this.questionDB.chemQuestionUrls=this.chemQuestionUrls
+      this.questionDB.numberOfphyQuestion=this.numberOfphyQuestion
+      this.questionDB.numberOfChemQuestion=this.numberOfChemQuestion
+      this.questionDB.numberOfmathQuestion=this.numberOfmathQuestion
+
+
       this.questionDB.totalNumberOfQuestion=this.numberOfphyQuestion+this.numberOfChemQuestion+this.numberOfmathQuestion
       this.questionDB.titleOfTest=this.titleOfTest
       this.questionDB.totolQuestionUrls=this.phyQuestionUrls.concat(this.chemQuestionUrls,this.mathQuestionUrls)

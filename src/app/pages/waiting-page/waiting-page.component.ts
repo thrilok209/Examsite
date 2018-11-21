@@ -37,6 +37,8 @@ export class WaitingPageComponent implements OnInit {
           if(JSON.parse(localStorage.getItem("studentOptions"))==undefined){
             localStorage.setItem('studentOptions',JSON.stringify([]))
             localStorage.setItem('studentOptionsReview',JSON.stringify([]))
+            localStorage.setItem('studentUsedTime',JSON.stringify(40*60))
+            localStorage.setItem('storeOpt',"waiting")
 
           }
           console.log(JSON.parse(localStorage.getItem("studentOptions")))

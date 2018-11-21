@@ -52,11 +52,15 @@
 }
 
 
-.user-student{
+.user-student-clock{
   background-color: #fff;
-  line-height: 50vh;
-  font-size: 2.5em;
+  line-height: 15vh;
+  font-size: 2em;
   padding-left: 1em;
+  font-weight: bolder;
+}
+.user-stuent{
+  background-color: #fff;
 }
 /*.question-options{
   transform: scale(20);

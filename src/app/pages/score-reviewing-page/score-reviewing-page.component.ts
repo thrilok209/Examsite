@@ -3,7 +3,11 @@ import { QuestionViewingPageComponent } from '../question-viewing-page/question-
 import {QuestionDataService} from '../../question-data.service'
 import {Router} from '@angular/router';
 
+import { AngularFirestore } from '@angular/fire/firestore';
 
+import { AngularFireDatabase, AngularFireList ,  AngularFireObject} from '@angular/fire/database';
+
+import {  Observable} from 'rxjs';
 
 @Component({
   selector: 'app-score-reviewing-page',
@@ -19,7 +23,20 @@ export class ScoreReviewingPageComponent implements OnInit {
   totalScore=0;
   negativeMarks=0;
   unTemptedQuestions;
-  constructor(private router: Router,public queDB:QuestionDataService ,private question:QuestionViewingPageComponent ) { }
+  testScoreRef: AngularFireList<any>;
+  item: Observable<any>;
+  constructor(db: AngularFireDatabase ,private router: Router,public queDB:QuestionDataService ,private question:QuestionViewingPageComponent ) {
+    this.testScoreRef = db.list('testScore')
+    this.testScoreRef.snapshotChanges()
+    .subscribe(actions => {
+      actions.forEach(action => {
+        console.log(action.type);
+        console.log(action.key);
+        console.log(action.payload.val());
+      });
+    });
+
+   }
 
   ngOnInit() {
 
@@ -79,6 +96,15 @@ export class ScoreReviewingPageComponent implements OnInit {
     }
 
     this.totalScore=  this.totalScore-this.negativeMarks
+    this.addScoreToDB()
+  }
+  addScoreToDB(){
+    if(localStorage.getItem("storeOpt")=="storeTrue"){
+      this.testScoreRef.push({"name":localStorage.getItem('user'),'totalScore':this.totalScore , "neg":this.negativeMarks})
+      localStorage.setItem('storeOpt',"storeFalse")
+      localStorage.removeItem('user')
+    }
+
   }
   logout(){
     this.question.logout()

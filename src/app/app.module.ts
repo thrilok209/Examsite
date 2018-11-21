@@ -26,7 +26,9 @@ import { WaitingPageComponent } from './pages/waiting-page/waiting-page.componen
 import { TestRemotePageComponent } from './admin/test-remote-page/test-remote-page.component';
 import { AddAnstoquePageComponent } from './admin/add-anstoque-page/add-anstoque-page.component';
 import { AddingQuestionService } from './admin/adding-question.service';
-import { AddUsersToTestComponent } from './admin/add-users-to-test/add-users-to-test.component'
+import { AddUsersToTestComponent } from './admin/add-users-to-test/add-users-to-test.component';
+import { QueOptionsPageComponent } from './admin/que-options-page/que-options-page.component'
+// import { SimpleTimer } from 'ng2-simple-timer';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { AddUsersToTestComponent } from './admin/add-users-to-test/add-users-to-
     TestRemotePageComponent,
     AddAnstoquePageComponent,
     AddUsersToTestComponent,
+    QueOptionsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ import { AddUsersToTestComponent } from './admin/add-users-to-test/add-users-to-
     FormsModule,
     CountdownModule,
     NgMultiSelectDropDownModule.forRoot(),
+    // SimpleTimer
 
   ],
   providers: [QuestionDataService,QuestionViewingPageComponent,AddAnstoquePageComponent , AddingQuestionService],

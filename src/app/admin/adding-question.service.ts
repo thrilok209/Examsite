@@ -21,11 +21,16 @@ export class AddingQuestionService {
   chemQuestionUrls=[]
   phyQuestionUrls=[]
   mathQuestionUrls=[]
+  phyCorrectOptions=[]
+  ChemCorrectOptions=[]
+  MathCorrectOptions=[]
+
   totolQuestionUrls=[]
   atCommandUsers=[]
   questionCorrectOptions=[]
   testsRef: AngularFireList<any>;
   tests: Observable<any>;
+    testScoreRef: AngularFireList<any>;
   constructor(db: AngularFireDatabase) {
     this.testsRef = db.list('TESTS')
     this.testsRef.snapshotChanges()
@@ -39,7 +44,13 @@ export class AddingQuestionService {
 
   }
   addTest(){
-    this.testsRef.push({'title':this.titleOfTest , 'numberOfQuestion': {"total":this.totalNumberOfQuestion} , 'correctOptions':this.questionCorrectOptions  , 'Atcommand': this.atCommandUsers , status:"pending" });
+    this.testsRef.push({'title':this.titleOfTest ,
+     'numberOfQuestion': {"total":this.totalNumberOfQuestion, "phy":this.numberOfphyQuestion , "chem":this.numberOfChemQuestion , "math":this.numberOfmathQuestion} ,
+      'correctOptions':{"totalQue":this.questionCorrectOptions  , "phy":this.phyCorrectOptions , "chem":this.ChemCorrectOptions , "math":this.MathCorrectOptions} ,
+      "studentOptions":[],
+      //  'Atcommand': this.atCommandUsers ,
+        Teststatus:"pending",
+        startTest:"wait"});
   }
-  
+
 }

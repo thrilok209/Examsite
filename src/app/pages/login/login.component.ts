@@ -12,9 +12,10 @@ export class LoginComponent implements OnInit {
 
   constructor(public afAuth: AngularFireAuth , private router: Router) { }
   errorMsg:string;
+  user:string;
   ngOnInit() {
   }
-  loginWithEmail(email , password){
+  loginWithEmail(email , password ,name){
     console.log(email,password)
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
          .then((user) => {
@@ -32,8 +33,10 @@ export class LoginComponent implements OnInit {
                this.afAuth.authState.subscribe(auth=>{
              if(auth){
                 localStorage.setItem('uid',auth.uid )
+                localStorage.setItem('user',name )
 
              }
      })
    }
+
 }
