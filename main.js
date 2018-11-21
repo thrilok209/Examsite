@@ -1751,7 +1751,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
             this.totalQuestionsNumber = 30;
             this.questionCorrectAnswere = ["d", "a", "b", "a", "b",
                 "b", "d", "b", "b", "c",
-                "d", "c", "c", "a", "c",
+                "d", "c", "c", "a", "b",
                 "a", "b", "a", "d", "d",
                 "b", "b", "a", "b", "a",
                 "b", "a", "d", "d", "d"];
