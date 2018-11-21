@@ -1272,7 +1272,7 @@ var LoginComponent = /** @class */ (function () {
         this.afAuth.authState.subscribe(function (auth) {
             if (auth) {
                 localStorage.setItem('uid', auth.uid);
-                localStorage.setItem('user', name);
+                localStorage.setItem('user', name.toUpperCase());
             }
         });
     };
@@ -1413,7 +1413,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
     }
     ;
     QuestionViewingPageComponent.prototype.timerEvent = function (x) {
-        console.log(x);
+        // console.log(x)
         this.examLeftTimer = x.left;
         localStorage.setItem('studentUsedTime', JSON.stringify(this.examLeftTimer / 1000));
     };
@@ -1606,12 +1606,20 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         }
     };
     QuestionViewingPageComponent.prototype.jumpToQuestion = function (questionNumberPar) {
-        var prevQuestionNumber = this.questionNumber;
-        this.question = this.totalQuestions[questionNumberPar];
-        this.questionNumber = questionNumberPar + 1;
-        this.commonFunction();
-        if (this.markAsReview[prevQuestionNumber - 1] != "green") {
-            this.markAsReview[prevQuestionNumber - 1] = "red";
+        if ((questionNumberPar + 1) != this.questionNumber) {
+            console.log(questionNumberPar);
+            var prevQuestionNumber = this.questionNumber;
+            this.question = this.totalQuestions[questionNumberPar];
+            this.questionNumber = questionNumberPar + 1;
+            console.log(this.questionNumber);
+            this.commonFunction();
+            if (this.markAsReview[prevQuestionNumber - 1] != "green") {
+                if (this.markAsReview[prevQuestionNumber - 1] != "yellow") {
+                    if (this.markAsReview[prevQuestionNumber - 1] != "purple") {
+                        this.markAsReview[prevQuestionNumber - 1] = "red";
+                    }
+                }
+            }
         }
     };
     QuestionViewingPageComponent.prototype.markAsreview = function (par, mark) {
@@ -1943,7 +1951,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>PLEASE WAIT TILL YOUR TEACHER ALLOWS.</h1>\n<p>{{StatusText}}</p>\n"
+module.exports = "<h1 class=\"pb-5\">Welcome {{name}}.</h1>\n<h2 class=\"pt-5 pb-5\">Do check your answers once again <br>if you have time.... NO HURRY.</h2>\n<h3>PLEASE WAIT..</h3>\n<p>{{StatusText}}</p>\n"
 
 /***/ }),
 
@@ -1980,6 +1988,7 @@ var WaitingPageComponent = /** @class */ (function () {
         this.router = router;
         this.queDb = queDb;
         this.StatusText = "";
+        this.name = localStorage.getItem('user');
         this.today = Date.now();
         this.itemRef = db.object('statusTest');
         this.queDb.getTest("single");
@@ -1996,7 +2005,7 @@ var WaitingPageComponent = /** @class */ (function () {
                     if (JSON.parse(localStorage.getItem("studentOptions")) == undefined) {
                         localStorage.setItem('studentOptions', JSON.stringify([]));
                         localStorage.setItem('studentOptionsReview', JSON.stringify([]));
-                        localStorage.setItem('studentUsedTime', JSON.stringify(40 * 60));
+                        localStorage.setItem('studentUsedTime', JSON.stringify(60 * 60));
                         localStorage.setItem('storeOpt', "waiting");
                     }
                     console.log(JSON.parse(localStorage.getItem("studentOptions")));
