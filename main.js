@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <h1 class=\"title-h1\">Online Test </h1> -->\n\n<div class=\"container ml-1 mr-1\" >\n\n  <div class=\"row  border border-dark\"  [hidden]=\"questionImgLoad\" >\n    <div class=\"col-10\">\n      <div class=\"row title-section subject-section border-bottom border-dark\">\n        <div class=\"col\">\n          <h6 class=\"mb-0\">Section</h6>\n          <button class=\"btn btn-default\" (click)=\"jumpToQuestion(phyQuestionsStartingNumber)\">PHY</button>\n          <button class=\"btn btn-default\" (click)=\"jumpToQuestion(chemQuestionsStartingNumber)\">CHEM</button>\n          <button class=\"btn btn-default\" (click)=\"jumpToQuestion(mathQuestionsStartingNumber)\">Math</button>\n\n        </div>\n      </div>\n      <div class=\"row pt-2 title-section question-number border-top border-bottom border-dark\">\n        <div class=\"col\">\n          <!-- <h6>MCQS</h6> -->\n          <h5>Question : {{questionNumber}}</h5>\n        </div>\n      </div>\n      <div class=\"question-view\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <img src=\"{{question}}\" (load)=\"imgCheck()\" class=\"img-fluid\" alt=\"Responsive image\">\n          </div>\n\n        </div>\n        <div class=\"question-options ml-2\">\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('a')\" [(checked)]=\"checkedAnswer.a\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios1\" value=\"a\">\n              <label class=\"form-check-label\" for=\"gridRadios1\">\n                a)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('b')\"  [(checked)]=\"checkedAnswer.b\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios2\" value=\"b\">\n              <label class=\"form-check-label\" for=\"gridRadios2\">\n                b)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\"  (change)=\"optionSelected('c')\" [(checked)]=\"checkedAnswer.c\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios3\" value=\"c\">\n              <label class=\"form-check-label\" for=\"gridRadios3\">\n                c)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('d')\"  [(checked)]=\"checkedAnswer.d\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios4\" value=\"d\">\n              <label class=\"form-check-label\" for=\"gridRadios4\">\n                d)\n              </label>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n\n\n\n\n\n\n\n\n      <div class=\"row border border-dark\">\n        <div class=\"col-3  pl-0 pr-0\">\n          <button class=\"btn btn-default btn-clearOption\" (click)=\"clearAlloption(1)\">Clear options</button>\n        </div>\n\n\n\n\n\n        <div class=\"col-4 offset-2\">\n          <button class=\"btn btn-default btn-save\" [hidden]=\"saveBtn\" (click)=\"nextQuestion(1,questionNumber+1)\">Save & next</button>\n          <button class=\"btn btn-default btn-save\" [hidden]=\"!saveBtn\" (click)=\"nextQuestion('save',questionNumber+1)\">Save</button>\n          \n          <button class=\"btn btn-default btn-save\" [hidden]=\"!saveBtn\" (click)=\"addUsers()\">Submit</button>\n\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-2 border border-dark all-question\">\n\n      <div class=\"row btn-question\">\n        <div class=\"col-1 col-queBtn\" *ngFor=\"let question of totalQuestions ; let i =index\">\n          <button class=\"btn btn-default btn-jump pl-1 pr-1\" (click)=\"jumpToQuestion(i)\" [ngStyle]=\"{'background-color': markAsReview[i]}\" >{{i+1}}</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- <h1 class=\"title-h1\">Online Test </h1> -->\n\n<div class=\"container ml-1 mr-1\" >\n\n  <div class=\"row  border border-dark\"  [hidden]=\"questionImgLoad\" >\n    <div class=\"col-10\">\n      <div class=\"row title-section subject-section border-bottom border-dark\">\n        <div class=\"col\">\n          <h6 class=\"mb-0\">Section</h6>\n          <button class=\"btn btn-default\" (click)=\"jumpToQuestion(phyQuestionsStartingNumber-1)\">PHY</button>\n          <button class=\"btn btn-default\" (click)=\"jumpToQuestion(chemQuestionsStartingNumber-1)\">CHEM</button>\n          <button class=\"btn btn-default\" (click)=\"jumpToQuestion(mathQuestionsStartingNumber-1)\">Math</button>\n\n        </div>\n      </div>\n      <div class=\"row pt-2 title-section question-number border-top border-bottom border-dark\">\n        <div class=\"col\">\n          <!-- <h6>MCQS</h6> -->\n          <h5>Question : {{questionNumber}}</h5>\n        </div>\n      </div>\n      <div class=\"question-view\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <img src=\"{{question}}\" (load)=\"imgCheck()\" class=\"img-fluid\" alt=\"Responsive image\">\n          </div>\n\n        </div>\n        <div class=\"question-options ml-2\">\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('a')\" [(checked)]=\"checkedAnswer.a\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios1\" value=\"a\">\n              <label class=\"form-check-label\" for=\"gridRadios1\">\n                a)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('b')\"  [(checked)]=\"checkedAnswer.b\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios2\" value=\"b\">\n              <label class=\"form-check-label\" for=\"gridRadios2\">\n                b)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\"  (change)=\"optionSelected('c')\" [(checked)]=\"checkedAnswer.c\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios3\" value=\"c\">\n              <label class=\"form-check-label\" for=\"gridRadios3\">\n                c)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('d')\"  [(checked)]=\"checkedAnswer.d\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios4\" value=\"d\">\n              <label class=\"form-check-label\" for=\"gridRadios4\">\n                d)\n              </label>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n\n\n\n\n\n\n\n\n      <div class=\"row border border-dark\">\n        <div class=\"col-3  pl-0 pr-0\">\n          <button class=\"btn btn-default btn-clearOption\" (click)=\"clearAlloption('clear')\">Clear options</button>\n        </div>\n\n\n\n\n\n        <div class=\"col-5 offset-1\">\n          <button class=\"btn btn-default btn-save border border-dark\" [hidden]=\"saveBtn\" (click)=\"nextQuestion(1,questionNumber+1)\">Save & next</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"saveBtn\" (click)=\"nextQuestion('save',questionNumber+1)\">Save</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"saveBtn\" (click)=\"addUsers()\">Submit</button>\n\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-2 border border-dark all-question\">\n\n      <div class=\"row btn-question\">\n        <div class=\"col-1 col-queBtn\" *ngFor=\"let question of totalQuestions ; let i =index\">\n          <button class=\"btn btn-default btn-jump pl-1 pr-1\" (click)=\"jumpToQuestion(i)\" [ngStyle]=\"{'background-color': markAsReview[i]}\" >{{i+1}}</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -105,7 +105,7 @@ var AddAnstoquePageComponent = /** @class */ (function () {
         this.mathAdminOptions = [];
         this.mathQuestions = [];
         this.totalQuestions = [];
-        this.totalStudentOptions = [];
+        this.totalAdminOptions = [];
         this.totalQuestionsNumber = this.questionDB.totalNumberOfQuestion;
         this.chemQuestionsNumber = this.totalQuestionsNumber / 3;
         this.mathQuestionsNumber = this.totalQuestionsNumber / 3;
@@ -126,31 +126,26 @@ var AddAnstoquePageComponent = /** @class */ (function () {
         this.timerInt = false;
         this.usersDetails = [];
     }
-    AddAnstoquePageComponent.prototype.onItemSelect = function (item) {
-        console.log(item);
-    };
-    AddAnstoquePageComponent.prototype.onSelectAll = function (items) {
-        console.log(items);
-    };
     AddAnstoquePageComponent.prototype.ngOnInit = function () {
-        this.dropdownList = [
-            { item_id: 1, item_text: 'Mumbai' },
-            { item_id: 2, item_text: 'Bangaluru' },
-            { item_id: 3, item_text: 'Pune' },
-            { item_id: 4, item_text: 'Navsari' },
-            { item_id: 5, item_text: 'New Delhi' }
-        ];
-        // this.selectedItems = [    ];
-        this.dropdownSettings = {
-            singleSelection: false,
-            idField: 'item_id',
-            textField: 'item_text',
-            selectAllText: 'Select All',
-            unSelectAllText: 'UnSelect All',
-            itemsShowLimit: 3,
-            allowSearchFilter: true
-        };
         this.totalQuestions = this.questionDB.totolQuestionUrls;
+        this.totalAdminOptions = this.questionDB.questionCorrectOptions;
+        this.totalQuestionsNumber = this.questionDB.totalNumberOfQuestion;
+        // this.totalQuestions=
+        // ["https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fphy(1)?alt=media&token=27f39ef6-b58e-4037-bdf5-b5edb8743e03",
+        // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fphy(2)?alt=media&token=a271b3ae-d436-4107-9524-dbcecd32b83b",
+        // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fmath(1)?alt=media&token=8d7da82b-0026-4be4-b126-55d261b11071"]
+        this.chemQuestions = this.questionDB.chemQuestionUrls;
+        this.phyQuestions = this.questionDB.phyQuestionUrls;
+        this.mathQuestions = this.questionDB.mathQuestionUrls;
+        this.chemQuestionsStartingNumber = this.questionDB.numberOfphyQuestion + 1;
+        this.mathQuestionsStartingNumber = this.questionDB.numberOfphyQuestion + this.questionDB.numberOfChemQuestion + 1;
+        this.phyQuestionsStartingNumber = 1;
+        // this.chemQuestions=this.questionDB.chemQuestionUrls
+        // this.phyQuestions=this.questionDB.phyQuestionUrls
+        // this.mathQuestions=this.questionDB.mathQuestionUrls
+        // this.chemQuestionsStartingNumber=0+1;
+        // this.mathQuestionsStartingNumber=0+2+1;
+        // this.phyQuestionsStartingNumber=1+0;
         console.log("total que " + this.totalQuestionsNumber);
         // for(let i =0; i<(this.totalQuestionsNumber) ; i++){
         //   if(i>=(this.phyQuestionsStartingNumber-1) && i<(this.chemQuestionsStartingNumber-1)){
@@ -204,6 +199,7 @@ var AddAnstoquePageComponent = /** @class */ (function () {
         console.log("totalQuestions=  " + this.totalQuestions);
         this.question = this.totalQuestions[0];
         this.questionNumber = 1;
+        this.adminOptionRestore();
     };
     AddAnstoquePageComponent.prototype.btn = function () {
         // console.log(this.checkedAnswer.value)
@@ -242,7 +238,15 @@ var AddAnstoquePageComponent = /** @class */ (function () {
         // console.log(this.checkedAnswer)
     };
     AddAnstoquePageComponent.prototype.clearAlloption = function (x) {
-        if (x == 1) {
+        if (x == "clear") {
+            this.checkedAnswer.d = false;
+            this.checkedAnswer.a = false;
+            this.checkedAnswer.c = false;
+            this.checkedAnswer.b = false;
+            this.questionOption = "";
+            console.log("clear");
+        }
+        if (x == "next") {
             this.checkedAnswer.d = false;
             this.checkedAnswer.a = false;
             this.checkedAnswer.c = false;
@@ -250,24 +254,32 @@ var AddAnstoquePageComponent = /** @class */ (function () {
         }
     };
     AddAnstoquePageComponent.prototype.nextQuestion = function (nextQ, nextQuestionNumber) {
-        this.totalStudentOptions[this.questionNumber - 1] = "";
+        this.totalAdminOptions[this.questionNumber - 1] = "";
         if (this.questionOption != null) {
-            this.totalStudentOptions[this.questionNumber - 1] = this.questionOption;
+            this.totalAdminOptions[this.questionNumber - 1] = this.questionOption;
         }
-        this.question = this.totalQuestions[this.questionNumber + 1 - 1];
         if (nextQ == 1) {
             this.markAsReview[this.questionNumber - 1] = "red";
         }
         if (nextQ == 1 && this.questionOption != null) {
-            this.markAsReview[this.questionNumber - 1] = "green";
+            if (this.questionOption != "") {
+                console.log(this.markAsReview);
+                this.markAsReview[this.questionNumber - 1] = "green";
+            }
         }
         if (nextQ != "save") {
+            this.question = this.totalQuestions[this.questionNumber + 1 - 1];
             this.questionNumber = nextQuestionNumber;
-            console.log(this.totalStudentOptions);
-            this.questionOption = null;
-            this.commonFunction();
         }
-        // console.log("color"+this.markAsReview[this.questionNumber-1])
+        this.questionOption = null;
+        this.commonFunction();
+        if (nextQ == 'save') {
+            this.imgCheck();
+            this.markAsReview[this.questionNumber - 1] = "green";
+        }
+        console.log(this.markAsReview);
+        console.log(this.totalAdminOptions);
+        console.log(this.questionOption);
     };
     AddAnstoquePageComponent.prototype.checkQuestionNumber = function () {
         if (this.totalQuestionsNumber == this.questionNumber) {
@@ -279,8 +291,10 @@ var AddAnstoquePageComponent = /** @class */ (function () {
     };
     AddAnstoquePageComponent.prototype.jumpToQuestion = function (questionNumberPar) {
         var prevQuestionNumber = this.questionNumber;
-        this.question = this.totalQuestions[questionNumberPar];
+        this.question = this.totalQuestions[questionNumberPar - 1];
         this.questionNumber = questionNumberPar + 1;
+        console.log(questionNumberPar);
+        console.log(this.question);
         this.commonFunction();
         if (this.markAsReview[prevQuestionNumber - 1] != "green") {
             this.markAsReview[prevQuestionNumber - 1] = "red";
@@ -311,8 +325,8 @@ var AddAnstoquePageComponent = /** @class */ (function () {
     //   }
     // }
     AddAnstoquePageComponent.prototype.adminOptionRestore = function () {
-        if (this.totalStudentOptions[this.questionNumber - 1] != "") {
-            this.questionOption = this.totalStudentOptions[this.questionNumber - 1];
+        if (this.totalAdminOptions[this.questionNumber - 1] != "") {
+            this.questionOption = this.totalAdminOptions[this.questionNumber - 1];
             if (this.questionOption == 'a') {
                 this.checkedAnswer.a = true;
                 this.checkedAnswer.b = false;
@@ -348,15 +362,29 @@ var AddAnstoquePageComponent = /** @class */ (function () {
     };
     AddAnstoquePageComponent.prototype.commonFunction = function () {
         this.questionImgLoad = true;
-        this.clearAlloption(1);
+        this.clearAlloption('next');
         this.checkQuestionNumber();
         this.adminOptionRestore();
     };
     AddAnstoquePageComponent.prototype.addUsers = function () {
-        this.questionDB.questionCorrectOptions = this.totalStudentOptions;
+        // this.totalAdminOptions=["a","b","c"]
+        this.questionDB.questionCorrectOptions = this.totalAdminOptions;
+        this.cutOptions();
+        this.questionDB.phyCorrectOptions = this.phyAdminOptions;
+        this.questionDB.ChemCorrectOptions = this.chemAdminOptions;
+        this.questionDB.MathCorrectOptions = this.mathAdminOptions;
         this.addingAnsPart = true;
         this.addingUsersPart = false;
-        this.router.navigate(['addUser']);
+        this.router.navigate(['checkAdminOptions']);
+    };
+    AddAnstoquePageComponent.prototype.cutOptions = function () {
+        console.log(this.chemQuestionsStartingNumber);
+        this.phyAdminOptions = this.totalAdminOptions.slice(0, this.chemQuestionsStartingNumber - 1);
+        this.chemAdminOptions = this.totalAdminOptions.slice(this.chemQuestionsStartingNumber - 1, this.mathQuestionsStartingNumber - 1);
+        this.mathAdminOptions = this.totalAdminOptions.slice(this.mathQuestionsStartingNumber - 1);
+        console.log(this.phyAdminOptions);
+        console.log(this.chemAdminOptions);
+        console.log(this.mathAdminOptions);
     };
     AddAnstoquePageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -391,7 +419,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"check()\" >TEST</button>\n\n<form>\n  <div class=\"title-question-part\" [hidden]=\"titlePart\">\n    <div class=\"form-group\">\n      <label for=\"titleOfTheTest\">Test Title</label>\n      <input type=\"text`\" #title class=\"form-control\" id=\"titleOfTheTest\" placeholder=\"Title\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfQuestionOfTheTest\">Test Title</label>\n      <input type=\"number\" step=\"3\" #queNum class=\"form-control\" id=\"noOfQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addTitle(title.value,queNum.value)\" >Enter Question</button>\n  </div>\n\n  <div class=\"add-question-part\" [hidden]=\"questionAddingPart\">\n    <!-- <div class=\"form-group\">\n      <select class=\"custom-select\" (change)=\"$event.target.value\">\n        <option selected>Open this select menu</option>\n        <option value=\"1\">One</option>\n        <option value=\"2\">Two</option>\n        <option value=\"3\">Three</option>\n      </select>\n    </div> -->\n    <div class=\"form-group\" *ngFor=\"let question of array; let i =index\" >\n      <label for=\"phyfile\">{{i+1}}) PHY Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'phy')\" class=\"form-control-file\" id=\"phyfile\">\n      <!-- <div>{{ phyUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" *ngFor=\"let question of array; let i =index\" >\n      <label for=\"chemfile\">{{i+1}}) CHEM Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'chem')\" class=\"form-control-file\" id=\"chemfile\">\n      <!-- <div>{{ chemUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" *ngFor=\"let question of array; let i =index\" >\n      <label for=\"mathfile\">{{i+1}}) MATH Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'math')\" class=\"form-control-file\" id=\"mathfile\">\n      <!-- <div>{{ mathUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addAnswers()\" >Enter Answers</button>\n\n  </div>\n</form>\n"
+module.exports = "\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"check()\" >TEST</button>\n\n<form>\n  <div class=\"title-question-part\" [hidden]=\"titlePart\">\n    <div class=\"form-group\">\n      <label for=\"titleOfTheTest\">Test Title</label>\n      <input type=\"text`\" #title class=\"form-control\" id=\"titleOfTheTest\" placeholder=\"Title\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfPhyQuestionOfTheTest\">PHY Questions</label>\n      <input type=\"number\" step=\"3\" #quePhyNum class=\"form-control\" id=\"noOfPhyQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfChemQuestionOfTheTest\">Chem Questions</label>\n      <input type=\"number\" step=\"3\" #queChemNum class=\"form-control\" id=\"noOfChemQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfMathQuestionOfTheTest\">MATH Questions</label>\n      <input type=\"number\" step=\"3\" #queMathNum class=\"form-control\" id=\"noOfMathQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addTitle(title.value,quePhyNum.value,queChemNum.value,queMathNum.value)\" >Enter Question</button>\n  </div>\n\n  <div class=\"add-question-part\" [hidden]=\"questionAddingPart\">\n    <!-- <div class=\"form-group\">\n      <select class=\"custom-select\" (change)=\"$event.target.value\">\n        <option selected>Open this select menu</option>\n        <option value=\"1\">One</option>\n        <option value=\"2\">Two</option>\n        <option value=\"3\">Three</option>\n      </select>\n    </div> -->\n    <div class=\"form-group\" *ngFor=\"let question of phyArray; let i =index\" >\n      <label for=\"phyfile\">{{i+1}}) PHY Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'phy')\" class=\"form-control-file\" id=\"phyfile\">\n      <!-- <div>{{ phyUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" *ngFor=\"let question of ChemArray; let i =index\" >\n      <label for=\"chemfile\">{{i+1}}) CHEM Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'chem')\" class=\"form-control-file\" id=\"chemfile\">\n      <!-- <div>{{ chemUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" *ngFor=\"let question of MathArray; let i =index\" >\n      <label for=\"mathfile\">{{i+1}}) MATH Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'math')\" class=\"form-control-file\" id=\"mathfile\">\n      <!-- <div>{{ mathUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addAnswers()\" >Enter Answers</button>\n\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -438,7 +466,9 @@ var AddQuestionsPageComponent = /** @class */ (function () {
         this.numberOfChemQuestion = 0;
         this.numberOfphyQuestion = 0;
         this.numberOfmathQuestion = 0;
-        this.array = [];
+        this.phyArray = [];
+        this.ChemArray = [];
+        this.MathArray = [];
         this.chemQuestionUrls = [];
         this.phyQuestionUrls = [];
         this.mathQuestionUrls = [];
@@ -479,15 +509,18 @@ var AddQuestionsPageComponent = /** @class */ (function () {
     AddQuestionsPageComponent.prototype.check = function () {
         this.testsRef.push({ 'title': "thrilok", 'numberOfQuestion': { 'totalQuestion': 12, 'chem': 4, 'phy': 4, 'math': 4 }, 'correctOptions': ["a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c"], 'atCommand': ['1'], 'status': 'pending', 'studentOptions': [] });
     };
-    AddQuestionsPageComponent.prototype.addTitle = function (title, queNum) {
+    AddQuestionsPageComponent.prototype.addTitle = function (title, quePhyNum, queChemNum, queMathNum) {
         this.titleOfTest = title;
-        this.totalNumberOfQuestionToAdd = queNum;
-        this.numberOfphyQuestion = queNum / 3;
-        this.numberOfChemQuestion = queNum / 3;
-        this.numberOfmathQuestion = queNum / 3;
-        this.array = Array(queNum / 3);
+        this.totalNumberOfQuestionToAdd = parseInt(quePhyNum) + parseInt(queChemNum) + parseInt(queMathNum);
+        this.numberOfphyQuestion = parseInt(quePhyNum);
+        this.numberOfChemQuestion = parseInt(queChemNum);
+        this.numberOfmathQuestion = parseInt(queMathNum);
+        this.phyArray.length = quePhyNum;
+        this.ChemArray.length = queChemNum;
+        this.MathArray.length = queMathNum;
         this.questionAddingPart = false;
         this.titlePart = true;
+        console.log(this.phyArray);
     };
     AddQuestionsPageComponent.prototype.uploadFile = function (event, questionNum, subject) {
         var _this = this;
@@ -532,6 +565,9 @@ var AddQuestionsPageComponent = /** @class */ (function () {
             this.questionDB.phyQuestionUrls = this.phyQuestionUrls;
             this.questionDB.mathQuestionUrls = this.mathQuestionUrls;
             this.questionDB.chemQuestionUrls = this.chemQuestionUrls;
+            this.questionDB.numberOfphyQuestion = this.numberOfphyQuestion;
+            this.questionDB.numberOfChemQuestion = this.numberOfChemQuestion;
+            this.questionDB.numberOfmathQuestion = this.numberOfmathQuestion;
             this.questionDB.totalNumberOfQuestion = this.numberOfphyQuestion + this.numberOfChemQuestion + this.numberOfmathQuestion;
             this.questionDB.titleOfTest = this.titleOfTest;
             this.questionDB.totolQuestionUrls = this.phyQuestionUrls.concat(this.chemQuestionUrls, this.mathQuestionUrls);
@@ -691,6 +727,9 @@ var AddingQuestionService = /** @class */ (function () {
         this.chemQuestionUrls = [];
         this.phyQuestionUrls = [];
         this.mathQuestionUrls = [];
+        this.phyCorrectOptions = [];
+        this.ChemCorrectOptions = [];
+        this.MathCorrectOptions = [];
         this.totolQuestionUrls = [];
         this.atCommandUsers = [];
         this.questionCorrectOptions = [];
@@ -705,7 +744,13 @@ var AddingQuestionService = /** @class */ (function () {
         });
     }
     AddingQuestionService.prototype.addTest = function () {
-        this.testsRef.push({ 'title': this.titleOfTest, 'numberOfQuestion': { "total": this.totalNumberOfQuestion }, 'correctOptions': this.questionCorrectOptions, 'Atcommand': this.atCommandUsers, status: "pending" });
+        this.testsRef.push({ 'title': this.titleOfTest,
+            'numberOfQuestion': { "total": this.totalNumberOfQuestion, "phy": this.numberOfphyQuestion, "chem": this.numberOfChemQuestion, "math": this.numberOfmathQuestion },
+            'correctOptions': { "totalQue": this.questionCorrectOptions, "phy": this.phyCorrectOptions, "chem": this.ChemCorrectOptions, "math": this.MathCorrectOptions },
+            "studentOptions": [],
+            //  'Atcommand': this.atCommandUsers ,
+            Teststatus: "pending",
+            startTest: "wait" });
     };
     AddingQuestionService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -714,6 +759,79 @@ var AddingQuestionService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"]])
     ], AddingQuestionService);
     return AddingQuestionService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/que-options-page/que-options-page.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/admin/que-options-page/que-options-page.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/que-options-page/que-options-page.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/admin/que-options-page/que-options-page.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<button class=\"btn btn-default\" [routerLink]=\"['/addAns']\">Change</button>\n<button class=\"btn btn-default\" (click)=\"submitAdminTest()\">Submit</button>\n\n<div class=\"card\" style=\"width:100%;\" *ngFor=\"let que of totalQuestionsUrl; let i =index\">\n  <img class=\"card-img-top\" src=\"{{que}}\" alt=\"Card image cap\">\n  <div class=\"card-body\">\n    <!-- <h5 class=\"card-title\">Card title</h5> -->\n    <p class=\"card-text\">Option: {{totalAdminOptions[i]}}</p>\n    <!-- <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a> -->\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin/que-options-page/que-options-page.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/admin/que-options-page/que-options-page.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: QueOptionsPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueOptionsPageComponent", function() { return QueOptionsPageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _adding_question_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../adding-question.service */ "./src/app/admin/adding-question.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var QueOptionsPageComponent = /** @class */ (function () {
+    function QueOptionsPageComponent(questionDB) {
+        this.questionDB = questionDB;
+        this.totalQuestionsUrl = [];
+        this.totalAdminOptions = [];
+    }
+    QueOptionsPageComponent.prototype.ngOnInit = function () {
+        this.totalQuestionsUrl = this.questionDB.totolQuestionUrls;
+        this.totalAdminOptions = this.questionDB.questionCorrectOptions;
+    };
+    QueOptionsPageComponent.prototype.submitAdminTest = function () {
+        this.questionDB.addTest();
+    };
+    QueOptionsPageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-que-options-page',
+            template: __webpack_require__(/*! ./que-options-page.component.html */ "./src/app/admin/que-options-page/que-options-page.component.html"),
+            styles: [__webpack_require__(/*! ./que-options-page.component.css */ "./src/app/admin/que-options-page/que-options-page.component.css")]
+        }),
+        __metadata("design:paramtypes", [_adding_question_service__WEBPACK_IMPORTED_MODULE_1__["AddingQuestionService"]])
+    ], QueOptionsPageComponent);
+    return QueOptionsPageComponent;
 }());
 
 
@@ -738,7 +856,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\">Start</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" >Wait</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(3)\" >END</button>\n"
+module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\">Start</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" >Wait</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(3)\" >END</button>\n\n<div class=\"studentScore pt-5\">\n  <h3>Student Score</h3>\n  <table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Total Score</th>\n      <th scope=\"col\">Negative Marks</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let score of studentScore; let i =index\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>{{score.name}}</td>\n      <td>{{score.totalScore}}</td>\n      <td>{{score.neg}}</td>\n    </tr>\n\n  </tbody>\n</table>\n</div>\n"
 
 /***/ }),
 
@@ -767,8 +885,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var TestRemotePageComponent = /** @class */ (function () {
     function TestRemotePageComponent(db) {
+        var _this = this;
+        this.studentScore = [];
         this.itemRef = db.object('statusTest');
         this.item = this.itemRef.valueChanges();
+        this.testScoreRef = db.list('testScore');
+        this.testScoreRef.snapshotChanges()
+            .subscribe(function (actions) {
+            actions.forEach(function (action) {
+                // console.log(action.type);
+                // console.log(action.key);
+                console.log(action.payload.val());
+                _this.studentScore.push({ "name": action.payload.val().name, 'totalScore': action.payload.val().totalScore, "neg": action.payload.val().neg });
+            });
+        });
     }
     TestRemotePageComponent.prototype.testStatus = function (x) {
         if (x == 1) {
@@ -942,6 +1072,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/add-anstoque-page/add-anstoque-page.component */ "./src/app/admin/add-anstoque-page/add-anstoque-page.component.ts");
 /* harmony import */ var _admin_adding_question_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/adding-question.service */ "./src/app/admin/adding-question.service.ts");
 /* harmony import */ var _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/add-users-to-test/add-users-to-test.component */ "./src/app/admin/add-users-to-test/add-users-to-test.component.ts");
+/* harmony import */ var _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/que-options-page/que-options-page.component */ "./src/app/admin/que-options-page/que-options-page.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -974,6 +1105,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+// import { SimpleTimer } from 'ng2-simple-timer';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -989,6 +1122,7 @@ var AppModule = /** @class */ (function () {
                 _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_22__["TestRemotePageComponent"],
                 _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_23__["AddAnstoquePageComponent"],
                 _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_25__["AddUsersToTestComponent"],
+                _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_26__["QueOptionsPageComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1081,7 +1215,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\n  <div class=\"form-group\">\n    <label for=\"exampleInputEmail1\">Email address</label>\n    <input #email type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n    <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"exampleInputPassword1\">Password</label>\n    <input #password type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n  </div>\n  <!-- <div class=\"form-group form-check\">\n    <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n    <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n  </div> -->\n  <a class=\"btn btn-primary\" (click)=\"loginWithEmail(email.value , password.value)\">Login</a>\n  <!-- <a class=\"btn btn-primary\" (click)=\"signWithEmail()\">Sign In</a> -->\n\n  <p>{{errorMsg}}</p>\n</form>\n"
+module.exports = "<form>\n  <div class=\"form-group\">\n    <label for=\"exampleInputEmail1\">Email address</label>\n    <input #email type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\n    <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"exampleInputPassword1\">Password</label>\n    <input #password type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" placeholder=\"Password\">\n  </div>\n  <!-- <div class=\"form-group form-check\">\n    <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n    <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\n  </div> -->\n  <div class=\"name\">\n    <div class=\"input-group mb-3\">\n    <div class=\"input-group-prepend\">\n      <span class=\"input-group-text\" id=\"basic-addon1\">@</span>\n    </div>\n    <input type=\"text\" #name class=\"form-control\" placeholder=\"Name\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n  </div>\n  </div>\n  <a class=\"btn btn-primary\" (click)=\"loginWithEmail(email.value , password.value , name.value)\">Login</a>\n  <!-- <a class=\"btn btn-primary\" (click)=\"signWithEmail()\">Sign In</a> -->\n\n  <p>{{errorMsg}}</p>\n</form>\n"
 
 /***/ }),
 
@@ -1117,7 +1251,7 @@ var LoginComponent = /** @class */ (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
-    LoginComponent.prototype.loginWithEmail = function (email, password) {
+    LoginComponent.prototype.loginWithEmail = function (email, password, name) {
         var _this = this;
         console.log(email, password);
         this.afAuth.auth.signInWithEmailAndPassword(email, password)
@@ -1138,6 +1272,7 @@ var LoginComponent = /** @class */ (function () {
         this.afAuth.authState.subscribe(function (auth) {
             if (auth) {
                 localStorage.setItem('uid', auth.uid);
+                localStorage.setItem('user', name);
             }
         });
     };
@@ -1163,7 +1298,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student{\n  background-color: #fff;\n  line-height: 50vh;\n  font-size: 2.5em;\n  padding-left: 1em;\n}\n/*.question-options{\n  transform: scale(20);\n}*/\n"
+module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student-clock{\n  background-color: #fff;\n  line-height: 15vh;\n  font-size: 2em;\n  padding-left: 1em;\n  font-weight: bolder;\n}\n.user-stuent{\n  background-color: #fff;\n}\n/*.question-options{\n  transform: scale(20);\n}*/\n"
 
 /***/ }),
 
@@ -1174,7 +1309,7 @@ module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"title-h1\">Online Test </h1>\n\n<div class=\"container ml-1 mr-1\">\n\n  <div class=\"row  border border-dark\"  [hidden]=\"questionImgLoad\" >\n    <div class=\"col-10\">\n      <div class=\"row title-section subject-section border-bottom border-dark\">\n        <div class=\"col\">\n          <h6 class=\"mb-0\">Section</h6>\n          <button class=\"btn btn-default\" *ngIf=\"phyQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(phyQuestionsStartingNumber)\">PHY</button>\n          <button class=\"btn btn-default\" *ngIf=\"chemQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(chemQuestionsStartingNumber)\">CHEM</button>\n          <button class=\"btn btn-default\"  *ngIf=\"mathQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(mathQuestionsStartingNumber)\">Math</button>\n\n        </div>\n      </div>\n      <div class=\"row pt-2 title-section question-number border-top border-bottom border-dark\">\n        <div class=\"col\">\n          <!-- <h6>MCQS</h6> -->\n          <h5>Question : {{questionNumber}}</h5>\n        </div>\n      </div>\n      <div class=\"question-view\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <img src=\"{{question}}\" (load)=\"imgCheck()\" class=\"img-fluid\" alt=\"Responsive image\">\n          </div>\n\n        </div>\n        <div class=\"question-options ml-2\">\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('a')\" [(checked)]=\"checkedAnswer.a\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios1\" value=\"a\">\n              <label class=\"form-check-label\" for=\"gridRadios1\">\n                a)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('b')\"  [(checked)]=\"checkedAnswer.b\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios2\" value=\"b\">\n              <label class=\"form-check-label\" for=\"gridRadios2\">\n                b)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\"  (change)=\"optionSelected('c')\" [(checked)]=\"checkedAnswer.c\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios3\" value=\"c\">\n              <label class=\"form-check-label\" for=\"gridRadios3\">\n                c)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('d')\"  [(checked)]=\"checkedAnswer.d\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios4\" value=\"d\">\n              <label class=\"form-check-label\" for=\"gridRadios4\">\n                d)\n              </label>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n\n\n\n\n\n\n\n\n      <div class=\"row border border-dark\">\n        <div class=\"col-3 pl-0 pr-0\">\n          <div class=\"rewNextbtn\" [hidden]=\"saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 1)\">Review & next</button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 1)\">UnReview & next</button>\n          </div>\n          <div class=\"rewNextbtn\" [hidden]=\"!saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 2)\">Review </button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 2)\">UnReview</button>\n          </div>\n        </div>\n        <div class=\"col-3  pl-0 pr-0\">\n          <button class=\"btn btn-default btn-clearOption border border-dark\" (click)=\"clearAlloption('clear')\">Clear options</button>\n        </div>\n\n\n\n\n\n        <div class=\"col-5 offset-1\">\n          <button class=\"btn btn-default btn-save border border-dark\" [hidden]=\"saveBtn\" (click)=\"nextQuestion(1,questionNumber+1)\">Save & next</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"nextQuestion('save',questionNumber+1)\">Save</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"submit()\">Submit</button>\n\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-2 border border-dark all-question\">\n      <div class=\"row border-bottom border-dark user-student\">\n        <countdown [config]=\"{leftTime: examTimer , demand: true}\" #cd1 (finished)=\"submit()\"> $!m!:$!s!</countdown>\n        <!-- <button (click)=\"submit()\" class=\"btn btn-default\">pause</button> -->\n         <!-- <p>Today is {{today }}</p> -->\n        <!-- <p>Name: {{userName}}</p> -->\n      </div>\n      <div class=\"row btn-question\">\n        <div class=\"col-1 col-queBtn\" *ngFor=\"let question of totalQuestions ; let i =index\">\n          <button class=\"btn btn-default btn-jump pl-1 pr-1\" (click)=\"jumpToQuestion(i)\" [ngStyle]=\"{'background-color': markAsReview[i]}\" >{{i+1}}</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h1 class=\"title-h1\">Online Test </h1>\n\n<div class=\"container ml-1 mr-1\">\n\n  <div class=\"row  border border-dark\"  [hidden]=\"questionImgLoad\" >\n    <div class=\"col-10\">\n      <div class=\"row title-section subject-section border-bottom border-dark\">\n        <div class=\"col\">\n          <h6 class=\"mb-0\">Section</h6>\n          <button class=\"btn btn-default\" *ngIf=\"phyQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(phyQuestionsStartingNumber)\">PHY</button>\n          <button class=\"btn btn-default\" *ngIf=\"chemQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(chemQuestionsStartingNumber)\">CHEM</button>\n          <button class=\"btn btn-default\"  *ngIf=\"mathQuestionsStartingNumber!=0\" (click)=\"jumpToQuestion(mathQuestionsStartingNumber)\">Math</button>\n\n        </div>\n      </div>\n      <div class=\"row pt-2 title-section question-number border-top border-bottom border-dark\">\n        <div class=\"col\">\n          <!-- <h6>MCQS</h6> -->\n          <h5>Question : {{questionNumber}}</h5>\n        </div>\n      </div>\n      <div class=\"question-view\">\n        <div class=\"row\">\n          <div class=\"col\">\n            <img src=\"{{question}}\" (load)=\"imgCheck()\" class=\"img-fluid\" alt=\"Responsive image\">\n          </div>\n\n        </div>\n        <div class=\"question-options ml-2\">\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('a')\" [(checked)]=\"checkedAnswer.a\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios1\" value=\"a\">\n              <label class=\"form-check-label\" for=\"gridRadios1\">\n                a)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('b')\"  [(checked)]=\"checkedAnswer.b\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios2\" value=\"b\">\n              <label class=\"form-check-label\" for=\"gridRadios2\">\n                b)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\"  (change)=\"optionSelected('c')\" [(checked)]=\"checkedAnswer.c\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios3\" value=\"c\">\n              <label class=\"form-check-label\" for=\"gridRadios3\">\n                c)\n              </label>\n            </div>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-6\">\n              <input class=\"form-check-input\" (change)=\"optionSelected('d')\"  [(checked)]=\"checkedAnswer.d\" type=\"radio\" name=\"gridRadios\" id=\"gridRadios4\" value=\"d\">\n              <label class=\"form-check-label\" for=\"gridRadios4\">\n                d)\n              </label>\n            </div>\n          </div>\n\n        </div>\n      </div>\n\n\n\n\n\n\n\n\n\n      <div class=\"row border border-dark\">\n        <div class=\"col-3 pl-0 pr-0\">\n          <div class=\"rewNextbtn\" [hidden]=\"saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 1)\">Review & next</button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 1)\">UnReview & next</button>\n          </div>\n          <div class=\"rewNextbtn\" [hidden]=\"!saveBtn\">\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"reviewBtnText\" (click)=\"markAsreview('mark' , 2)\">Review </button>\n            <button class=\"btn btn-default btn-review border border-dark\" [hidden]=\"!reviewBtnText\" (click)=\"markAsreview('unmark', 2)\">UnReview</button>\n          </div>\n        </div>\n        <div class=\"col-3  pl-0 pr-0\">\n          <button class=\"btn btn-default btn-clearOption border border-dark\" (click)=\"clearAlloption('clear')\">Clear options</button>\n        </div>\n\n\n\n\n\n        <div class=\"col-5 offset-1\">\n          <button class=\"btn btn-default btn-save border border-dark\" [hidden]=\"saveBtn\" (click)=\"nextQuestion(1,questionNumber+1)\">Save & next</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"nextQuestion('save',questionNumber+1)\">Save</button>\n          <button class=\"btn btn-default btn-save-final border border-dark\" [hidden]=\"!saveBtn\" (click)=\"submit()\">Submit</button>\n\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-2 border border-dark all-question\">\n      <div class=\"row border-bottom border-dark user-student-clock\">\n        <countdown [config]=\"{leftTime: examTimer , demand: true}\" #cd1 (finished)=\"submit()\" (event)=\"timerEvent($event)\"> $!m!:$!s!</countdown>\n        <!-- <button (click)=\"submit()\" class=\"btn btn-default\">pause</button> -->\n         <!-- <p>Today is {{today }}</p> -->\n\n      </div>\n      <div class=\"row border-bottom border-dark user-student\">\n          <p>Name: {{userName}}</p>\n      </div>\n      <div class=\"row btn-question\">\n        <div class=\"col-1 col-queBtn\" *ngFor=\"let question of totalQuestions ; let i =index\">\n          <button class=\"btn btn-default btn-jump pl-1 pr-1\" (click)=\"jumpToQuestion(i)\" [ngStyle]=\"{'background-color': markAsReview[i]}\" >{{i+1}}</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1196,6 +1331,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var ngx_countdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-countdown */ "./node_modules/ngx-countdown/fesm5/ngx-countdown.js");
 /* harmony import */ var _question_data_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../question-data.service */ "./src/app/question-data.service.ts");
+/* harmony import */ var ng2_simple_timer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ng2-simple-timer */ "./node_modules/ng2-simple-timer/index.js");
+/* harmony import */ var ng2_simple_timer__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(ng2_simple_timer__WEBPACK_IMPORTED_MODULE_8__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1213,15 +1350,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var QuestionViewingPageComponent = /** @class */ (function () {
-    function QuestionViewingPageComponent(questionStuDB, afAuth, storage, san, db, router) {
+    function QuestionViewingPageComponent(st, questionStuDB, afAuth, storage, san, db, router) {
         var _this = this;
+        this.st = st;
         this.questionStuDB = questionStuDB;
         this.afAuth = afAuth;
         this.storage = storage;
         this.san = san;
         this.router = router;
-        this.examTimer = 40 * 60;
+        this.examTimer = 60 * 60;
+        this.examLeftTimer = 0;
         this.today = Date.now();
         this.questionOption = null;
         this.questionNumber = 0;
@@ -1261,7 +1401,9 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.timerInt = false;
         this.usersDetails = [];
         this.titleOfTest = "";
+        this.variable = '';
         this.itemRef = db.object('statusTest');
+        // this.st.newTimer('?usageTimer', 10, true);
         this.itemRef.snapshotChanges().subscribe(function (action) {
             var status = action.payload.val();
             if (status.status == "end") {
@@ -1270,18 +1412,29 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         });
     }
     ;
+    QuestionViewingPageComponent.prototype.timerEvent = function (x) {
+        console.log(x);
+        this.examLeftTimer = x.left;
+        localStorage.setItem('studentUsedTime', JSON.stringify(this.examLeftTimer / 1000));
+    };
+    QuestionViewingPageComponent.prototype.timerStorage = function () {
+        this.pauseTimer();
+        this.resumeTimer();
+    };
     QuestionViewingPageComponent.prototype.ngOnInit = function () {
         var _this = this;
+        setInterval(function () { _this.timerStorage(); }, 5000);
         if (this.questionStuDB.dbStatus == false) {
             this.router.navigate(['wait']);
         }
         this.runTest(this.questionStuDB.testType);
         this.totalStudentOptions = JSON.parse(localStorage.getItem("studentOptions"));
+        this.examTimer = JSON.parse(localStorage.getItem("studentUsedTime"));
         this.markAsReview = JSON.parse(localStorage.getItem("studentOptionsReview"));
-        this.markAsReview.length = 15;
+        this.markAsReview.length = 30;
         this.titleOfTest = this.questionStuDB.titleOfTest;
         // console.log("total que "+this.totalQuestionsNumber)
-        this.userName = localStorage.getItem("email");
+        this.userName = localStorage.getItem("user");
         if (this.questionStuDB.testType == "run") {
             var _loop_1 = function (i) {
                 if (i >= (this_1.phyQuestionsStartingNumber - 1) && i < (this_1.chemQuestionsStartingNumber - 1)) {
@@ -1553,7 +1706,9 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.afAuth.auth.signOut();
         localStorage.removeItem('studentOptions');
         localStorage.removeItem('studentOptionsReview');
+        localStorage.removeItem('studentUsedTime');
         localStorage.setItem('isLoggedIn', 'false');
+        localStorage.setItem('storeOpt', "storeTrue");
         localStorage.removeItem('email');
     };
     QuestionViewingPageComponent.prototype.check = function () {
@@ -1584,9 +1739,14 @@ var QuestionViewingPageComponent = /** @class */ (function () {
             this.totalStudentOptions = [];
         }
         if (type == "single") {
-            this.totalQuestionsNumber = 15;
-            this.questionCorrectAnswere = ["a", "c", "a", "b", "a", "b", "a", "a", "c", "b", "d", "d", "c", "c", "a"];
-            this.chemQuestionsNumber = 15;
+            this.totalQuestionsNumber = 30;
+            this.questionCorrectAnswere = ["d", "a", "b", "a", "b",
+                "b", "d", "b", "b", "c",
+                "d", "c", "c", "a", "c",
+                "a", "b", "a", "d", "d",
+                "b", "b", "a", "b", "a",
+                "b", "a", "d", "d", "d"];
+            this.chemQuestionsNumber = 30;
             this.mathQuestionsNumber = 0;
             this.phyQuestionsNumber = 0;
             this.chemQuestionsStartingNumber = 1;
@@ -1605,7 +1765,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./question-viewing-page.component.html */ "./src/app/pages/question-viewing-page/question-viewing-page.component.html"),
             styles: [__webpack_require__(/*! ./question-viewing-page.component.css */ "./src/app/pages/question-viewing-page/question-viewing-page.component.css")]
         }),
-        __metadata("design:paramtypes", [_question_data_service__WEBPACK_IMPORTED_MODULE_7__["QuestionDataService"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_1__["AngularFireStorage"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"], _angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        __metadata("design:paramtypes", [ng2_simple_timer__WEBPACK_IMPORTED_MODULE_8__["SimpleTimer"], _question_data_service__WEBPACK_IMPORTED_MODULE_7__["QuestionDataService"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_1__["AngularFireStorage"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"], _angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], QuestionViewingPageComponent);
     return QuestionViewingPageComponent;
 }());
@@ -1632,7 +1792,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col\">\n      <h3>Score:</h3>\n      <div class=\"row\">\n        <div class=\"col\">\n          <p>Total score: {{totalScore}} </p>\n        </div>\n      </div>\n      <!-- <div class=\"row\">\n        <div class=\"col\">\n          <p>Phy score: {{phyMarks}} </p>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col\">\n          <p>Chem score: {{chemMarks}} </p>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col\">\n          <p>Maths score: {{mathMarks}} </p>\n        </div>\n      </div> -->\n      <div class=\"row\">\n        <div class=\"col\">Negative Marks: -{{negativeMarks}}</div>\n      </div>\n    </div>\n  </div>\n</div>\n<button type=\"button\" class=\"btn btn-danger\" (clcik)=\"logout(2)\" >Logout</button>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col\">\n      <h3>Score:</h3>\n      <div class=\"row\">\n        <div class=\"col\">\n          <p>Total score: {{totalScore}} </p>\n        </div>\n      </div>\n      <!-- <div class=\"row\">\n        <div class=\"col\">\n          <p>Phy score: {{phyMarks}} </p>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col\">\n          <p>Chem score: {{chemMarks}} </p>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col\">\n          <p>Maths score: {{mathMarks}} </p>\n        </div>\n      </div> -->\n      <div class=\"row\">\n        <div class=\"col\">Negative Marks: -{{negativeMarks}}</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<button type=\"button\" class=\"btn btn-danger\" (clcik)=\"logout(2)\" >Logout</button>\n"
 
 /***/ }),
 
@@ -1650,6 +1810,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../question-viewing-page/question-viewing-page.component */ "./src/app/pages/question-viewing-page/question-viewing-page.component.ts");
 /* harmony import */ var _question_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../question-data.service */ "./src/app/question-data.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1663,8 +1824,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ScoreReviewingPageComponent = /** @class */ (function () {
-    function ScoreReviewingPageComponent(router, queDB, question) {
+    function ScoreReviewingPageComponent(db, router, queDB, question) {
         this.router = router;
         this.queDB = queDB;
         this.question = question;
@@ -1675,6 +1837,15 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
         this.mathMarks = 0;
         this.totalScore = 0;
         this.negativeMarks = 0;
+        this.testScoreRef = db.list('testScore');
+        this.testScoreRef.snapshotChanges()
+            .subscribe(function (actions) {
+            actions.forEach(function (action) {
+                console.log(action.type);
+                console.log(action.key);
+                console.log(action.payload.val());
+            });
+        });
     }
     ScoreReviewingPageComponent.prototype.ngOnInit = function () {
         this.studentOptions = this.queDB.studentOptions;
@@ -1726,6 +1897,14 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
             }
         }
         this.totalScore = this.totalScore - this.negativeMarks;
+        this.addScoreToDB();
+    };
+    ScoreReviewingPageComponent.prototype.addScoreToDB = function () {
+        if (localStorage.getItem("storeOpt") == "storeTrue") {
+            this.testScoreRef.push({ "name": localStorage.getItem('user'), 'totalScore': this.totalScore, "neg": this.negativeMarks });
+            localStorage.setItem('storeOpt', "storeFalse");
+            localStorage.removeItem('user');
+        }
     };
     ScoreReviewingPageComponent.prototype.logout = function () {
         this.question.logout();
@@ -1737,7 +1916,7 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./score-reviewing-page.component.html */ "./src/app/pages/score-reviewing-page/score-reviewing-page.component.html"),
             styles: [__webpack_require__(/*! ./score-reviewing-page.component.css */ "./src/app/pages/score-reviewing-page/score-reviewing-page.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _question_data_service__WEBPACK_IMPORTED_MODULE_2__["QuestionDataService"], _question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_1__["QuestionViewingPageComponent"]])
+        __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_4__["AngularFireDatabase"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _question_data_service__WEBPACK_IMPORTED_MODULE_2__["QuestionDataService"], _question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_1__["QuestionViewingPageComponent"]])
     ], ScoreReviewingPageComponent);
     return ScoreReviewingPageComponent;
 }());
@@ -1817,6 +1996,8 @@ var WaitingPageComponent = /** @class */ (function () {
                     if (JSON.parse(localStorage.getItem("studentOptions")) == undefined) {
                         localStorage.setItem('studentOptions', JSON.stringify([]));
                         localStorage.setItem('studentOptionsReview', JSON.stringify([]));
+                        localStorage.setItem('studentUsedTime', JSON.stringify(40 * 60));
+                        localStorage.setItem('storeOpt', "waiting");
                     }
                     console.log(JSON.parse(localStorage.getItem("studentOptions")));
                     _this.router.navigate(['view']);
@@ -1972,7 +2153,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin/test-remote-page/test-remote-page.component */ "./src/app/admin/test-remote-page/test-remote-page.component.ts");
 /* harmony import */ var _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin/add-anstoque-page/add-anstoque-page.component */ "./src/app/admin/add-anstoque-page/add-anstoque-page.component.ts");
 /* harmony import */ var _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin/add-users-to-test/add-users-to-test.component */ "./src/app/admin/add-users-to-test/add-users-to-test.component.ts");
-/* harmony import */ var _auth_check_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./auth-check.guard */ "./src/app/auth-check.guard.ts");
+/* harmony import */ var _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin/que-options-page/que-options-page.component */ "./src/app/admin/que-options-page/que-options-page.component.ts");
+/* harmony import */ var _auth_check_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth-check.guard */ "./src/app/auth-check.guard.ts");
+
 
 
 
@@ -1986,11 +2169,11 @@ var routes = [
     { path: '', redirectTo: 'wait', pathMatch: 'full' },
     { path: 'view',
         component: _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_0__["QuestionViewingPageComponent"],
-        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_8__["AuthCheckGuard"]],
+        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_9__["AuthCheckGuard"]],
     },
     { path: 'remote',
         component: _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_5__["TestRemotePageComponent"],
-        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_8__["AuthCheckGuard"]],
+        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_9__["AuthCheckGuard"]],
     },
     { path: 'score',
         component: _pages_score_reviewing_page_score_reviewing_page_component__WEBPACK_IMPORTED_MODULE_2__["ScoreReviewingPageComponent"]
@@ -2000,7 +2183,7 @@ var routes = [
     },
     { path: 'wait',
         component: _pages_waiting_page_waiting_page_component__WEBPACK_IMPORTED_MODULE_4__["WaitingPageComponent"],
-        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_8__["AuthCheckGuard"]],
+        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_9__["AuthCheckGuard"]],
     },
     { path: 'addquestions',
         component: _admin_add_questions_page_add_questions_page_component__WEBPACK_IMPORTED_MODULE_1__["AddQuestionsPageComponent"],
@@ -2010,6 +2193,9 @@ var routes = [
     },
     { path: 'addUser',
         component: _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_7__["AddUsersToTestComponent"],
+    },
+    { path: 'checkAdminOptions',
+        component: _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_8__["QueOptionsPageComponent"],
     },
 ];
 
