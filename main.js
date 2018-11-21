@@ -892,6 +892,7 @@ var TestRemotePageComponent = /** @class */ (function () {
         this.testScoreRef = db.list('testScore');
         this.testScoreRef.snapshotChanges()
             .subscribe(function (actions) {
+            _this.studentScore = [];
             actions.forEach(function (action) {
                 // console.log(action.type);
                 // console.log(action.key);
