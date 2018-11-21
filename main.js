@@ -856,7 +856,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\">Start</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" >Wait</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(3)\" >END</button>\n\n<div class=\"studentScore pt-5\">\n  <h3>Student Score</h3>\n  <table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Total Score</th>\n      <th scope=\"col\">Negative Marks</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let score of studentScore; let i =index\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>{{score.name}}</td>\n      <td>{{score.totalScore}}</td>\n      <td>{{score.neg}}</td>\n    </tr>\n\n  </tbody>\n</table>\n</div>\n"
+module.exports = "<button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\">Start</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" >Wait</button>\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(3)\" >END</button>\n\n<div class=\"studentScore pt-5\">\n  <h3>Student Score</h3>\n  <table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Total Score</th>\n      <th scope=\"col\">Negative Marks</th>\n      <th scope=\"col\">Options</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let score of studentScore; let i =index\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>{{score.name}}</td>\n      <td>{{score.totalScore}}</td>\n      <td>{{score.neg}}</td>\n      <td>{{score.opt | json}}</td>\n    </tr>\n\n  </tbody>\n</table>\n</div>\n"
 
 /***/ }),
 
@@ -897,7 +897,7 @@ var TestRemotePageComponent = /** @class */ (function () {
                 // console.log(action.type);
                 // console.log(action.key);
                 console.log(action.payload.val());
-                _this.studentScore.push({ "name": action.payload.val().name, 'totalScore': action.payload.val().totalScore, "neg": action.payload.val().neg });
+                _this.studentScore.push({ "name": action.payload.val().name, 'totalScore': action.payload.val().totalScore, "neg": action.payload.val().neg, "opt": action.payload.val().opt });
             });
         });
     }
@@ -1910,7 +1910,7 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
     };
     ScoreReviewingPageComponent.prototype.addScoreToDB = function () {
         if (localStorage.getItem("storeOpt") == "storeTrue") {
-            this.testScoreRef.push({ "name": localStorage.getItem('user'), 'totalScore': this.totalScore, "neg": this.negativeMarks });
+            this.testScoreRef.push({ "name": localStorage.getItem('user'), 'totalScore': this.totalScore, "neg": this.negativeMarks, 'opt': this.studentOptions });
             localStorage.setItem('storeOpt', "storeFalse");
             localStorage.removeItem('user');
         }
