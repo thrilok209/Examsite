@@ -1361,7 +1361,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.storage = storage;
         this.san = san;
         this.router = router;
-        this.examTimer = 60 * 60;
+        this.examTimer = 45 * 60;
         this.examLeftTimer = 0;
         this.today = Date.now();
         this.questionOption = null;
@@ -1748,14 +1748,12 @@ var QuestionViewingPageComponent = /** @class */ (function () {
             this.totalStudentOptions = [];
         }
         if (type == "single") {
-            this.totalQuestionsNumber = 30;
-            this.questionCorrectAnswere = ["d", "a", "b", "a", "b",
-                "b", "d", "b", "b", "c",
-                "d", "c", "c", "a", "b",
-                "a", "b", "a", "d", "d",
-                "b", "b", "a", "b", "a",
-                "b", "a", "d", "d", "d"];
-            this.chemQuestionsNumber = 30;
+            this.totalQuestionsNumber = 18;
+            this.questionCorrectAnswere = ["c", "a", "c", "c", "a",
+                "c", "b", "c", "b", "b",
+                "c", "c", "c", "c", "c",
+                "c", "b", "c"];
+            this.chemQuestionsNumber = 18;
             this.mathQuestionsNumber = 0;
             this.phyQuestionsNumber = 0;
             this.chemQuestionsStartingNumber = 1;
@@ -2006,7 +2004,7 @@ var WaitingPageComponent = /** @class */ (function () {
                     if (JSON.parse(localStorage.getItem("studentOptions")) == undefined) {
                         localStorage.setItem('studentOptions', JSON.stringify([]));
                         localStorage.setItem('studentOptionsReview', JSON.stringify([]));
-                        localStorage.setItem('studentUsedTime', JSON.stringify(60 * 60));
+                        localStorage.setItem('studentUsedTime', JSON.stringify(45 * 60));
                         localStorage.setItem('storeOpt', "waiting");
                     }
                     console.log(JSON.parse(localStorage.getItem("studentOptions")));
