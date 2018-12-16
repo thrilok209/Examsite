@@ -2082,7 +2082,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.router.navigate(['score']);
     };
     QuestionViewingPageComponent.prototype.logout = function () {
-        // this.afAuth.auth.signOut();
+        this.afAuth.auth.signOut();
         localStorage.removeItem('studentOptions');
         localStorage.removeItem('studentOptionsReview');
         localStorage.removeItem('studentUsedTime');
