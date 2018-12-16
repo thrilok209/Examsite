@@ -8,7 +8,10 @@ import { TestRemotePageComponent } from './admin/test-remote-page/test-remote-pa
 import { AddAnstoquePageComponent } from './admin/add-anstoque-page/add-anstoque-page.component';
 import { AddUsersToTestComponent } from './admin/add-users-to-test/add-users-to-test.component'
 import { QueOptionsPageComponent } from './admin/que-options-page/que-options-page.component'
-
+import { SignupPageComponent } from './pages/signup-page/signup-page.component'
+import { TestSelectionPageComponent } from './admin/test-selection-page/test-selection-page.component'
+import { QuestionAnswersViewingPageComponent } from './pages/question-answers-viewing-page/question-answers-viewing-page.component'
+import { ChangeQuestionsPageComponent } from './admin/change-questions-page/change-questions-page.component'
 
 
 
@@ -54,6 +57,23 @@ export const routes: Routes = [
     component: QueOptionsPageComponent,
     //  canActivate: [AuthCheckGuard],
   },
+  { path: 'signup',
+    component: SignupPageComponent,
+    //  canActivate: [AuthCheckGuard],
+  },
+  { path: 'load',
+    component: TestSelectionPageComponent,
+    //  canActivate: [AuthCheckGuard],
+  },
+  { path: 'viewAnswers',
+    component: QuestionAnswersViewingPageComponent,
+    //  canActivate: [AuthCheckGuard],
+  },
+  { path: 'change',
+    component: ChangeQuestionsPageComponent,
+    //  canActivate: [AuthCheckGuard],
+  },
+
 
 
 ];

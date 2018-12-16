@@ -82,8 +82,8 @@
 
         <div class="col-5 offset-1">
           <button class="btn btn-default btn-save border border-dark" [hidden]="saveBtn" (click)="nextQuestion(1,questionNumber+1)">Save & next</button>
-          <button class="btn btn-default btn-save-final border border-dark" [hidden]="saveBtn" (click)="nextQuestion('save',questionNumber+1)">Save</button>
-          <button class="btn btn-default btn-save-final border border-dark" [hidden]="saveBtn" (click)="addUsers()">Submit</button>
+          <button class="btn btn-default btn-save-final border border-dark" [hidden]="!saveBtn" (click)="nextQuestion('save',questionNumber+1)">Save</button>
+          <button class="btn btn-default btn-save-final border border-dark" [hidden]="!saveBtn" (click)="addUsers()">Submit</button>
 
 
         </div>

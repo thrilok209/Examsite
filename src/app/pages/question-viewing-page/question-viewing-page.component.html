@@ -7,9 +7,9 @@
       <div class="row title-section subject-section border-bottom border-dark">
         <div class="col">
           <h6 class="mb-0">Section</h6>
-          <button class="btn btn-default" *ngIf="phyQuestionsStartingNumber!=0" (click)="jumpToQuestion(phyQuestionsStartingNumber)">PHY</button>
-          <button class="btn btn-default" *ngIf="chemQuestionsStartingNumber!=0" (click)="jumpToQuestion(chemQuestionsStartingNumber)">CHEM</button>
-          <button class="btn btn-default"  *ngIf="mathQuestionsStartingNumber!=0" (click)="jumpToQuestion(mathQuestionsStartingNumber)">Math</button>
+          <button class="btn btn-default" *ngIf="phyQuestionsNumber!=0" (click)="jumpToQuestion(phyQuestionsStartingNumber-1)">PHY</button>
+          <button class="btn btn-default" *ngIf="chemQuestionsNumber!=0" (click)="jumpToQuestion(chemQuestionsStartingNumber-1)">CHEM</button>
+          <button class="btn btn-default"  *ngIf="mathQuestionsNumber!=0" (click)="jumpToQuestion(mathQuestionsStartingNumber-1)">Math</button>
 
         </div>
       </div>
@@ -101,7 +101,7 @@
     </div>
     <div class="col-2 border border-dark all-question">
       <div class="row border-bottom border-dark user-student-clock">
-        <countdown [config]="{leftTime: examTimer , demand: true}" #cd1 (finished)="submit()" (event)="timerEvent($event)"> $!m!:$!s!</countdown>
+        <countdown [config]="{leftTime: examTimer , demand: true}" #cd1 (finished)="submit()" (event)="timerEvent($event)"> $!h!:$!m!:$!s!</countdown>
         <!-- <button (click)="submit()" class="btn btn-default">pause</button> -->
          <!-- <p>Today is {{today }}</p> -->
 

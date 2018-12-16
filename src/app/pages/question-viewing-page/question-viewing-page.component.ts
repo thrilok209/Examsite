@@ -17,7 +17,7 @@ import {SimpleTimer} from 'ng2-simple-timer';
   styleUrls: ['./question-viewing-page.component.css']
 })
 export class QuestionViewingPageComponent implements OnInit {
-  examTimer=60*60;
+  examTimer=45*60;
   examLeftTimer=0;
 
   today: number = Date.now();
@@ -41,17 +41,17 @@ export class QuestionViewingPageComponent implements OnInit {
   mathStudentOptions=[]
   mathQuestions=[];
   totalQuestions=[];
-  totalStudentOptions=["a","b","c","a","c","c","b","b","c"];;
+  totalStudentOptions=[];
 
   // totalQuestionsNumber=this.questionStuDB.totalNumberOfQuestion;
-  totalQuestionsNumber=12;
+  totalQuestionsNumber=0;
 
-  chemQuestionsNumber=this.totalQuestionsNumber/3;
-  mathQuestionsNumber=this.totalQuestionsNumber/3;
-  phyQuestionsNumber=this.totalQuestionsNumber/3;
-  chemQuestionsStartingNumber=1*(this.totalQuestionsNumber/3)+1;
-  mathQuestionsStartingNumber=2*(this.totalQuestionsNumber/3)+1;
-  phyQuestionsStartingNumber=0*(this.totalQuestionsNumber/3)+1;
+  chemQuestionsNumber=0;
+  mathQuestionsNumber=0;
+  phyQuestionsNumber=0;
+  chemQuestionsStartingNumber=0;
+  mathQuestionsStartingNumber=0;
+  phyQuestionsStartingNumber=0;
   userName=""
 
 
@@ -60,7 +60,7 @@ export class QuestionViewingPageComponent implements OnInit {
   reviewBtnText=false;
   questionImgLoad=true;
   // questionCorrectAnswere=this.questionStuDB.questionCorrectOptions
-  questionCorrectAnswere=["a","b","c","a","b","c","a","b","c","a","b","c",]
+  questionCorrectAnswere=[]
   // userData = {
   //  questionCorrectAnsweres:[]
   //
@@ -87,7 +87,7 @@ export class QuestionViewingPageComponent implements OnInit {
   }
 
   timerEvent(x){
-    console.log(x)
+    // console.log(x)
     this.examLeftTimer=x.left
     localStorage.setItem('studentUsedTime',JSON.stringify(this.examLeftTimer/1000))
   }
@@ -111,54 +111,68 @@ export class QuestionViewingPageComponent implements OnInit {
     this.userName=localStorage.getItem("user")
 
     if(this.questionStuDB.testType=="run"){
-      for(let i =0; i<(this.totalQuestionsNumber) ; i++){
-      if(i>=(this.phyQuestionsStartingNumber-1) && i<(this.chemQuestionsStartingNumber-1)){
-        console.log("phy")
-        let ref = this.storage.ref('phy/phy('+(i+1)+').png');
-        this.profileUrl = ref.getDownloadURL();
-        this.profileUrl.subscribe(x => {
-          // console.log(this.chemQuestions)
-          this.phyQuestions[i]=x
-          this.totalQuestions[i]=x
-          if(i==0){
-            // console.log("here")
-            this.question=x
-            // console.log(this.chemQuestions)
-          }
-        })
-      }
-      if(i>=(this.chemQuestionsStartingNumber-1) && i<(this.mathQuestionsStartingNumber-1)){
-        console.log("chem")
-        let ref = this.storage.ref('chem/chem('+(i+2-this.chemQuestionsStartingNumber)+').png');
-        this.profileUrl = ref.getDownloadURL();
-        this.profileUrl.subscribe(x => {
+      this.chemQuestionsNumber=this.questionStuDB.chemQuestionsNumber
+      this.mathQuestionsNumber=this.questionStuDB.mathQuestionsNumber
+      this.phyQuestionsNumber=this.questionStuDB.phyQuestionsNumber
+      this.phyQuestionsStartingNumber=1
+      this.chemQuestionsStartingNumber=this.phyQuestionsNumber+1
+      this.mathQuestionsStartingNumber=this.phyQuestionsNumber+this.chemQuestionsNumber+1
+      this.totalQuestions=this.questionStuDB.totalQuestions;
+      this.phyQuestions=this.questionStuDB.phyQuestions;
+      this.mathQuestions=this.questionStuDB.mathQuestions;
+      this.chemQuestions=this.questionStuDB.chemQuestions;
 
-          this.totalQuestions[i]=x
-          this.chemQuestions[i]=x
-          if(i==0){
-            // console.log("here")
-            this.question=x
-            console.log(this.chemQuestions)
-          }
-        })
-      }
-      if(i>=(this.mathQuestionsStartingNumber-1) && i<(this.totalQuestionsNumber)){
-        console.log("math")
-        let ref = this.storage.ref('math/math('+(i+2-this.mathQuestionsStartingNumber)+').png');
-        this.profileUrl = ref.getDownloadURL();
-        this.profileUrl.subscribe(x => {
-          // console.log(this.chemQuestions)
-
-          this.mathQuestions[i]=x
-          this.totalQuestions[i]=x
-          if(i==0){
-            // console.log("here")
-            this.question=x
-            // console.log(this.chemQuestions)
-          }
-        })
-      }
-      }
+      // for(let i=0;i<this.phyQuestionsNumber;i++)
+      // for(let i =0; i<(this.totalQuestionsNumber) ; i++){
+      // if(i>=(this.phyQuestionsStartingNumber-1) && i<(this.chemQuestionsStartingNumber-1)){
+      //   console.log("phy")
+      //   let ref = this.storage.ref(this.questionStuDB.titleOfTest+'/phy('+(i+1)+')');
+      //   this.profileUrl = ref.getDownloadURL();
+      //   this.profileUrl.subscribe(x => {
+      //     // console.log(this.chemQuestions)
+      //     this.phyQuestions[i]=x
+      //     this.totalQuestions[i]=x
+      //     // if(i==0){
+      //     //   // console.log("here")
+      //     //   this.question=x
+      //     //   // console.log(this.chemQuestions)
+      //     // }
+      //   })
+      // }
+      // if(i>=(this.chemQuestionsStartingNumber-1) && i<(this.mathQuestionsStartingNumber-1)){
+      //   console.log("chem")
+      //   let ref = this.storage.ref(this.questionStuDB.titleOfTest+'/chem('+(i+2-this.chemQuestionsStartingNumber)+')');
+      //   this.profileUrl = ref.getDownloadURL();
+      //   this.profileUrl.subscribe(x => {
+      //
+      //     this.totalQuestions[i]=x
+      //     this.chemQuestions[i]=x
+      //     // if(i==0){
+      //     //   // console.log("here")
+      //     //   this.question=x
+      //     //   console.log(this.chemQuestions)
+      //     // }
+      //   })
+      // }
+      // if(i>=(this.mathQuestionsStartingNumber-1) && i<(this.totalQuestionsNumber)){
+      //   console.log("math")
+      //   let ref = this.storage.ref(this.questionStuDB.titleOfTest+'/math('+(i+2-this.mathQuestionsStartingNumber)+')');
+      //   this.profileUrl = ref.getDownloadURL();
+      //   this.profileUrl.subscribe(x => {
+      //     // console.log(this.chemQuestions)
+      //
+      //     this.mathQuestions[i]=x
+      //     this.totalQuestions[i]=x
+      //     // if(i==0){
+      //     //   // console.log("here")
+      //     //   this.question=x
+      //     //   // console.log(this.chemQuestions)
+      //     // }
+      //   })
+      // }
+      // }
+      this.question=this.totalQuestions[0]
+      console.log(this.question,this.totalQuestions)
     }
     if(this.questionStuDB.testType=="single"){
       for(let i =0; i<(this.totalQuestionsNumber) ; i++){
@@ -286,16 +300,27 @@ export class QuestionViewingPageComponent implements OnInit {
     }
   }
   jumpToQuestion(questionNumberPar){
-    let prevQuestionNumber=  this.questionNumber
-    this.question=this.totalQuestions[questionNumberPar]
-    this.questionNumber=questionNumberPar+1;
-    this.commonFunction();
-    if(this.markAsReview[prevQuestionNumber-1]!="green"){
-      this.markAsReview[prevQuestionNumber-1]="red"
+    if((questionNumberPar+1)!=this.questionNumber){
+      console.log(questionNumberPar)
+      let prevQuestionNumber=  this.questionNumber
+      this.question=this.totalQuestions[questionNumberPar]
+      this.questionNumber=questionNumberPar+1;
+      console.log(this.questionNumber)
+
+      this.commonFunction();
+      if(this.markAsReview[prevQuestionNumber-1]!="green"){
+        if(this.markAsReview[prevQuestionNumber-1]!="yellow"){
+          if(this.markAsReview[prevQuestionNumber-1]!="purple"){
+            this.markAsReview[prevQuestionNumber-1]="red"
+          }
+        }
+      }
 
     }
-
   }
+
+
+
 
   markAsreview(par , mark){
     // this.chemQuestions[this.questionNumber-1].style="background-"
@@ -394,7 +419,7 @@ export class QuestionViewingPageComponent implements OnInit {
 
   }
   logout(){
-    this.afAuth.auth.signOut();
+    // this.afAuth.auth.signOut();
     localStorage.removeItem('studentOptions')
     localStorage.removeItem('studentOptionsReview')
     localStorage.removeItem('studentUsedTime')
@@ -436,15 +461,12 @@ export class QuestionViewingPageComponent implements OnInit {
 
     }
     if(type=="single"){
-      this.totalQuestionsNumber=30;
-      this.questionCorrectAnswere=["d","a","b","a","b",
-                                   "b","d","b","b","c",
-                                   "d","c","c","a","c",
-                                   "a","b","a","d","d",
-                                   "b","b","a","b","a",
-                                   "b","a","d","d","d"]
-
-      this.chemQuestionsNumber=30
+      this.totalQuestionsNumber=18;
+      this.questionCorrectAnswere=["c","a","c","c","a",
+                                   "c","b","c","b","b",
+                                   "c","c","c","c","c",
+                                   "c","b","c"]
+      this.chemQuestionsNumber=18;
       this.mathQuestionsNumber=0;
       this.phyQuestionsNumber=0;
       this.chemQuestionsStartingNumber=1;

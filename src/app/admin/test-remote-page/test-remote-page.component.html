@@ -1,6 +1,31 @@
-<button type="button" class="btn btn-success" (click)="testStatus(1)">Start</button>
-<button type="button" class="btn btn-danger" (click)="testStatus(2)" >Wait</button>
-<button type="button" class="btn btn-danger" (click)="testStatus(3)" >END</button>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Test Title</th>
+      <th scope="col">Test</th>
+      <th scope="col">No Of Question</th>
+      <th scope="col">Test status</th>
+
+      <th scope="col">-</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{testLoaded.title}}</th>
+      <td>{{testLoaded.Teststatus}}</td>
+      <td>{{testLoaded.numberOfQuestion.total}}</td>
+      <td>{{testLoaded.startTest}}</td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="testStatus(1)" *ngIf="testLoaded.startTest=='wait'">Start</button>
+        <button type="button" class="btn btn-danger" (click)="testStatus(2)" *ngIf="testLoaded.startTest=='start'">Wait</button>
+        <button type="button" class="btn btn-danger" (click)="testStatus(3)" *ngIf="testLoaded.startTest=='start'">END</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
 
 <div class="studentScore pt-5">
   <h3>Student Score</h3>
@@ -11,6 +36,7 @@
       <th scope="col">Name</th>
       <th scope="col">Total Score</th>
       <th scope="col">Negative Marks</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +45,7 @@
       <td>{{score.name}}</td>
       <td>{{score.totalScore}}</td>
       <td>{{score.neg}}</td>
+      <td>{{score.opt | json}}</td>
     </tr>
 
   </tbody>

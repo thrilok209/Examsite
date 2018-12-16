@@ -24,17 +24,16 @@ export class ScoreReviewingPageComponent implements OnInit {
   negativeMarks=0;
   unTemptedQuestions;
   testScoreRef: AngularFireList<any>;
-  item: Observable<any>;
+  testsRef: AngularFireList<any>;
+  usersRef: AngularFireList<any>;
+  testLoadRef:AngularFireObject<any>;
+    item: Observable<any>;
   constructor(db: AngularFireDatabase ,private router: Router,public queDB:QuestionDataService ,private question:QuestionViewingPageComponent ) {
     this.testScoreRef = db.list('testScore')
-    this.testScoreRef.snapshotChanges()
-    .subscribe(actions => {
-      actions.forEach(action => {
-        console.log(action.type);
-        console.log(action.key);
-        console.log(action.payload.val());
-      });
-    });
+    this.testsRef = db.list('TESTS')
+    this.usersRef = db.list('users')
+    this.testLoadRef = db.object('loadedTest')
+
 
    }
 
@@ -81,6 +80,7 @@ export class ScoreReviewingPageComponent implements OnInit {
         //     this.negativeMarks++;
         //   }
         // }
+
         if(this.studentOptions[i]==this.correctOptions[i]){
           // this.mathMarks=this.mathMarks+4;
           this.totalScore=this.totalScore+4;
@@ -99,17 +99,66 @@ export class ScoreReviewingPageComponent implements OnInit {
     this.addScoreToDB()
   }
   addScoreToDB(){
+    let count=0;
     if(localStorage.getItem("storeOpt")=="storeTrue"){
-      this.testScoreRef.push({"name":localStorage.getItem('user'),'totalScore':this.totalScore , "neg":this.negativeMarks})
       localStorage.setItem('storeOpt',"storeFalse")
-      localStorage.removeItem('user')
+
+
+      this.testsRef.snapshotChanges().subscribe(tests=>{
+        let allStudentsOptions=[]
+        tests.forEach(test=>{
+          if(test.key==localStorage.getItem('testKEY')){
+            if(test.payload.val().studentOptions!=undefined){
+
+              allStudentsOptions=test.payload.val().studentOptions
+            }
+            console.log(localStorage.getItem('name'))
+            allStudentsOptions.push({'name':localStorage.getItem('name'),'totalScore':this.totalScore , "neg":this.negativeMarks , 'opt':this.studentOptions , 'uid':localStorage.getItem('uid') ,'studentDBkey':localStorage.getItem('userDBKey')})
+            this.testsRef.update(localStorage.getItem('testKEY'),{'studentOptions':allStudentsOptions} )
+          }
+        })
+      })
+      this.usersRef.snapshotChanges().subscribe(users=>{
+        let studentAllTestOptions=[]
+        users.forEach(user=>{
+          if(localStorage.getItem('userDBKey')==user.key){
+            if(user.payload.val().testOptions!=undefined){
+              studentAllTestOptions=user.payload.val().testOptions
+            }
+            studentAllTestOptions.push({'title':localStorage.getItem('titleOfTest'),'totalScore':this.totalScore , "neg":this.negativeMarks , 'opt':this.studentOptions  ,'testDBkey':localStorage.getItem('testKEY')})
+            this.usersRef.update(localStorage.getItem('userDBKey'),{testOptions:studentAllTestOptions})
+          }
+        })
+      })
+      this.testLoadRef.snapshotChanges().subscribe(test=>{
+        let allStudentsOptionsLoad=[]
+        if(test.payload.val().studentOptions!=undefined&& count==0){
+
+          allStudentsOptionsLoad=test.payload.val().studentOptions
+        }
+        if(count==0){
+          allStudentsOptionsLoad.push({'name':localStorage.getItem('name'),'totalScore':this.totalScore , "neg":this.negativeMarks , 'opt':this.studentOptions , 'uid':localStorage.getItem('uid') ,'studentDBkey':localStorage.getItem('userDBKey')})
+          this.testLoadRef.update({'studentOptions':allStudentsOptionsLoad})
+          count++
+        }
+        console.log(allStudentsOptionsLoad)
+
+      })
+      // this.testScoreRef.push({"name":localStorage.getItem('user'),'totalScore':this.totalScore , "neg":this.negativeMarks , 'opt':this.studentOptions})
+      localStorage.setItem('storeOpt',"storeFalse")
+      // localStorage.removeItem('user')
     }
 
   }
   logout(){
     this.question.logout()
     this.router.navigate(['login'])
+    localStorage.clear()
+
+    // console.log(localStorage.getItem('name'))
+
   }
+
   // ngOnInit(){
   //
   // }

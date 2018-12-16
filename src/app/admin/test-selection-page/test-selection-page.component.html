@@ -1,0 +1,49 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Test Title</th>
+      <th scope="col">Test Status</th>
+      <th scope="col">No Of Question</th>
+      <th scope="col">Remote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{testLoaded.title}}</th>
+      <td>{{testLoaded.Teststatus}}</td>
+      <td>{{testLoaded.numberOfQuestion.total}}</td>
+      <td>
+        <button type="button" [routerLink]="['/remote']" class="btn btn-default">Remote</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Test Name</th>
+      <th scope="col">Test Status</th>
+      <th scope="col">No Of Questions</th>
+      <th scope="col">-</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let test of totalTests;let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{test.title}}</td>
+      <td>{{test.Teststatus}}</td>
+      <td>chem:{{test.numberOfQuestion.chem}} <br>
+        math:{{test.numberOfQuestion.math}} <br>
+        phy:{{test.numberOfQuestion.phy}} <br>
+        total:{{test.numberOfQuestion.total}}
+      </td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="testToLoad(test.key)">Load</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

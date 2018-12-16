@@ -26,8 +26,15 @@ import { WaitingPageComponent } from './pages/waiting-page/waiting-page.componen
 import { TestRemotePageComponent } from './admin/test-remote-page/test-remote-page.component';
 import { AddAnstoquePageComponent } from './admin/add-anstoque-page/add-anstoque-page.component';
 import { AddingQuestionService } from './admin/adding-question.service';
+
+import { LoadTestService } from './admin/load-test.service';
+
 import { AddUsersToTestComponent } from './admin/add-users-to-test/add-users-to-test.component';
-import { QueOptionsPageComponent } from './admin/que-options-page/que-options-page.component'
+import { QueOptionsPageComponent } from './admin/que-options-page/que-options-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { TestSelectionPageComponent } from './admin/test-selection-page/test-selection-page.component';
+import { QuestionAnswersViewingPageComponent } from './pages/question-answers-viewing-page/question-answers-viewing-page.component';
+import { ChangeQuestionsPageComponent } from './admin/change-questions-page/change-questions-page.component'
 // import { SimpleTimer } from 'ng2-simple-timer';
 
 @NgModule({
@@ -42,6 +49,10 @@ import { QueOptionsPageComponent } from './admin/que-options-page/que-options-pa
     AddAnstoquePageComponent,
     AddUsersToTestComponent,
     QueOptionsPageComponent,
+    SignupPageComponent,
+    TestSelectionPageComponent,
+    QuestionAnswersViewingPageComponent,
+    ChangeQuestionsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +71,11 @@ import { QueOptionsPageComponent } from './admin/que-options-page/que-options-pa
     // SimpleTimer
 
   ],
-  providers: [QuestionDataService,QuestionViewingPageComponent,AddAnstoquePageComponent , AddingQuestionService],
+  providers: [QuestionDataService,
+    QuestionViewingPageComponent,
+    AddAnstoquePageComponent ,
+     AddingQuestionService ,
+     LoadTestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

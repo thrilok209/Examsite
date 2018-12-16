@@ -15,25 +15,39 @@ export class TestRemotePageComponent implements OnInit {
   item: Observable<any>;
   testScoreRef: AngularFireList<any>;
   studentScore=[]
+  btn='s'
+  testLoadRef:AngularFireObject<any>;
+  testLoaded;
   constructor(db: AngularFireDatabase) {
   this.itemRef = db.object('statusTest');
     this.item = this.itemRef.valueChanges();
     this.testScoreRef = db.list('testScore')
     this.testScoreRef.snapshotChanges()
     .subscribe(actions => {
+      this.studentScore=[]
       actions.forEach(action => {
         // console.log(action.type);
         // console.log(action.key);
-        console.log(action.payload.val());
-        this.studentScore.push({"name":action.payload.val().name,'totalScore':action.payload.val().totalScore , "neg":action.payload.val().neg})
+        // console.log(action.payload.val());
+        // this.studentScore.push({"name":action.payload.val().name,'totalScore':action.payload.val().totalScore , "neg":action.payload.val().neg, "opt":action.payload.val().opt})
       });
     });
+    this.testLoadRef= db.object('loadedTest')
 
+      this.testLoadRef.snapshotChanges().subscribe(test =>{
+        this.testLoaded=test.payload.val()
+        this.studentScore=[]
+
+        test.payload.val().studentOptions.forEach(options=>{
+          console.log(options)
+          this.studentScore.push(options)
+        })
+      })
   }
 testStatus(x){
-    if(x==1){  this.itemRef.set({ status: "start" });}
-    if(x==2){  this.itemRef.set({ status: "wait" });}
-    if(x==3){  this.itemRef.set({ status: "end" });}
+    if(x==1){  this.testLoadRef.update({ startTest: "start" }); this.testLoaded.startTest="start"}
+    if(x==2){  this.testLoadRef.update({ startTest: "wait" }); this.testLoaded.startTest="wait"}
+    if(x==3){  this.testLoadRef.update({ startTest: "end" }); this.testLoaded.startTest="end"}
   }
   ngOnInit() {
   }

@@ -1,0 +1,30 @@
+<button type="button" class="btn btn-danger" (click)="logout()" >Logout</button>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Questions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let question of totalQuestions;let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>
+        <div class="card" style="width: 75rem;">
+          <img class="card-img-top" src="{{question}}" alt="Card image cap">
+          <div class="card-body">
+            <!-- <h5 class="card-title">Card title</h5> -->
+            <p class="card-text">Your Option: <strong>{{totalStudentOptions[i]}}</strong> <br>
+                                  correct Options: <strong>{{totalCorrectOtp[i]}}</strong>
+                                </p>
+          </div>
+        </div>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>

@@ -77,9 +77,9 @@ item: Observable<any>;
       this.totalAdminOptions=this.questionDB.questionCorrectOptions;
       this.totalQuestionsNumber=this.questionDB.totalNumberOfQuestion
       // this.totalQuestions=
-      // ["https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fphy(1)?alt=media&token=27f39ef6-b58e-4037-bdf5-b5edb8743e03",
-      // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fphy(2)?alt=media&token=a271b3ae-d436-4107-9524-dbcecd32b83b",
-      // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test5%2Fmath(1)?alt=media&token=8d7da82b-0026-4be4-b126-55d261b11071"]
+      // ["https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test2%2Fphy(1)?alt=media&token=27f39ef6-b58e-4037-bdf5-b5edb8743e03",
+      // // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test2%2F()?alt=media&token=a271b3ae-d436-4107-9524-dbcecd32b83b",
+      // "https://firebasestorage.googleapis.com/v0/b/creeper-fa765.appspot.com/o/test2%2Fmath(1)?alt=media&token=8d7da82b-0026-4be4-b126-55d261b11071"]
       this.chemQuestions=this.questionDB.chemQuestionUrls
       this.phyQuestions=this.questionDB.phyQuestionUrls
       this.mathQuestions=this.questionDB.mathQuestionUrls
@@ -247,16 +247,19 @@ item: Observable<any>;
     }
   }
   jumpToQuestion(questionNumberPar){
-    let prevQuestionNumber=  this.questionNumber
-    this.question=this.totalQuestions[questionNumberPar-1]
-    this.questionNumber=questionNumberPar+1;
-    console.log(questionNumberPar)
-    console.log(this.question)
+    if(this.questionNumber!=questionNumberPar+1){
 
-    this.commonFunction();
-    if(this.markAsReview[prevQuestionNumber-1]!="green"){
-      this.markAsReview[prevQuestionNumber-1]="red"
+      let prevQuestionNumber=  this.questionNumber
+      this.question=this.totalQuestions[questionNumberPar]
+      this.questionNumber=questionNumberPar+1;
+      console.log(questionNumberPar)
+      console.log(this.question)
 
+      this.commonFunction();
+      if(this.markAsReview[prevQuestionNumber-1]!="green"){
+        this.markAsReview[prevQuestionNumber-1]="red"
+
+      }
     }
 
   }

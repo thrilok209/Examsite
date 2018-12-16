@@ -9,17 +9,21 @@
     </div>
     <div class="form-group" >
       <label for="noOfPhyQuestionOfTheTest">PHY Questions</label>
-      <input type="number" step="3" #quePhyNum class="form-control" id="noOfPhyQuestionOfTheTest" placeholder="No Of Questions">
+      <input type="number"  #quePhyNum class="form-control" id="noOfPhyQuestionOfTheTest" placeholder="No Of Questions">
     </div>
     <div class="form-group" >
       <label for="noOfChemQuestionOfTheTest">Chem Questions</label>
-      <input type="number" step="3" #queChemNum class="form-control" id="noOfChemQuestionOfTheTest" placeholder="No Of Questions">
+      <input type="number"  #queChemNum class="form-control" id="noOfChemQuestionOfTheTest" placeholder="No Of Questions">
     </div>
     <div class="form-group" >
       <label for="noOfMathQuestionOfTheTest">MATH Questions</label>
-      <input type="number" step="3" #queMathNum class="form-control" id="noOfMathQuestionOfTheTest" placeholder="No Of Questions">
+      <input type="number"  #queMathNum class="form-control" id="noOfMathQuestionOfTheTest" placeholder="No Of Questions">
     </div>
-    <button type="button" class="btn btn-default" (click)="addTitle(title.value,quePhyNum.value,queChemNum.value,queMathNum.value)" >Enter Question</button>
+    <div class="form-group" >
+      <label for="noOfMathQuestionOfTheTest">TIME(mins)</label>
+      <input type="number"  #time class="form-control" id="time" placeholder="IN MINS">
+    </div>
+    <button type="button" class="btn btn-default" (click)="addTitle(title.value,quePhyNum.value,queChemNum.value,queMathNum.value , time.value)" >Enter Question</button>
   </div>
 
   <div class="add-question-part" [hidden]="questionAddingPart">

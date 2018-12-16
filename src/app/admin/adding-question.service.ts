@@ -13,6 +13,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class AddingQuestionService {
   titleOfTest;
+  time:number;
   numberOfChemQuestion=0
   numberOfphyQuestion=0
   numberOfmathQuestion=0
@@ -50,7 +51,9 @@ export class AddingQuestionService {
       "studentOptions":[],
       //  'Atcommand': this.atCommandUsers ,
         Teststatus:"pending",
-        startTest:"wait"});
+        startTest:"wait",
+      time:this.time});
+
   }
 
 }

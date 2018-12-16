@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
                this.afAuth.authState.subscribe(auth=>{
              if(auth){
                 localStorage.setItem('uid',auth.uid )
-                localStorage.setItem('user',name )
+                localStorage.setItem('user',name.toUpperCase() )
 
              }
      })

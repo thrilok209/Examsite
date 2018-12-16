@@ -22,6 +22,7 @@ import { AddingQuestionService } from '../adding-question.service'
 export class AddQuestionsPageComponent implements OnInit {
   titlePart=false;
   questionAddingPart=true;
+  time:number;
   totalNumberOfQuestionToAdd=0
   titleOfTest:string;
   numberOfChemQuestion=0
@@ -83,7 +84,7 @@ export class AddQuestionsPageComponent implements OnInit {
   this.testsRef.push({'title':"thrilok" , 'numberOfQuestion': {'totalQuestion':12,'chem':4 , 'phy':4 , 'math':4} , 'correctOptions': ["a","b","c","a","b","c","a","b","c","a","b","c"] , 'atCommand': ['1'] , 'status':'pending' , 'studentOptions':[]});
   }
 
-  addTitle(title,quePhyNum,queChemNum,queMathNum){
+  addTitle(title,quePhyNum,queChemNum,queMathNum,time){
     this.titleOfTest=title;
     this.totalNumberOfQuestionToAdd=parseInt(quePhyNum)+parseInt(queChemNum)+parseInt(queMathNum);
     this.numberOfphyQuestion=parseInt(quePhyNum)
@@ -94,6 +95,7 @@ export class AddQuestionsPageComponent implements OnInit {
     this.MathArray.length=queMathNum
     this.questionAddingPart=false;
     this.titlePart=true;
+    this.time=time
     console.log(this.phyArray)
 
   }
@@ -146,6 +148,7 @@ export class AddQuestionsPageComponent implements OnInit {
       this.questionDB.totalNumberOfQuestion=this.numberOfphyQuestion+this.numberOfChemQuestion+this.numberOfmathQuestion
       this.questionDB.titleOfTest=this.titleOfTest
       this.questionDB.totolQuestionUrls=this.phyQuestionUrls.concat(this.chemQuestionUrls,this.mathQuestionUrls)
+      this.questionDB.time=this.time
       console.log("all que from component")
       console.log(this.questionDB.totolQuestionUrls)
       console.log(this.chemQuestionUrls)
