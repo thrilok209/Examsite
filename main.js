@@ -829,7 +829,7 @@ var ChangeQuestionsPageComponent = /** @class */ (function () {
     ChangeQuestionsPageComponent.prototype.uploadFile = function (event) {
         var _this = this;
         var file = event.target.files[0];
-        var filePath = 'FullTest1/math(7)';
+        var filePath = 'FT2/phy(19)';
         var fileRef = this.storage.ref(filePath);
         var task = this.storage.upload(filePath, file);
         // observe percentage changes
@@ -1067,7 +1067,7 @@ var TestRemotePageComponent = /** @class */ (function () {
             this.testLoaded.startTest = "wait";
         }
         if (x == 3) {
-            this.testLoadRef.update({ startTest: "end" });
+            this.testLoadRef.update({ startTest: "end", testStatus: 'complete' });
             this.testLoaded.startTest = "end";
         }
     };
@@ -1659,7 +1659,7 @@ var QuestionAnswersViewingPageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student-clock{\n  background-color: #fff;\n  line-height: 15vh;\n  font-size: 2em;\n  padding-left: 1em;\n  font-weight: bolder;\n}\n.user-stuent{\n  background-color: #fff;\n}\n/*.question-options{\n  transform: scale(20);\n}*/\n"
+module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student-clock{\n  background-color: #fff;\n  line-height: 15vh;\n  font-size: 2em;\n  padding-left: 1em;\n  font-weight: bolder;\n}\n.user-stuent{\n  background-color: #fff;\n}\n/*.question-options{\n  transform: scale(20);\n}*/\n.btn-question{\n  max-height: 25em;\n   overflow-y: scroll;\n}\n"
 
 /***/ }),
 
@@ -2274,30 +2274,38 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
     ScoreReviewingPageComponent.prototype.addScoreToDB = function () {
         var _this = this;
         var count = 0;
+        var count2 = 0;
+        var count3 = 0;
         if (localStorage.getItem("storeOpt") == "storeTrue") {
             localStorage.setItem('storeOpt', "storeFalse");
             this.testsRef.snapshotChanges().subscribe(function (tests) {
                 var allStudentsOptions = [];
                 tests.forEach(function (test) {
                     if (test.key == localStorage.getItem('testKEY')) {
-                        if (test.payload.val().studentOptions != undefined) {
+                        if (test.payload.val().studentOptions != undefined && count2 == 0) {
                             allStudentsOptions = test.payload.val().studentOptions;
                         }
                         console.log(localStorage.getItem('name'));
-                        allStudentsOptions.push({ 'name': localStorage.getItem('name'), 'totalScore': _this.totalScore, "neg": _this.negativeMarks, 'opt': _this.studentOptions, 'uid': localStorage.getItem('uid'), 'studentDBkey': localStorage.getItem('userDBKey') });
-                        _this.testsRef.update(localStorage.getItem('testKEY'), { 'studentOptions': allStudentsOptions });
+                        if (count2 == 0) {
+                            allStudentsOptions.push({ 'name': localStorage.getItem('name'), 'totalScore': _this.totalScore, "neg": _this.negativeMarks, 'opt': _this.studentOptions, 'uid': localStorage.getItem('uid'), 'studentDBkey': localStorage.getItem('userDBKey') });
+                            _this.testsRef.update(localStorage.getItem('testKEY'), { 'studentOptions': allStudentsOptions });
+                            count2++;
+                        }
                     }
                 });
             });
             this.usersRef.snapshotChanges().subscribe(function (users) {
                 var studentAllTestOptions = [];
                 users.forEach(function (user) {
-                    if (localStorage.getItem('userDBKey') == user.key) {
+                    if (localStorage.getItem('userDBKey') == user.key && count3 == 0) {
                         if (user.payload.val().testOptions != undefined) {
                             studentAllTestOptions = user.payload.val().testOptions;
                         }
-                        studentAllTestOptions.push({ 'title': localStorage.getItem('titleOfTest'), 'totalScore': _this.totalScore, "neg": _this.negativeMarks, 'opt': _this.studentOptions, 'testDBkey': localStorage.getItem('testKEY') });
-                        _this.usersRef.update(localStorage.getItem('userDBKey'), { testOptions: studentAllTestOptions });
+                        if (count3 == 0) {
+                            studentAllTestOptions.push({ 'title': localStorage.getItem('titleOfTest'), 'totalScore': _this.totalScore, "neg": _this.negativeMarks, 'opt': _this.studentOptions, 'testDBkey': localStorage.getItem('testKEY') });
+                            _this.usersRef.update(localStorage.getItem('userDBKey'), { testOptions: studentAllTestOptions });
+                            count3++;
+                        }
                     }
                 });
             });
