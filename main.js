@@ -421,7 +421,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"check()\" >TEST</button>\n\n<form>\n  <div class=\"title-question-part\" [hidden]=\"titlePart\">\n    <div class=\"form-group\">\n      <label for=\"titleOfTheTest\">Test Title</label>\n      <input type=\"text`\" #title class=\"form-control\" id=\"titleOfTheTest\" placeholder=\"Title\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfPhyQuestionOfTheTest\">PHY Questions</label>\n      <input type=\"number\"  #quePhyNum class=\"form-control\" id=\"noOfPhyQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfChemQuestionOfTheTest\">Chem Questions</label>\n      <input type=\"number\"  #queChemNum class=\"form-control\" id=\"noOfChemQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfMathQuestionOfTheTest\">MATH Questions</label>\n      <input type=\"number\"  #queMathNum class=\"form-control\" id=\"noOfMathQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfMathQuestionOfTheTest\">TIME(mins)</label>\n      <input type=\"number\"  #time class=\"form-control\" id=\"time\" placeholder=\"IN MINS\">\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addTitle(title.value,quePhyNum.value,queChemNum.value,queMathNum.value , time.value)\" >Enter Question</button>\n  </div>\n\n  <div class=\"add-question-part\" [hidden]=\"questionAddingPart\">\n    <!-- <div class=\"form-group\">\n      <select class=\"custom-select\" (change)=\"$event.target.value\">\n        <option selected>Open this select menu</option>\n        <option value=\"1\">One</option>\n        <option value=\"2\">Two</option>\n        <option value=\"3\">Three</option>\n      </select>\n    </div> -->\n    <div class=\"form-group\" *ngFor=\"let question of phyArray; let i =index\" >\n      <label for=\"phyfile\">{{i+1}}) PHY Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'phy')\" class=\"form-control-file\" id=\"phyfile\">\n      <!-- <div>{{ phyUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" *ngFor=\"let question of ChemArray; let i =index\" >\n      <label for=\"chemfile\">{{i+1}}) CHEM Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'chem')\" class=\"form-control-file\" id=\"chemfile\">\n      <!-- <div>{{ chemUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" *ngFor=\"let question of MathArray; let i =index\" >\n      <label for=\"mathfile\">{{i+1}}) MATH Question</label>\n      <input type=\"file\" (change)=\"uploadFile($event,i+1,'math')\" class=\"form-control-file\" id=\"mathfile\">\n      <!-- <div>{{ mathUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addAnswers()\" >Enter Answers</button>\n\n  </div>\n</form>\n"
+module.exports = "\n<button type=\"button\" class=\"btn btn-danger\" (click)=\"check()\" >TEST</button>\n\n<form>\n  <div class=\"title-question-part\" [hidden]=\"titlePart\">\n    <div class=\"form-group\">\n      <label for=\"titleOfTheTest\">Test Title</label>\n      <input type=\"text`\" #title class=\"form-control\" id=\"titleOfTheTest\" placeholder=\"Title\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfPhyQuestionOfTheTest\">PHY Questions</label>\n      <input type=\"number\"  #quePhyNum class=\"form-control\" id=\"noOfPhyQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfChemQuestionOfTheTest\">Chem Questions</label>\n      <input type=\"number\"  #queChemNum class=\"form-control\" id=\"noOfChemQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"noOfMathQuestionOfTheTest\">MATH Questions</label>\n      <input type=\"number\"  #queMathNum class=\"form-control\" id=\"noOfMathQuestionOfTheTest\" placeholder=\"No Of Questions\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"MarkingScheme\">Marking Scheme</label>\n      <input type=\"number\"  #mark class=\"form-control\" id=\"MarkingScheme\" placeholder=\"Mark\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"negMarking\">Neg Marking</label>\n      <input type=\"number\"  #negMark class=\"form-control\" id=\"negMarking\" placeholder=\"Neg Mark\">\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"time\">TIME(mins)</label>\n      <input type=\"number\"  #time class=\"form-control\" id=\"time\" placeholder=\"IN MINS\">\n    </div>\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"addTitle(title.value,quePhyNum.value,queChemNum.value,queMathNum.value , time.value , mark.value,negMark.value)\" >Enter Question</button>\n  </div>\n\n  <div class=\"add-question-part\" [hidden]=\"questionAddingPart\">\n    <!-- <div class=\"form-group\">\n      <select class=\"custom-select\" (change)=\"$event.target.value\">\n        <option selected>Open this select menu</option>\n        <option value=\"1\">One</option>\n        <option value=\"2\">Two</option>\n        <option value=\"3\">Three</option>\n      </select>\n    </div> -->\n\n    <div class=\"form-group\"  >\n      <label for=\"phyfile\"> PHY Questions</label>\n      <input type=\"file\" multiple=true (change)=\"uploadFile($event,0,'phy')\" class=\"form-control-file\" id=\"phyfile\">\n      <!-- <div>{{ phyUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"chemfile\"> CHEM Questions</label>\n      <input type=\"file\" multiple=true (change)=\"uploadFile($event,0,'chem')\" class=\"form-control-file\" id=\"chemfile\">\n      <!-- <div>{{ chemUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <div class=\"form-group\" >\n      <label for=\"mathfile\">MATH Questions</label>\n      <input type=\"file\" multiple=true (change)=\"uploadFile($event,0,'math')\" class=\"form-control-file\" id=\"mathfile\">\n      <!-- <div>{{ mathUploadPercent[i+1] | async }}</div> -->\n    </div>\n    <h2>OVERALL PERCENTAGE {{allPercentage | async}}</h2>\n    <h2>PHY PERCENTAGE {{allPercentagePhy | async}}</h2>\n    <h2>CHEM PERCENTAGE {{allPercentageChem | async}}</h2>\n    <h2>MATH PERCENTAGE {{allPercentageMath | async}}</h2>\n\n\n    <button type=\"button\" class=\"btn btn-default\"  (click)=\"addAnswers()\" >Enter Answers</button>\n\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -440,7 +440,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/storage/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _adding_question_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../adding-question.service */ "./src/app/admin/adding-question.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _adding_question_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../adding-question.service */ "./src/app/admin/adding-question.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -450,6 +451,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -475,6 +478,11 @@ var AddQuestionsPageComponent = /** @class */ (function () {
         this.phyQuestionUrls = [];
         this.mathQuestionUrls = [];
         this.StatusTextAdmin = "";
+        this.mark = 0;
+        this.negMark = 0;
+        this.count2 = 0;
+        this.uploadActionStatus = 0;
+        this.percentage = 0;
         // this.itemsRef = db.list('tests');
         //     // Use snapshotChanges().map() to store the key
         //     this.items = this.itemsRef.snapshotChanges().pipe(
@@ -511,7 +519,7 @@ var AddQuestionsPageComponent = /** @class */ (function () {
     AddQuestionsPageComponent.prototype.check = function () {
         this.testsRef.push({ 'title': "thrilok", 'numberOfQuestion': { 'totalQuestion': 12, 'chem': 4, 'phy': 4, 'math': 4 }, 'correctOptions': ["a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c"], 'atCommand': ['1'], 'status': 'pending', 'studentOptions': [] });
     };
-    AddQuestionsPageComponent.prototype.addTitle = function (title, quePhyNum, queChemNum, queMathNum, time) {
+    AddQuestionsPageComponent.prototype.addTitle = function (title, quePhyNum, queChemNum, queMathNum, time, mark, neg) {
         this.titleOfTest = title;
         this.totalNumberOfQuestionToAdd = parseInt(quePhyNum) + parseInt(queChemNum) + parseInt(queMathNum);
         this.numberOfphyQuestion = parseInt(quePhyNum);
@@ -523,46 +531,58 @@ var AddQuestionsPageComponent = /** @class */ (function () {
         this.questionAddingPart = false;
         this.titlePart = true;
         this.time = time;
+        this.mark = mark;
+        this.negMark = neg;
         console.log(this.phyArray);
     };
-    AddQuestionsPageComponent.prototype.uploadFile = function (event, questionNum, subject) {
-        var _this = this;
-        var file = event.target.files[0];
-        var filePath = this.titleOfTest + "/" + subject + "(" + questionNum + ")";
-        var fileRef = this.storage.ref(filePath);
-        var task = this.storage.upload(filePath, file);
-        // observe percentage changes
-        // if(subject=="chem"){
-        //   this.chemUploadPercent[questionNum] = task.percentageChanges();
-        //   console.log("chem percentage")
-        // }
-        // if(subject=="math"){
-        //   this.mathUploadPercent[questionNum] = task.percentageChanges();
-        //   console.log("math percentage")
-        //
-        // }
-        //   if(subject=="phy"){
-        //     this.phyUploadPercent[questionNum] = task.percentageChanges();
-        //     console.log("phy percentage")
-        //
-        //   }
-        // get notified when the download URL is available
-        task.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["finalize"])(function () {
-            fileRef.getDownloadURL().subscribe(function (x) {
-                if (subject == "chem") {
-                    _this.chemQuestionUrls[questionNum - 1] = x;
-                    console.log(_this.chemQuestionUrls[questionNum - 1]);
-                }
-                if (subject == "math") {
-                    _this.mathQuestionUrls[questionNum - 1] = x;
-                }
-                if (subject == "phy") {
-                    _this.phyQuestionUrls[questionNum - 1] = x;
-                }
-            });
-        }))
-            .subscribe();
-    };
+    // uploadFile(event  , questionNum, subject) {
+    //   const folder = event.target.files;
+    //
+    //   // for(const folder of fo)
+    //   // folder.forEach((file,index)=>{
+    //   //   // const file = event.target.files[0];
+    //   //
+    //   // })
+    //   let index = 0;
+    //   for(const file of folder){
+    //     console.log(file.name)
+    //     const filePath = this.titleOfTest+"/"+subject+"("+(index+1)+")";
+    //     const fileRef = this.storage.ref(filePath);
+    //     const task = this.storage.upload(filePath, file);
+    //     task.snapshotChanges().pipe(
+    //         finalize(() => {
+    //           fileRef.getDownloadURL().subscribe(x=>{
+    //             if(subject=="chem"){
+    //               this.chemQuestionUrls[index]= x
+    //               }
+    //             if(subject=="math"){this.mathQuestionUrls[index]= x; }
+    //             if(subject=="phy"){this.phyQuestionUrls.push(x); }
+    //           })
+    //         })
+    //      )
+    //     .subscribe()
+    //     index++
+    //
+    //   }
+    //   console.log(this.phyQuestionUrls)
+    //
+    // // observe percentage changes
+    // // if(subject=="chem"){
+    // //   this.chemUploadPercent[questionNum] = task.percentageChanges();
+    // //   console.log("chem percentage")
+    // // }
+    // // if(subject=="math"){
+    // //   this.mathUploadPercent[questionNum] = task.percentageChanges();
+    // //   console.log("math percentage")
+    // //
+    // // }
+    // //   if(subject=="phy"){
+    // //     this.phyUploadPercent[questionNum] = task.percentageChanges();
+    // //     console.log("phy percentage")
+    // //
+    // //   }
+    // // get notified when the download URL is available
+    // }
     AddQuestionsPageComponent.prototype.addAnswers = function () {
         if (this.phyQuestionUrls.length == this.numberOfphyQuestion && this.mathQuestionUrls.length == this.numberOfmathQuestion && this.chemQuestionUrls.length == this.numberOfChemQuestion) {
             this.questionDB.phyQuestionUrls = this.phyQuestionUrls;
@@ -575,6 +595,8 @@ var AddQuestionsPageComponent = /** @class */ (function () {
             this.questionDB.titleOfTest = this.titleOfTest;
             this.questionDB.totolQuestionUrls = this.phyQuestionUrls.concat(this.chemQuestionUrls, this.mathQuestionUrls);
             this.questionDB.time = this.time;
+            this.questionDB.markScheme = this.mark;
+            this.questionDB.negMark = this.negMark;
             console.log("all que from component");
             console.log(this.questionDB.totolQuestionUrls);
             console.log(this.chemQuestionUrls);
@@ -584,13 +606,132 @@ var AddQuestionsPageComponent = /** @class */ (function () {
             window.alert("wait");
         }
     };
+    AddQuestionsPageComponent.prototype.uploadFile = function (event, questionNum, subject) {
+        var _this = this;
+        // reset the array
+        this.uploads = [];
+        var filelist = event.target.files;
+        var allPercentage = [];
+        var allPercentageChem = [];
+        var allPercentagePhy = [];
+        var allPercentageMath = [];
+        if ((filelist.length > this.numberOfChemQuestion) && subject == "chem") {
+            alert("You Have selected extra CHEM QUESTION.");
+            return;
+        }
+        if (filelist.length > this.numberOfphyQuestion && subject == "phy") {
+            alert("You Have selected extra PHY QUESTION.");
+            return;
+        }
+        if (filelist.length > this.numberOfmathQuestion && subject == "math") {
+            alert("You Have selected extra MATH QUESTION.");
+            return;
+        }
+        // if(this.count2==0){
+        //   allPercentage= [];
+        //   this.count2++
+        // }
+        var count = 0;
+        var _loop_1 = function (index) {
+            if (count == 0) {
+                var file = filelist[index];
+                var path = this_1.titleOfTest + "/" + subject + "(" + (index + 1) + ")";
+                var ref = this_1.storage.ref(path);
+                var task = this_1.storage.upload(path, file);
+                var _percentage$ = task.percentageChanges();
+                allPercentage.push(_percentage$);
+                if (subject == "chem") {
+                    allPercentageChem.push(_percentage$);
+                }
+                if (subject == "phy") {
+                    allPercentagePhy.push(_percentage$);
+                }
+                if (subject == "math") {
+                    allPercentageMath.push(_percentage$);
+                }
+                // create composed object with different information. ADAPT THIS ACCORDING YOUR NEED
+                var uploadTrack = {
+                    fileName: file.name,
+                    percentage: _percentage$
+                };
+                // push each upload into the array
+                this_1.uploads.push(uploadTrack);
+                // for every upload do whatever you want in firestore with the uploaded file
+                var _t = task.then(function (f) {
+                    return f.ref.getDownloadURL().then(function (x) {
+                        if (subject == "chem") {
+                            _this.chemQuestionUrls[index] = x;
+                        }
+                        if (subject == "math") {
+                            _this.mathQuestionUrls[index] = x;
+                        }
+                        if (subject == "phy") {
+                            _this.phyQuestionUrls[index] = x;
+                        }
+                    });
+                });
+                // index++
+            }
+        };
+        var this_1 = this;
+        for (var index = 0; index < filelist.length; index++) {
+            _loop_1(index);
+        }
+        console.log(this.phyQuestionUrls);
+        this.allPercentage = Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["combineLatest"])(allPercentage) // calculating total percentage
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (percentages) {
+            var result = 0;
+            for (var _i = 0, percentages_1 = percentages; _i < percentages_1.length; _i++) {
+                var percentage = percentages_1[_i];
+                result = result + percentage;
+            }
+            _this.percentage = result / percentages.length;
+            return result / percentages.length;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(console.log));
+        this.allPercentageChem = Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["combineLatest"])(allPercentageChem) //calculating chem percentage
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (percentages) {
+            var result = 0;
+            for (var _i = 0, percentages_2 = percentages; _i < percentages_2.length; _i++) {
+                var percentage = percentages_2[_i];
+                result = result + percentage;
+            }
+            return result / percentages.length;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(console.log));
+        this.allPercentageMath = Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["combineLatest"])(allPercentageMath) //calculating phy percentage
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (percentages) {
+            var result = 0;
+            for (var _i = 0, percentages_3 = percentages; _i < percentages_3.length; _i++) {
+                var percentage = percentages_3[_i];
+                result = result + percentage;
+            }
+            return result / percentages.length;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(console.log));
+        this.allPercentagePhy = Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["combineLatest"])(allPercentagePhy) //calculating phy percentage
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (percentages) {
+            var result = 0;
+            for (var _i = 0, percentages_4 = percentages; _i < percentages_4.length; _i++) {
+                var percentage = percentages_4[_i];
+                result = result + percentage;
+            }
+            return result / percentages.length;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(console.log));
+        // if(this.uploadActionStatus==0 && this.percentage==100){
+        //   this.uploadActionStatus=1
+        // }
+        // if(this.uploadActionStatus==1 && this.percentage==100){
+        //   this.uploadActionStatus=2
+        // }
+        // if(this.uploadActionStatus==2 && this.percentage==100){
+        //   this.uploadActionStatus=3
+        // } NOT WORKING
+    };
     AddQuestionsPageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-add-questions-page',
             template: __webpack_require__(/*! ./add-questions-page.component.html */ "./src/app/admin/add-questions-page/add-questions-page.component.html"),
             styles: [__webpack_require__(/*! ./add-questions-page.component.css */ "./src/app/admin/add-questions-page/add-questions-page.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _adding_question_service__WEBPACK_IMPORTED_MODULE_5__["AddingQuestionService"]])
+        __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _adding_question_service__WEBPACK_IMPORTED_MODULE_6__["AddingQuestionService"]])
     ], AddQuestionsPageComponent);
     return AddQuestionsPageComponent;
 }());
@@ -737,6 +878,10 @@ var AddingQuestionService = /** @class */ (function () {
         this.totolQuestionUrls = [];
         this.atCommandUsers = [];
         this.questionCorrectOptions = [];
+        this.testAddStatus = true;
+        this.access = false;
+        this.markScheme = 0;
+        this.negMark = 0;
         this.testsRef = db.list('TESTS');
         this.testsRef.snapshotChanges()
             .subscribe(function (actions) {
@@ -748,14 +893,19 @@ var AddingQuestionService = /** @class */ (function () {
         });
     }
     AddingQuestionService.prototype.addTest = function () {
-        this.testsRef.push({ 'title': this.titleOfTest,
-            'numberOfQuestion': { "total": this.totalNumberOfQuestion, "phy": this.numberOfphyQuestion, "chem": this.numberOfChemQuestion, "math": this.numberOfmathQuestion },
-            'correctOptions': { "totalQue": this.questionCorrectOptions, "phy": this.phyCorrectOptions, "chem": this.ChemCorrectOptions, "math": this.MathCorrectOptions },
-            "studentOptions": [],
-            //  'Atcommand': this.atCommandUsers ,
-            Teststatus: "pending",
-            startTest: "wait",
-            time: this.time });
+        if (this.testAddStatus) {
+            this.testsRef.push({ 'title': this.titleOfTest,
+                'numberOfQuestion': { "total": this.totalNumberOfQuestion, "phy": this.numberOfphyQuestion, "chem": this.numberOfChemQuestion, "math": this.numberOfmathQuestion },
+                'correctOptions': { "totalQue": this.questionCorrectOptions, "phy": this.phyCorrectOptions, "chem": this.ChemCorrectOptions, "math": this.MathCorrectOptions },
+                "studentOptions": [],
+                //  'Atcommand': this.atCommandUsers ,
+                Teststatus: "pending",
+                startTest: "wait",
+                time: this.time, MarkScheme: this.markScheme, NegMark: this.negMark });
+        }
+    };
+    AddingQuestionService.prototype.clear = function () {
+        this.testAddStatus = false;
     };
     AddingQuestionService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -764,6 +914,116 @@ var AddingQuestionService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"]])
     ], AddingQuestionService);
     return AddingQuestionService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/auto-uploading-page/auto-uploading-page.component.css":
+/*!*****************************************************************************!*\
+  !*** ./src/app/admin/auto-uploading-page/auto-uploading-page.component.css ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/auto-uploading-page/auto-uploading-page.component.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/admin/auto-uploading-page/auto-uploading-page.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form >\n\n<div class=\"form-group\"  >\n  <label for=\"phyfile\">PHY Question</label>\n  <input type=\"file\" multiple=true (change)=\"uploadFile($event,1,'phy')\" class=\"form-control-file\" id=\"phyfile\">\n  <!-- <div>{{ phyUploadPercent[i+1] | async }}</div> -->\n</div>\n\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin/auto-uploading-page/auto-uploading-page.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/admin/auto-uploading-page/auto-uploading-page.component.ts ***!
+  \****************************************************************************/
+/*! exports provided: AutoUploadingPageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutoUploadingPageComponent", function() { return AutoUploadingPageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/index.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/storage/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _adding_question_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../adding-question.service */ "./src/app/admin/adding-question.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AutoUploadingPageComponent = /** @class */ (function () {
+    function AutoUploadingPageComponent(db, storage, router, questionDB) {
+        this.storage = storage;
+        this.router = router;
+        this.questionDB = questionDB;
+    }
+    AutoUploadingPageComponent.prototype.ngOnInit = function () {
+    };
+    AutoUploadingPageComponent.prototype.uploadFile = function (event, questionNum, subject) {
+        var file = event.target.files[0];
+        var filePath = 'test2' + "/" + subject + "(" + questionNum + ")";
+        var fileRef = this.storage.ref(filePath);
+        var task = this.storage.upload(filePath, file);
+        console.log(event.target.files);
+        // observe percentage changes
+        // if(subject=="chem"){
+        //   this.chemUploadPercent[questionNum] = task.percentageChanges();
+        //   console.log("chem percentage")
+        // }
+        // if(subject=="math"){
+        //   this.mathUploadPercent[questionNum] = task.percentageChanges();
+        //   console.log("math percentage")
+        //
+        // }
+        //   if(subject=="phy"){
+        //     this.phyUploadPercent[questionNum] = task.percentageChanges();
+        //     console.log("phy percentage")
+        //
+        //   }
+        // get notified when the download URL is available
+        // task.snapshotChanges().pipe(
+        //     finalize(() => {
+        //       fileRef.getDownloadURL().subscribe(x=>{
+        //         if(subject=="chem"){
+        //           this.chemQuestionUrls[questionNum-1]= x
+        //           console.log(this.chemQuestionUrls[questionNum-1])
+        //           }
+        //         if(subject=="math"){this.mathQuestionUrls[questionNum-1]= x; }
+        //         if(subject=="phy"){this.phyQuestionUrls[questionNum-1]= x; }
+        //       })
+        //     })
+        //  )
+        // .subscribe()
+    };
+    AutoUploadingPageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-auto-uploading-page',
+            template: __webpack_require__(/*! ./auto-uploading-page.component.html */ "./src/app/admin/auto-uploading-page/auto-uploading-page.component.html"),
+            styles: [__webpack_require__(/*! ./auto-uploading-page.component.css */ "./src/app/admin/auto-uploading-page/auto-uploading-page.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _adding_question_service__WEBPACK_IMPORTED_MODULE_4__["AddingQuestionService"]])
+    ], AutoUploadingPageComponent);
+    return AutoUploadingPageComponent;
 }());
 
 
@@ -849,6 +1109,69 @@ var ChangeQuestionsPageComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"], _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], ChangeQuestionsPageComponent);
     return ChangeQuestionsPageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/home-page/home-page.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/admin/home-page/home-page.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/home-page/home-page.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/admin/home-page/home-page.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<button type=\"button\" [routerLink]=\"['/remote']\" class=\"btn btn-default\">Remote</button>\n<button type=\"button\" [routerLink]=\"['/addquestions']\" class=\"btn btn-default\">Add Question</button>\n<button type=\"button\" [routerLink]=\"['/load']\" class=\"btn btn-default\">Load test</button>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin/home-page/home-page.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/admin/home-page/home-page.component.ts ***!
+  \********************************************************/
+/*! exports provided: HomePageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageComponent", function() { return HomePageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HomePageComponent = /** @class */ (function () {
+    function HomePageComponent() {
+    }
+    HomePageComponent.prototype.ngOnInit = function () {
+    };
+    HomePageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-home-page',
+            template: __webpack_require__(/*! ./home-page.component.html */ "./src/app/admin/home-page/home-page.component.html"),
+            styles: [__webpack_require__(/*! ./home-page.component.css */ "./src/app/admin/home-page/home-page.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomePageComponent);
+    return HomePageComponent;
 }());
 
 
@@ -945,6 +1268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QueOptionsPageComponent", function() { return QueOptionsPageComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _adding_question_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../adding-question.service */ "./src/app/admin/adding-question.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -956,8 +1280,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var QueOptionsPageComponent = /** @class */ (function () {
-    function QueOptionsPageComponent(questionDB) {
+    function QueOptionsPageComponent(router, questionDB) {
+        this.router = router;
         this.questionDB = questionDB;
         this.totalQuestionsUrl = [];
         this.totalAdminOptions = [];
@@ -968,6 +1294,8 @@ var QueOptionsPageComponent = /** @class */ (function () {
     };
     QueOptionsPageComponent.prototype.submitAdminTest = function () {
         this.questionDB.addTest();
+        this.questionDB.clear();
+        this.router.navigate(['/adminhome']);
     };
     QueOptionsPageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -975,7 +1303,7 @@ var QueOptionsPageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./que-options-page.component.html */ "./src/app/admin/que-options-page/que-options-page.component.html"),
             styles: [__webpack_require__(/*! ./que-options-page.component.css */ "./src/app/admin/que-options-page/que-options-page.component.css")]
         }),
-        __metadata("design:paramtypes", [_adding_question_service__WEBPACK_IMPORTED_MODULE_1__["AddingQuestionService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _adding_question_service__WEBPACK_IMPORTED_MODULE_1__["AddingQuestionService"]])
     ], QueOptionsPageComponent);
     return QueOptionsPageComponent;
 }());
@@ -1002,7 +1330,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">Test Title</th>\n      <th scope=\"col\">Test</th>\n      <th scope=\"col\">No Of Question</th>\n      <th scope=\"col\">Test status</th>\n\n      <th scope=\"col\">-</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th scope=\"row\">{{testLoaded.title}}</th>\n      <td>{{testLoaded.Teststatus}}</td>\n      <td>{{testLoaded.numberOfQuestion.total}}</td>\n      <td>{{testLoaded.startTest}}</td>\n      <td>\n        <button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\" *ngIf=\"testLoaded.startTest=='wait'\">Start</button>\n        <button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" *ngIf=\"testLoaded.startTest=='start'\">Wait</button>\n        <button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(3)\" *ngIf=\"testLoaded.startTest=='start'\">END</button>\n      </td>\n    </tr>\n\n  </tbody>\n</table>\n\n\n\n<div class=\"studentScore pt-5\">\n  <h3>Student Score</h3>\n  <table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Total Score</th>\n      <th scope=\"col\">Negative Marks</th>\n      <th scope=\"col\">Options</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let score of studentScore; let i =index\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>{{score.name}}</td>\n      <td>{{score.totalScore}}</td>\n      <td>{{score.neg}}</td>\n      <td>{{score.opt | json}}</td>\n    </tr>\n\n  </tbody>\n</table>\n</div>\n"
+module.exports = "<table class=\"table\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">Test Title</th>\n      <th scope=\"col\">Test</th>\n      <th scope=\"col\">No Of Question</th>\n      <th scope=\"col\">Test status</th>\n\n      <th scope=\"col\">-</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th scope=\"row\">{{testLoaded.title}}</th>\n      <td>{{testLoaded.Teststatus}}</td>\n      <td>{{testLoaded.numberOfQuestion.total}}</td>\n      <td>{{testLoaded.startTest}}</td>\n      <td>\n        <button type=\"button\" class=\"btn btn-success\" (click)=\"testStatus(1)\" *ngIf=\"testLoaded.startTest=='wait'\">Start</button>\n        <button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(2)\" *ngIf=\"testLoaded.startTest=='start'\">Wait</button>\n        <button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(3)\" *ngIf=\"testLoaded.startTest=='start'\">END</button>\n        <button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(4)\" *ngIf=\"testLoaded.startTest=='end'\">Remove</button>\n        <button type=\"button\" class=\"btn btn-danger\" (click)=\"testStatus(5)\" *ngIf=\"testLoaded.startTest=='end'\">Start Again</button>\n\n\n      </td>\n    </tr>\n\n  </tbody>\n</table>\n\n\n\n<div class=\"studentScore pt-5\">\n  <h3>Student Score</h3>\n  <table class=\"table\">\n  <thead>\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Name</th>\n      <th scope=\"col\">Total Score</th>\n      <th scope=\"col\">Negative Marks</th>\n      <th scope=\"col\">Options</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let score of studentScore; let i =index\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>{{score.name}}</td>\n      <td>{{score.totalScore}}</td>\n      <td>{{score.neg}}</td>\n      <td>{{score.opt | json}}</td>\n    </tr>\n\n  </tbody>\n</table>\n<angular2csv [data]=\"CSVData\" filename=\"{{testTitle}}\" [options]=\"CSVoptions\"></angular2csv>\n</div>\n"
 
 /***/ }),
 
@@ -1018,6 +1346,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TestRemotePageComponent", function() { return TestRemotePageComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1029,12 +1358,29 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var TestRemotePageComponent = /** @class */ (function () {
-    function TestRemotePageComponent(db) {
+    function TestRemotePageComponent(router, db) {
         var _this = this;
+        this.router = router;
         this.studentScore = [];
         this.btn = 's';
+        this.noOfQue = 0;
+        this.CSVoptions = {
+            fieldSeparator: ',',
+            quoteStrings: '"',
+            decimalseparator: '.',
+            showLabels: true,
+            headers: [],
+            showTitle: true,
+            title: '',
+            useBom: false,
+            removeNewLines: true,
+            keys: ['name']
+        };
+        this.CSVData = [];
         this.itemRef = db.object('statusTest');
+        this.testsRef = db.list('TESTS');
         this.item = this.itemRef.valueChanges();
         this.testScoreRef = db.list('testScore');
         this.testScoreRef.snapshotChanges()
@@ -1051,27 +1397,89 @@ var TestRemotePageComponent = /** @class */ (function () {
         this.testLoadRef.snapshotChanges().subscribe(function (test) {
             _this.testLoaded = test.payload.val();
             _this.studentScore = [];
+            _this.noOfQue = test.payload.val().numberOfQuestion.total;
+            _this.testTitle = test.payload.val().title;
             test.payload.val().studentOptions.forEach(function (options) {
                 console.log(options);
                 _this.studentScore.push(options);
             });
+            _this.exportCSV();
         });
     }
     TestRemotePageComponent.prototype.testStatus = function (x) {
         if (x == 1) {
             this.testLoadRef.update({ startTest: "start" });
             this.testLoaded.startTest = "start";
+            this.testsRef.update(this.testLoaded.key, { startTest: "start" });
         }
         if (x == 2) {
             this.testLoadRef.update({ startTest: "wait" });
             this.testLoaded.startTest = "wait";
+            this.testsRef.update(this.testLoaded.key, { startTest: "wait" });
         }
         if (x == 3) {
             this.testLoadRef.update({ startTest: "end", testStatus: 'complete' });
             this.testLoaded.startTest = "end";
+            // console.log(this.testLoaded.key)
+            this.testsRef.update(this.testLoaded.key, { startTest: "end", Teststatus: 'complete' });
+        }
+        if (x == 4) {
+            this.testLoadRef.remove();
+            this.router.navigate(['load']);
+        }
+        if (x == 5) {
+            this.testLoadRef.update({ startTest: "wait" });
+            this.testLoaded.startTest = "wait";
+            this.testsRef.update(this.testLoaded.key, { startTest: "wait" });
         }
     };
     TestRemotePageComponent.prototype.ngOnInit = function () {
+    };
+    TestRemotePageComponent.prototype.exportCSV = function () {
+        for (var j = 0; j < this.noOfQue; j++) {
+            this.CSVoptions.keys.push((j + 1).toString());
+        }
+        this.CSVoptions.headers = this.CSVoptions.keys;
+        for (var i = 0; i < this.studentScore.length; i++) {
+            var stuOpt = this.studentScore[i].opt;
+            this.CSVData[i] = {
+                name: this.studentScore[i].name,
+            };
+            if (Array.isArray(this.studentScore[i].opt)) {
+                for (var j = 0; j < this.studentScore[i].opt.length; j++) {
+                    if (this.studentScore[i].opt[j] != undefined && this.studentScore[i].opt[j] != null) {
+                        this.CSVData[i][j + 1] = this.studentScore[i].opt[j];
+                    }
+                    else
+                        (this.CSVData[i][j + 1] = "");
+                }
+            }
+            else {
+                var options = Object.entries(this.studentScore[i].opt);
+                // for(let j=0;j< this.noOfQue;j++){
+                // let index =options[j][0]
+                for (var k = 0; k < options.length; k++) {
+                    // console.log(options[k][0])
+                    // if((j)==parseInt(options[k][0])){
+                    this.CSVData[i][k + 1] = options[k][1];
+                    // }else{
+                    //   this.CSVData[i][j]=""
+                    // }
+                }
+                for (var k = 0; k < this.noOfQue; k++) {
+                    // console.log(options[k][0])
+                    // if((j)==parseInt(options[k][0])){
+                    if (this.CSVData[i][k + 1] == undefined) {
+                        this.CSVData[i][k + 1] = "";
+                    }
+                    // }else{
+                    //   this.CSVData[i][j]=""
+                    // }
+                    // }
+                }
+            }
+        }
+        console.log(this.CSVData);
     };
     TestRemotePageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1079,7 +1487,7 @@ var TestRemotePageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./test-remote-page.component.html */ "./src/app/admin/test-remote-page/test-remote-page.component.html"),
             styles: [__webpack_require__(/*! ./test-remote-page.component.css */ "./src/app/admin/test-remote-page/test-remote-page.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_fire_database__WEBPACK_IMPORTED_MODULE_1__["AngularFireDatabase"]])
     ], TestRemotePageComponent);
     return TestRemotePageComponent;
 }());
@@ -1313,31 +1721,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
 /* harmony import */ var ngx_countdown__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-countdown */ "./node_modules/ngx-countdown/fesm5/ngx-countdown.js");
 /* harmony import */ var ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ng-multiselect-dropdown */ "./node_modules/ng-multiselect-dropdown/fesm5/ng-multiselect-dropdown.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/question-viewing-page/question-viewing-page.component */ "./src/app/pages/question-viewing-page/question-viewing-page.component.ts");
-/* harmony import */ var _admin_add_questions_page_add_questions_page_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/add-questions-page/add-questions-page.component */ "./src/app/admin/add-questions-page/add-questions-page.component.ts");
-/* harmony import */ var _pages_score_reviewing_page_score_reviewing_page_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/score-reviewing-page/score-reviewing-page.component */ "./src/app/pages/score-reviewing-page/score-reviewing-page.component.ts");
-/* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/login/login.component */ "./src/app/pages/login/login.component.ts");
-/* harmony import */ var _pages_waiting_page_waiting_page_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/waiting-page/waiting-page.component */ "./src/app/pages/waiting-page/waiting-page.component.ts");
-/* harmony import */ var _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/test-remote-page/test-remote-page.component */ "./src/app/admin/test-remote-page/test-remote-page.component.ts");
-/* harmony import */ var _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/add-anstoque-page/add-anstoque-page.component */ "./src/app/admin/add-anstoque-page/add-anstoque-page.component.ts");
-/* harmony import */ var _admin_adding_question_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/adding-question.service */ "./src/app/admin/adding-question.service.ts");
-/* harmony import */ var _admin_load_test_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/load-test.service */ "./src/app/admin/load-test.service.ts");
-/* harmony import */ var _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/add-users-to-test/add-users-to-test.component */ "./src/app/admin/add-users-to-test/add-users-to-test.component.ts");
-/* harmony import */ var _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/que-options-page/que-options-page.component */ "./src/app/admin/que-options-page/que-options-page.component.ts");
-/* harmony import */ var _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./pages/signup-page/signup-page.component */ "./src/app/pages/signup-page/signup-page.component.ts");
-/* harmony import */ var _admin_test_selection_page_test_selection_page_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/test-selection-page/test-selection-page.component */ "./src/app/admin/test-selection-page/test-selection-page.component.ts");
-/* harmony import */ var _pages_question_answers_viewing_page_question_answers_viewing_page_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./pages/question-answers-viewing-page/question-answers-viewing-page.component */ "./src/app/pages/question-answers-viewing-page/question-answers-viewing-page.component.ts");
-/* harmony import */ var _admin_change_questions_page_change_questions_page_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./admin/change-questions-page/change-questions-page.component */ "./src/app/admin/change-questions-page/change-questions-page.component.ts");
+/* harmony import */ var angular2_csv__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! angular2-csv */ "./node_modules/angular2-csv/fesm5/angular2-csv.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./routes */ "./src/app/routes.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/question-viewing-page/question-viewing-page.component */ "./src/app/pages/question-viewing-page/question-viewing-page.component.ts");
+/* harmony import */ var _admin_add_questions_page_add_questions_page_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/add-questions-page/add-questions-page.component */ "./src/app/admin/add-questions-page/add-questions-page.component.ts");
+/* harmony import */ var _pages_score_reviewing_page_score_reviewing_page_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/score-reviewing-page/score-reviewing-page.component */ "./src/app/pages/score-reviewing-page/score-reviewing-page.component.ts");
+/* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/login/login.component */ "./src/app/pages/login/login.component.ts");
+/* harmony import */ var _pages_waiting_page_waiting_page_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/waiting-page/waiting-page.component */ "./src/app/pages/waiting-page/waiting-page.component.ts");
+/* harmony import */ var _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/test-remote-page/test-remote-page.component */ "./src/app/admin/test-remote-page/test-remote-page.component.ts");
+/* harmony import */ var _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/add-anstoque-page/add-anstoque-page.component */ "./src/app/admin/add-anstoque-page/add-anstoque-page.component.ts");
+/* harmony import */ var _admin_adding_question_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/adding-question.service */ "./src/app/admin/adding-question.service.ts");
+/* harmony import */ var _admin_load_test_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/load-test.service */ "./src/app/admin/load-test.service.ts");
+/* harmony import */ var _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/add-users-to-test/add-users-to-test.component */ "./src/app/admin/add-users-to-test/add-users-to-test.component.ts");
+/* harmony import */ var _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/que-options-page/que-options-page.component */ "./src/app/admin/que-options-page/que-options-page.component.ts");
+/* harmony import */ var _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./pages/signup-page/signup-page.component */ "./src/app/pages/signup-page/signup-page.component.ts");
+/* harmony import */ var _admin_test_selection_page_test_selection_page_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./admin/test-selection-page/test-selection-page.component */ "./src/app/admin/test-selection-page/test-selection-page.component.ts");
+/* harmony import */ var _pages_question_answers_viewing_page_question_answers_viewing_page_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./pages/question-answers-viewing-page/question-answers-viewing-page.component */ "./src/app/pages/question-answers-viewing-page/question-answers-viewing-page.component.ts");
+/* harmony import */ var _admin_change_questions_page_change_questions_page_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./admin/change-questions-page/change-questions-page.component */ "./src/app/admin/change-questions-page/change-questions-page.component.ts");
+/* harmony import */ var _admin_auto_uploading_page_auto_uploading_page_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./admin/auto-uploading-page/auto-uploading-page.component */ "./src/app/admin/auto-uploading-page/auto-uploading-page.component.ts");
+/* harmony import */ var _admin_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./admin/home-page/home-page.component */ "./src/app/admin/home-page/home-page.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -1378,40 +1792,44 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_17__["QuestionViewingPageComponent"],
-                _admin_add_questions_page_add_questions_page_component__WEBPACK_IMPORTED_MODULE_18__["AddQuestionsPageComponent"],
-                _pages_score_reviewing_page_score_reviewing_page_component__WEBPACK_IMPORTED_MODULE_19__["ScoreReviewingPageComponent"],
-                _pages_login_login_component__WEBPACK_IMPORTED_MODULE_20__["LoginComponent"],
-                _pages_waiting_page_waiting_page_component__WEBPACK_IMPORTED_MODULE_21__["WaitingPageComponent"],
-                _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_22__["TestRemotePageComponent"],
-                _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_23__["AddAnstoquePageComponent"],
-                _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_26__["AddUsersToTestComponent"],
-                _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_27__["QueOptionsPageComponent"],
-                _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_28__["SignupPageComponent"],
-                _admin_test_selection_page_test_selection_page_component__WEBPACK_IMPORTED_MODULE_29__["TestSelectionPageComponent"],
-                _pages_question_answers_viewing_page_question_answers_viewing_page_component__WEBPACK_IMPORTED_MODULE_30__["QuestionAnswersViewingPageComponent"],
-                _admin_change_questions_page_change_questions_page_component__WEBPACK_IMPORTED_MODULE_31__["ChangeQuestionsPageComponent"],
+                _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_18__["QuestionViewingPageComponent"],
+                _admin_add_questions_page_add_questions_page_component__WEBPACK_IMPORTED_MODULE_19__["AddQuestionsPageComponent"],
+                _pages_score_reviewing_page_score_reviewing_page_component__WEBPACK_IMPORTED_MODULE_20__["ScoreReviewingPageComponent"],
+                _pages_login_login_component__WEBPACK_IMPORTED_MODULE_21__["LoginComponent"],
+                _pages_waiting_page_waiting_page_component__WEBPACK_IMPORTED_MODULE_22__["WaitingPageComponent"],
+                _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_23__["TestRemotePageComponent"],
+                _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_24__["AddAnstoquePageComponent"],
+                _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_27__["AddUsersToTestComponent"],
+                _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_28__["QueOptionsPageComponent"],
+                _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_29__["SignupPageComponent"],
+                _admin_test_selection_page_test_selection_page_component__WEBPACK_IMPORTED_MODULE_30__["TestSelectionPageComponent"],
+                _pages_question_answers_viewing_page_question_answers_viewing_page_component__WEBPACK_IMPORTED_MODULE_31__["QuestionAnswersViewingPageComponent"],
+                _admin_change_questions_page_change_questions_page_component__WEBPACK_IMPORTED_MODULE_32__["ChangeQuestionsPageComponent"],
+                _admin_auto_uploading_page_auto_uploading_page_component__WEBPACK_IMPORTED_MODULE_33__["AutoUploadingPageComponent"],
+                _admin_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_34__["HomePageComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_14__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_15__["routes"]),
+                _angular_router__WEBPACK_IMPORTED_MODULE_15__["RouterModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_15__["RouterModule"].forRoot(_routes__WEBPACK_IMPORTED_MODULE_16__["routes"]),
                 _app_bootstrap_app_bootstrap_module__WEBPACK_IMPORTED_MODULE_4__["AppBootstrapModule"],
-                _angular_fire__WEBPACK_IMPORTED_MODULE_6__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_13__["environment"].firebase),
+                _angular_fire__WEBPACK_IMPORTED_MODULE_6__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_14__["environment"].firebase),
                 _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestoreModule"],
                 _angular_fire_storage__WEBPACK_IMPORTED_MODULE_8__["AngularFireStorageModule"],
                 _angular_fire_database__WEBPACK_IMPORTED_MODULE_9__["AngularFireDatabaseModule"],
                 _angular_fire_auth__WEBPACK_IMPORTED_MODULE_10__["AngularFireAuthModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_16__["HttpClientModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_17__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
                 ngx_countdown__WEBPACK_IMPORTED_MODULE_11__["CountdownModule"],
                 ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_12__["NgMultiSelectDropDownModule"].forRoot(),
+                angular2_csv__WEBPACK_IMPORTED_MODULE_13__["Angular2CsvModule"]
+                // SimpleTimer
             ],
             providers: [_question_data_service__WEBPACK_IMPORTED_MODULE_2__["QuestionDataService"],
-                _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_17__["QuestionViewingPageComponent"],
-                _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_23__["AddAnstoquePageComponent"],
-                _admin_adding_question_service__WEBPACK_IMPORTED_MODULE_24__["AddingQuestionService"],
-                _admin_load_test_service__WEBPACK_IMPORTED_MODULE_25__["LoadTestService"]],
+                _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_18__["QuestionViewingPageComponent"],
+                _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_24__["AddAnstoquePageComponent"],
+                _admin_adding_question_service__WEBPACK_IMPORTED_MODULE_25__["AddingQuestionService"],
+                _admin_load_test_service__WEBPACK_IMPORTED_MODULE_26__["LoadTestService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
@@ -1469,6 +1887,61 @@ var AuthCheckGuard = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/guard/admin-check.guard.ts":
+/*!********************************************!*\
+  !*** ./src/app/guard/admin-check.guard.ts ***!
+  \********************************************/
+/*! exports provided: AdminCheckGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminCheckGuard", function() { return AdminCheckGuard; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _admin_adding_question_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../admin/adding-question.service */ "./src/app/admin/adding-question.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AdminCheckGuard = /** @class */ (function () {
+    function AdminCheckGuard(adminDB, afAuth, router) {
+        this.adminDB = adminDB;
+        this.afAuth = afAuth;
+        this.router = router;
+    }
+    AdminCheckGuard.prototype.canActivate = function (next, state) {
+        if (localStorage.getItem('email') == "t@gmail.com") {
+            return true;
+        }
+        window.alert("You don't have permission to view this page");
+        this.afAuth.auth.signOut();
+        this.router.navigate(['login']);
+        return false;
+    };
+    AdminCheckGuard = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_admin_adding_question_service__WEBPACK_IMPORTED_MODULE_3__["AddingQuestionService"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], AdminCheckGuard);
+    return AdminCheckGuard;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/login/login.component.css":
 /*!*************************************************!*\
   !*** ./src/app/pages/login/login.component.css ***!
@@ -1504,6 +1977,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _admin_adding_question_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../admin/adding-question.service */ "./src/app/admin/adding-question.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1516,8 +1990,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(afAuth, router) {
+    function LoginComponent(adminDB, afAuth, router) {
+        this.adminDB = adminDB;
         this.afAuth = afAuth;
         this.router = router;
     }
@@ -1534,7 +2010,8 @@ var LoginComponent = /** @class */ (function () {
             _this.errorMsg = '';
             location.reload();
             if (email == "t@gmail.com") {
-                _this.router.navigate(['remote']);
+                _this.router.navigate(['adminhome']);
+                _this.adminDB.access = true;
             }
             if (email != "t@gmail.com") {
                 _this.router.navigate(['wait']);
@@ -1554,7 +2031,7 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/pages/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/pages/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        __metadata("design:paramtypes", [_admin_adding_question_service__WEBPACK_IMPORTED_MODULE_3__["AddingQuestionService"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1581,7 +2058,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<button type=\"button\" class=\"btn btn-danger\" (click)=\"logout()\" >Logout</button>\n\n<table class=\"table\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Questions</th>\n\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let question of totalQuestions;let i=index\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>\n        <div class=\"card\" style=\"width: 75rem;\">\n          <img class=\"card-img-top\" src=\"{{question}}\" alt=\"Card image cap\">\n          <div class=\"card-body\">\n            <!-- <h5 class=\"card-title\">Card title</h5> -->\n            <p class=\"card-text\">Your Option: <strong>{{totalStudentOptions[i]}}</strong> <br>\n                                  correct Options: <strong>{{totalCorrectOtp[i]}}</strong>\n                                </p>\n          </div>\n        </div>\n\n      </td>\n\n    </tr>\n\n  </tbody>\n</table>\n"
+module.exports = "<button type=\"button\" class=\"btn btn-danger\" (click)=\"logout()\" >Logout</button>\n<h3>Total Score: {{totalMarks}}, Negative Score: -{{negMarks}}</h3>\n<table class=\"table\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">Questions</th>\n\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let question of totalQuestions;let i=index\">\n      <th scope=\"row\">{{i+1}}</th>\n      <td>\n        <div class=\"card\" style=\"width: 75rem;\">\n          <img class=\"card-img-top\" src=\"{{question}}\" alt=\"Card image cap\">\n          <div class=\"card-body\">\n            <!-- <h5 class=\"card-title\">Card title</h5> -->\n            <p [ngStyle]=\"{'background-color': stuOptionColor[i]}\" class=\"card-text\">Your Option: <strong>{{totalStudentOptions[i]}}</strong> <br>\n                                  correct Options: <strong>{{totalCorrectOtp[i]}}</strong>\n                                </p>\n          </div>\n        </div>\n\n      </td>\n\n    </tr>\n\n  </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -1625,12 +2102,27 @@ var QuestionAnswersViewingPageComponent = /** @class */ (function () {
         this.storage = storage;
         this.san = san;
         this.router = router;
+        this.stuOptionColor = [];
     }
     QuestionAnswersViewingPageComponent.prototype.ngOnInit = function () {
         this.totalQuestions = this.questionStuDB.totalQuestions;
         this.totalStudentOptions = this.questionStuDB.studentOptions;
         this.totalCorrectOtp = this.questionStuDB.questionCorrectOptions;
-        console.log(this.totalStudentOptions);
+        this.totalMarks = this.questionStuDB.studentScore.totalScore;
+        this.negMarks = this.questionStuDB.studentScore.negScore;
+        // this.stuOptionColor.length=this.totalCorrectOtp.length
+        for (var i = 0; i < this.totalCorrectOtp.length; i++) {
+            if (this.totalStudentOptions[i] == this.totalCorrectOtp[i]) {
+                this.stuOptionColor.push('green');
+            }
+            else {
+                this.stuOptionColor.push('red');
+            }
+            if (this.totalStudentOptions[i] == null || this.totalStudentOptions[i] == undefined || this.totalStudentOptions[i] == "") {
+                this.stuOptionColor[i] = "";
+            }
+        }
+        console.log(this.stuOptionColor);
     };
     QuestionAnswersViewingPageComponent.prototype.logout = function () {
         this.auth.auth.signOut();
@@ -1659,7 +2151,7 @@ var QuestionAnswersViewingPageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student-clock{\n  background-color: #fff;\n  line-height: 15vh;\n  font-size: 3vw;\n  padding-left: 0.5vw;\n  font-weight: bolder;\n}\n.user-stuent{\n  background-color: #fff;\n}\n/*.question-options{\n  transform: scale(20);\n}*/\n.btn-question{\n  max-height: 25em;\n   overflow-y: scroll;\n}\n"
+module.exports = ".title-section{\n  font-size: 75%;\n}\n.btn-jump{\n  /*padding: 1em;*/\n  background-color: #fff;\n  line-height: 80%;\n\n}\n.col-queBtn{\n  padding: 1em;\n  /*padding-left: 3px;*/\n}\n.title-h1{\n\n  background-color: #00b247;\n}\n.question-img-view{\n  border: 1px;\n}\n.btn-review{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-clearOption{\n  width: 100%;\n  background-color: #81e8aa;\n}\n.btn-save{\n  width: 100%;\n  background-color: #7fc19a;\n\n}\n.btn-save-final{\n  width: 50%;\n  background-color: #7fc19a;\n}\n.question-view{\n  height: auto;\n}\n.subject-section{\n  p{\n    background-color: #7fc19a;\n  }\n}\n.question-number{\n  background-color: #81e8aa;\n\n}\n.all-question{\n    background-color: #81e8aa;\n}\n.user-student-clock{\n  background-color: #fff;\n  line-height: 15vh;\n  font-size: 3vw;\n  padding-left: 0.5vw;\n  font-weight: bolder;\n}\n.user-stuent{\n  background-color: #fff;\n}\n/*.question-options{\n  transform: scale(20);\n}*/\n.btn-question{\n  max-height: 70vh;\n   overflow-y: scroll;\n}\n"
 
 /***/ }),
 
@@ -1791,7 +2283,6 @@ var QuestionViewingPageComponent = /** @class */ (function () {
         this.totalStudentOptions = JSON.parse(localStorage.getItem("studentOptions"));
         this.examTimer = JSON.parse(localStorage.getItem("studentUsedTime"));
         this.markAsReview = JSON.parse(localStorage.getItem("studentOptionsReview"));
-        this.markAsReview.length = 30;
         this.titleOfTest = this.questionStuDB.titleOfTest;
         // console.log("total que "+this.totalQuestionsNumber)
         this.userName = localStorage.getItem("user");
@@ -1806,6 +2297,7 @@ var QuestionViewingPageComponent = /** @class */ (function () {
             this.phyQuestions = this.questionStuDB.phyQuestions;
             this.mathQuestions = this.questionStuDB.mathQuestions;
             this.chemQuestions = this.questionStuDB.chemQuestions;
+            this.markAsReview.length = this.questionStuDB.totalQuestionsNumber;
             // for(let i=0;i<this.phyQuestionsNumber;i++)
             // for(let i =0; i<(this.totalQuestionsNumber) ; i++){
             // if(i>=(this.phyQuestionsStartingNumber-1) && i<(this.chemQuestionsStartingNumber-1)){
@@ -2214,6 +2706,8 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
         this.mathMarks = 0;
         this.totalScore = 0;
         this.negativeMarks = 0;
+        this.posMark = 0;
+        this.negMark = 0;
         this.testScoreRef = db.list('testScore');
         this.testsRef = db.list('TESTS');
         this.usersRef = db.list('users');
@@ -2222,6 +2716,8 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
     ScoreReviewingPageComponent.prototype.ngOnInit = function () {
         this.studentOptions = this.queDB.studentOptions;
         this.correctOptions = this.queDB.questionCorrectOptions;
+        this.negMark = this.queDB.negMark;
+        this.posMark = this.queDB.markScheme;
         for (var i = 0; i < this.correctOptions.length; i++) {
             // console.log("here near")
             if (this.studentOptions[i] != "") {
@@ -2259,16 +2755,18 @@ var ScoreReviewingPageComponent = /** @class */ (function () {
                     // }
                     if (this.studentOptions[i] == this.correctOptions[i]) {
                         // this.mathMarks=this.mathMarks+4;
-                        this.totalScore = this.totalScore + 4;
+                        this.totalScore = this.totalScore + this.posMark;
                     }
                     if (this.studentOptions[i] != this.correctOptions[i]) {
                         // this.mathMarks=this.mathMarks-1;
-                        this.negativeMarks++;
+                        this.negativeMarks = this.negativeMarks + this.negMark;
                     }
                 }
             }
         }
-        this.totalScore = this.totalScore - this.negativeMarks;
+        this.totalScore = this.totalScore - (this.negativeMarks);
+        console.log(this.negMark);
+        console.log(this.posMark);
         this.addScoreToDB();
     };
     ScoreReviewingPageComponent.prototype.addScoreToDB = function () {
@@ -2466,7 +2964,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\" *ngIf=\"loadTest\">\n<h1 class=\"pb-5\">Welcome {{name}}.</h1>\n<h2 class=\"pt-5 pb-5\">Do check your answers once again <br>if you have time.... NO HURRY.</h2>\n<h3>PLEASE WAIT..</h3>\n<p>{{StatusText}}</p>\n</div>\n<div class=\"\" *ngIf=\"!loadTest\">\n  <h1>Thank You!!</h1>\n  <button type=\"button\" class=\"btn btn-danger\" (click)=\"logout()\" >Logout</button>\n  <button type=\"button\" class=\"btn btn-default\" (click)=\"show()\" >Show answers</button>\n\n</div>\n"
+module.exports = "<div class=\"\" *ngIf=\"loadTest\">\n<h1 class=\"pb-5\">Welcome {{name}}.</h1>\n<h2 class=\"pt-5 pb-5\">Do check your answers once again <br>if you have time.... NO HURRY.</h2>\n<h3>PLEASE WAIT..</h3>\n<h2>Marking Scheme: +{{postiveMarking}} , -{{negMarking}}.</h2>\n<p>{{StatusText}}</p>\n</div>\n<div class=\"\" *ngIf=\"!loadTest\">\n  <h1>Thank You!!</h1>\n  <button type=\"button\" class=\"btn btn-danger\" (click)=\"logout()\" >Logout</button>\n  <button type=\"button\" class=\"btn btn-default\" (click)=\"show()\" >Show answers</button>\n\n</div>\n"
 
 /***/ }),
 
@@ -2508,6 +3006,8 @@ var WaitingPageComponent = /** @class */ (function () {
         this.StatusText = "";
         this.today = Date.now();
         this.loadTest = true;
+        this.postiveMarking = 0;
+        this.negMarking = 0;
         this.itemRef = db.object('statusTest');
         this.usersRef = db.list('users');
         this.usersRef.snapshotChanges()
@@ -2594,6 +3094,8 @@ var WaitingPageComponent = /** @class */ (function () {
     };
     WaitingPageComponent.prototype.checkDB = function () {
         console.log("its");
+        this.postiveMarking = this.queDb.markScheme;
+        this.negMarking = this.queDb.negMark;
         if (this.loadTest == true) {
             if (this.queDb.dbStatus == false) {
                 this.StatusText = status;
@@ -2694,6 +3196,10 @@ var QuestionDataService = /** @class */ (function () {
         this.mathQuestions = [];
         this.totalQuestions = [];
         this.totalStudentOptions = [];
+        this.totalQuestionsNumber = 0;
+        this.markScheme = 0;
+        this.negMark = 0;
+        this.studentScore = { totalScore: 0, negScore: 0 };
         this.testsRef = db.list('TESTS');
         // this.testsRef.snapshotChanges()
         // .subscribe(actions => {
@@ -2725,6 +3231,16 @@ var QuestionDataService = /** @class */ (function () {
                         _this.mathQuestionsNumber = action.payload.val().numberOfQuestion.math;
                         _this.chemQuestionsNumber = action.payload.val().numberOfQuestion.chem;
                         _this.phyQuestionsNumber = action.payload.val().numberOfQuestion.phy;
+                        _this.totalQuestionsNumber = action.payload.val().numberOfQuestion.total;
+                        if (action.payload.val().MarkScheme != undefined) {
+                            _this.markScheme = parseInt(action.payload.val().MarkScheme);
+                            _this.negMark = parseInt(action.payload.val().NegMark);
+                        }
+                        else {
+                            _this.markScheme = 4;
+                            _this.negMark = 1;
+                        }
+                        console.log(_this.markScheme);
                         console.log("total question from db   " + _this.titleOfTest);
                         _this.setInterval = setInterval(function () { _this.checkDBStatus(); }, 1000);
                         _this.getQuestionUrl();
@@ -2805,6 +3321,16 @@ var QuestionDataService = /** @class */ (function () {
                             _this.studentOptions = user.opt;
                             _this.questionCorrectOptions = test.payload.val().correctOptions.totalQue;
                             _this.titleOfTest = test.payload.val().title;
+                            if (test.payload.val().MarkScheme != undefined) {
+                                _this.markScheme = parseInt(test.payload.val().MarkScheme);
+                                _this.negMark = parseInt(test.payload.val().NegMark);
+                            }
+                            else {
+                                _this.markScheme = 4;
+                                _this.negMark = 1;
+                            }
+                            _this.studentScore.totalScore = user.totalScore;
+                            _this.studentScore.negScore = user.neg;
                             console.log(_this.questionCorrectOptions);
                             _this.router.navigate(['/viewAnswers']);
                         }
@@ -2850,7 +3376,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_test_selection_page_test_selection_page_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./admin/test-selection-page/test-selection-page.component */ "./src/app/admin/test-selection-page/test-selection-page.component.ts");
 /* harmony import */ var _pages_question_answers_viewing_page_question_answers_viewing_page_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/question-answers-viewing-page/question-answers-viewing-page.component */ "./src/app/pages/question-answers-viewing-page/question-answers-viewing-page.component.ts");
 /* harmony import */ var _admin_change_questions_page_change_questions_page_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/change-questions-page/change-questions-page.component */ "./src/app/admin/change-questions-page/change-questions-page.component.ts");
-/* harmony import */ var _auth_check_guard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./auth-check.guard */ "./src/app/auth-check.guard.ts");
+/* harmony import */ var _admin_auto_uploading_page_auto_uploading_page_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/auto-uploading-page/auto-uploading-page.component */ "./src/app/admin/auto-uploading-page/auto-uploading-page.component.ts");
+/* harmony import */ var _admin_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/home-page/home-page.component */ "./src/app/admin/home-page/home-page.component.ts");
+/* harmony import */ var _auth_check_guard__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./auth-check.guard */ "./src/app/auth-check.guard.ts");
+/* harmony import */ var _guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./guard/admin-check.guard */ "./src/app/guard/admin-check.guard.ts");
+
+
+
 
 
 
@@ -2869,11 +3401,11 @@ var routes = [
     { path: '', redirectTo: 'wait', pathMatch: 'full' },
     { path: 'view',
         component: _pages_question_viewing_page_question_viewing_page_component__WEBPACK_IMPORTED_MODULE_0__["QuestionViewingPageComponent"],
-        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_13__["AuthCheckGuard"]],
+        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_15__["AuthCheckGuard"]],
     },
     { path: 'remote',
         component: _admin_test_remote_page_test_remote_page_component__WEBPACK_IMPORTED_MODULE_5__["TestRemotePageComponent"],
-        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_13__["AuthCheckGuard"]],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
     },
     { path: 'score',
         component: _pages_score_reviewing_page_score_reviewing_page_component__WEBPACK_IMPORTED_MODULE_2__["ScoreReviewingPageComponent"]
@@ -2883,31 +3415,46 @@ var routes = [
     },
     { path: 'wait',
         component: _pages_waiting_page_waiting_page_component__WEBPACK_IMPORTED_MODULE_4__["WaitingPageComponent"],
-        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_13__["AuthCheckGuard"]],
+        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_15__["AuthCheckGuard"]],
     },
     { path: 'addquestions',
         component: _admin_add_questions_page_add_questions_page_component__WEBPACK_IMPORTED_MODULE_1__["AddQuestionsPageComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
     },
     { path: 'addAns',
         component: _admin_add_anstoque_page_add_anstoque_page_component__WEBPACK_IMPORTED_MODULE_6__["AddAnstoquePageComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
     },
     { path: 'addUser',
         component: _admin_add_users_to_test_add_users_to_test_component__WEBPACK_IMPORTED_MODULE_7__["AddUsersToTestComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
     },
     { path: 'checkAdminOptions',
         component: _admin_que_options_page_que_options_page_component__WEBPACK_IMPORTED_MODULE_8__["QueOptionsPageComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
     },
     { path: 'signup',
         component: _pages_signup_page_signup_page_component__WEBPACK_IMPORTED_MODULE_9__["SignupPageComponent"],
     },
     { path: 'load',
         component: _admin_test_selection_page_test_selection_page_component__WEBPACK_IMPORTED_MODULE_10__["TestSelectionPageComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
     },
     { path: 'viewAnswers',
         component: _pages_question_answers_viewing_page_question_answers_viewing_page_component__WEBPACK_IMPORTED_MODULE_11__["QuestionAnswersViewingPageComponent"],
+        canActivate: [_auth_check_guard__WEBPACK_IMPORTED_MODULE_15__["AuthCheckGuard"]],
     },
     { path: 'change',
         component: _admin_change_questions_page_change_questions_page_component__WEBPACK_IMPORTED_MODULE_12__["ChangeQuestionsPageComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
+    },
+    { path: 'autoUpload',
+        component: _admin_auto_uploading_page_auto_uploading_page_component__WEBPACK_IMPORTED_MODULE_13__["AutoUploadingPageComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
+    },
+    { path: 'adminhome',
+        component: _admin_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_14__["HomePageComponent"],
+        canActivate: [_guard_admin_check_guard__WEBPACK_IMPORTED_MODULE_16__["AdminCheckGuard"]],
     },
 ];
 
